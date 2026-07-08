@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenSpec Run Dashboard - AI Pipeline Metrics</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --red: #e74c3c;
+    --orange: #f39c12;
+    --green: #27ae60;
+    --blue: #2980b9;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --gray: #95a5a6;
+    --purple: #8e44ad;
+    --teal: #1abc9c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f5f6fa;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  .header-content {
+    flex: 1;
+    text-align: left;
+  }
+  .header h1 { font-size: 2.2em; font-weight: 700; margin-bottom: 8px; }
+  .header .subtitle { font-size: 1.1em; opacity: 0.8; }
+  .header .date { font-size: 0.9em; opacity: 0.6; margin-top: 8px; }
+  .header .run-id {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    opacity: 0.7;
+    margin-top: 4px;
+  }
+
+  /* KPI Cards */
+  .kpi-strip {
+    display: flex;
+    gap: 20px;
+    padding: 30px 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -20px;
+  }
+  .kpi-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px 32px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    min-width: 150px;
+    flex: 1;
+    max-width: 220px;
+  }
+  .kpi-card .number { font-size: 2.8em; font-weight: 800; line-height: 1; }
+  .kpi-card .label {
+    font-size: 0.82em; color: var(--gray); margin-top: 6px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .kpi-card .sublabel {
+    font-size: 0.75em; color: var(--gray); margin-top: 4px;
+  }
+  .kpi-card.red .number { color: var(--red); }
+  .kpi-card.orange .number { color: var(--orange); }
+  .kpi-card.blue .number { color: var(--blue); }
+  .kpi-card.green .number { color: var(--green); }
+  .kpi-card.purple .number { color: var(--purple); }
+  .kpi-card.teal .number { color: var(--teal); }
+  .kpi-card.gray .number { color: var(--gray); }
+
+  /* Sections */
+  .section {
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .section h2 {
+    font-size: 1.6em;
+    margin-bottom: 8px;
+    color: var(--dark);
+    border-left: 4px solid var(--blue);
+    padding-left: 16px;
+  }
+  .section .section-sub {
+    color: var(--gray);
+    margin-bottom: 24px;
+    padding-left: 20px;
+    font-size: 0.95em;
+  }
+
+  /* Cards / Containers */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 28px;
+    overflow-x: auto;
+  }
+  .card h3 { font-size: 1.15em; margin-bottom: 16px; color: var(--dark); }
+
+  /* Grids */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  @media (max-width: 900px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .section { padding: 24px 20px; }
+    .header { padding: 24px 20px; }
+    .kpi-strip { padding: 16px 20px; }
+  }
+
+  /* Callouts */
+  .callout {
+    border-left: 4px solid;
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95em;
+  }
+  .callout.danger { border-color: var(--red); background: #fdf0f0; }
+  .callout.warning { border-color: var(--orange); background: #fef9e7; }
+  .callout.info { border-color: var(--blue); background: #eaf2f8; }
+  .callout.success { border-color: var(--green); background: #eafaf1; }
+  .callout strong { display: block; margin-bottom: 4px; }
+
+  /* Tables */
+  .tbl { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  .tbl th {
+    background: var(--dark); color: white;
+    padding: 12px 16px; text-align: left; font-weight: 600;
+  }
+  .tbl td { padding: 10px 16px; border-bottom: 1px solid #eee; }
+  .tbl tr:hover { background: #f8f9fa; }
+
+  /* Badges */
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 0.8em; font-weight: 600; color: white;
+  }
+  .badge.red { background: var(--red); }
+  .badge.orange { background: var(--orange); }
+  .badge.green { background: var(--green); }
+  .badge.blue { background: var(--blue); }
+  .badge.gray { background: var(--gray); }
+  .badge.purple { background: var(--purple); }
+  .badge.teal { background: var(--teal); }
+
+  /* Progress bar */
+  .progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green) 0%, var(--teal) 100%);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85em;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 24px;
+  }
+  .timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+  .timeline-item:after {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 18px;
+    width: 2px;
+    height: calc(100% - 6px);
+    background: #ddd;
+  }
+  .timeline-item:last-child:after {
+    display: none;
+  }
+  .timeline-item.passed:before { background: var(--green); }
+  .timeline-item.running:before { background: var(--orange); }
+  .timeline-item.failed:before { background: var(--red); }
+  .timeline-header {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .timeline-meta {
+    font-size: 0.85em;
+    color: var(--gray);
+  }
+
+  .footer {
+    text-align: center; padding: 30px; color: var(--gray); font-size: 0.85em;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .stat-item {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 3px solid var(--blue);
+  }
+  .stat-value {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .stat-label {
+    font-size: 0.85em;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <h1>OpenSpec Run Dashboard</h1>
+    <div class="subtitle" id="headerSubtitle">AI-Powered Specification Analysis & Code Generation Pipeline</div>
+    <div class="date" id="headerDate"></div>
+    <div class="run-id" id="runId"></div>
+  </div>
+</div>
+
+<!-- KPI Strip -->
+<div class="kpi-strip" id="kpiStrip"></div>
+
+<!-- SECTION 1: Run Overview -->
+<div class="section">
+  <h2>1. Run Overview</h2>
+  <p class="section-sub">High-level status and progress of the current pipeline run</p>
+
+  <div class="card">
+    <h3>Pipeline Progress</h3>
+    <div id="pipelineProgress"></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Run Details</h3>
+      <div id="runDetails"></div>
+    </div>
+    <div class="card">
+      <h3>Performance Metrics</h3>
+      <div id="performanceMetrics"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: Phase Analysis -->
+<div class="section">
+  <h2>2. Phase Breakdown</h2>
+  <p class="section-sub">Detailed analysis of each pipeline phase</p>
+
+  <div class="card">
+    <h3>Phase Timeline</h3>
+    <div id="phaseTimeline"></div>
+  </div>
+
+  <div class="card">
+    <h3>Phase Details</h3>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Phase Name</th>
+          <th>Status</th>
+          <th>Quality Score</th>
+          <th>Duration</th>
+          <th>Tokens In</th>
+          <th>Tokens Out</th>
+          <th>Iterations</th>
+        </tr>
+      </thead>
+      <tbody id="phaseTableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Token Usage by Phase</h3>
+      <canvas id="tokenChart" style="max-height: 300px;"></canvas>
+    </div>
+    <div class="card">
+      <h3>Quality Scores by Phase</h3>
+      <canvas id="qualityChart" style="max-height: 300px;"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: Task Analysis -->
+<div class="section">
+  <h2>3. Task Execution</h2>
+  <p class="section-sub">Individual task performance and metrics</p>
+
+  <div class="card">
+    <h3>Task Summary</h3>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Task ID</th>
+          <th>Phase</th>
+          <th>Status</th>
+          <th>Corrections</th>
+          <th>Tokens In</th>
+          <th>Tokens Out</th>
+          <th>Completed At</th>
+        </tr>
+      </thead>
+      <tbody id="taskTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 4: Global Health -->
+<div class="section">
+  <h2>4. Global Health Metrics</h2>
+  <p class="section-sub">Overall pipeline health and quality indicators</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>Compliance & Quality</h3>
+      <div id="complianceMetrics"></div>
+    </div>
+    <div class="card">
+      <h3>Agent Performance</h3>
+      <div id="agentMetrics"></div>
+    </div>
+    <div class="card">
+      <h3>Resource Utilization</h3>
+      <div id="resourceMetrics"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: Artifact Analysis -->
+<div class="section">
+  <h2>5. Artifact Edits</h2>
+  <p class="section-sub">Quality refinement iterations across artifacts</p>
+
+  <div class="card">
+    <h3>Artifact Edit Summary</h3>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Artifact</th>
+          <th>Phase</th>
+          <th>Eval Refinements</th>
+          <th>Feedback Rounds</th>
+          <th>Total Edits</th>
+        </tr>
+      </thead>
+      <tbody id="artifactTableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Edit Distribution by Phase</h3>
+    <canvas id="editChart" style="max-height: 300px;"></canvas>
+  </div>
+</div>
+
+<!-- SECTION 6: Events Log -->
+<div class="section">
+  <h2>6. Event Timeline</h2>
+  <p class="section-sub">Recent pipeline events and state transitions (last 20 events)</p>
+
+  <div class="card">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Agent</th>
+          <th>Event Type</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody id="eventsTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  OpenSpec Run Dashboard | <span id="footerDate"></span> | Data source: OpenSpec Pipeline
+</div>
+
+<script>
+  let runData = null;
+
+  async function loadData() {
+    try {
+      const resp = await fetch('data/run-report.json');
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      runData = await resp.json();
+
+      renderAll();
+    } catch (err) {
+      console.error('Failed to load data:', err);
+      document.getElementById('kpiStrip').innerHTML = `
+        <div class="callout danger">
+          <strong>Failed to load data</strong>
+          ${err.message}
+        </div>
+      `;
+    }
+  }
+
+  function renderAll() {
+    renderHeader();
+    renderKPIs();
+    renderRunOverview();
+    renderPhases();
+    renderTasks();
+    renderGlobalHealth();
+    renderArtifacts();
+    renderEvents();
+  }
+
+  function renderHeader() {
+    const exportDate = new Date(runData.exported_at);
+    const dateStr = exportDate.toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+
+    document.getElementById('headerDate').textContent = dateStr;
+    document.getElementById('footerDate').textContent = dateStr;
+    document.getElementById('runId').textContent = `Run ID: ${runData.run.id}`;
+  }
+
+  function renderKPIs() {
+    const run = runData.run;
+    const health = runData.global_health;
+    const phases = runData.phases;
+
+    const completedPhases = phases.filter(p => p.status === 'passed').length;
+    const totalPhases = phases.length;
+    const avgQuality = phases.length > 0
+      ? Math.round(phases.reduce((sum, p) => sum + (p.quality_score || 0), 0) / phases.length)
+      : 0;
+
+    const html = `
+      <div class="kpi-card ${run.status === 'running' ? 'orange' : run.status === 'passed' ? 'green' : 'red'}">
+        <div class="number">${run.status.toUpperCase()}</div>
+        <div class="label">Pipeline Status</div>
+      </div>
+      <div class="kpi-card blue">
+        <div class="number">${completedPhases}/${totalPhases}</div>
+        <div class="label">Phases Completed</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="number">${health.tasks_passed}/${health.tasks_total}</div>
+        <div class="label">Tasks Passed</div>
+      </div>
+      <div class="kpi-card purple">
+        <div class="number">${avgQuality}</div>
+        <div class="label">Avg Quality Score</div>
+      </div>
+      <div class="kpi-card teal">
+        <div class="number">${health.compliance_index}%</div>
+        <div class="label">Compliance Index</div>
+      </div>
+      <div class="kpi-card gray">
+        <div class="number">${(health.total_tokens_consumed / 1000).toFixed(1)}k</div>
+        <div class="label">Total Tokens</div>
+        <div class="sublabel">$${health.total_run_cost_usd.toFixed(4)}</div>
+      </div>
+    `;
+
+    document.getElementById('kpiStrip').innerHTML = html;
+  }
+
+  function renderRunOverview() {
+    const run = runData.run;
+    const health = runData.global_health;
+    const phases = runData.phases;
+
+    const completedPhases = phases.filter(p => p.status === 'passed').length;
+    const totalPhases = phases.length;
+    const progressPct = totalPhases > 0 ? Math.round((completedPhases / totalPhases) * 100) : 0;
+
+    const progressHtml = `
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${progressPct}%">
+          ${progressPct}% Complete
+        </div>
+      </div>
+      <div style="margin-top: 12px; color: var(--gray); font-size: 0.9em;">
+        ${completedPhases} of ${totalPhases} phases completed
+      </div>
+    `;
+    document.getElementById('pipelineProgress').innerHTML = progressHtml;
+
+    const startTime = new Date(run.started_at);
+    const endTime = run.completed_at ? new Date(run.completed_at) : new Date();
+    const durationMs = endTime - startTime;
+    const durationMin = Math.floor(durationMs / 60000);
+
+    const detailsHtml = `
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">${run.change_name}</div>
+          <div class="stat-label">Change Name</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${run.jira_key}</div>
+          <div class="stat-label">JIRA Key</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${run.branch}</div>
+          <div class="stat-label">Branch</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${durationMin} min</div>
+          <div class="stat-label">Duration</div>
+        </div>
+      </div>
+    `;
+    document.getElementById('runDetails').innerHTML = detailsHtml;
+
+    const perfHtml = `
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">${(health.cumulative_wall_time_s / 60).toFixed(1)} min</div>
+          <div class="stat-label">Wall Time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.gate_passing_rate}%</div>
+          <div class="stat-label">Gate Pass Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.agent_success_rate}%</div>
+          <div class="stat-label">Agent Success</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.total_refinement_iterations}</div>
+          <div class="stat-label">Refinements</div>
+        </div>
+      </div>
+    `;
+    document.getElementById('performanceMetrics').innerHTML = perfHtml;
+  }
+
+  function renderPhases() {
+    const phases = runData.phases;
+
+    // Timeline
+    let timelineHtml = '<div class="timeline">';
+    phases.forEach(phase => {
+      const statusClass = phase.status === 'passed' ? 'passed' :
+                         phase.status === 'running' ? 'running' : 'failed';
+      const duration = phase.duration_s ? `${Math.round(phase.duration_s)}s` : '-';
+
+      timelineHtml += `
+        <div class="timeline-item ${statusClass}">
+          <div class="timeline-header">
+            Phase ${phase.phase_number}: ${phase.phase_name}
+            <span class="badge ${statusClass === 'passed' ? 'green' : statusClass === 'running' ? 'orange' : 'red'}">${phase.status}</span>
+          </div>
+          <div class="timeline-meta">
+            ${phase.quality_label || 'No quality score'} | Duration: ${duration} |
+            ${phase.iteration_count} iteration(s)
+          </div>
+        </div>
+      `;
+    });
+    timelineHtml += '</div>';
+    document.getElementById('phaseTimeline').innerHTML = timelineHtml;
+
+    // Table
+    let tableHtml = '';
+    phases.forEach(phase => {
+      const statusBadge = phase.status === 'passed' ? 'green' :
+                         phase.status === 'running' ? 'orange' : 'red';
+      const duration = phase.duration_s ? `${Math.round(phase.duration_s)}s` : '-';
+
+      tableHtml += `
+        <tr>
+          <td>${phase.phase_number}</td>
+          <td>${phase.phase_name}</td>
+          <td><span class="badge ${statusBadge}">${phase.status}</span></td>
+          <td>${phase.quality_score > 0 ? phase.quality_score : '-'}</td>
+          <td>${duration}</td>
+          <td>${phase.tokens_in.toLocaleString()}</td>
+          <td>${phase.tokens_out.toLocaleString()}</td>
+          <td>${phase.iteration_count}</td>
+        </tr>
+      `;
+    });
+    document.getElementById('phaseTableBody').innerHTML = tableHtml;
+
+    // Charts
+    renderTokenChart(phases);
+    renderQualityChart(phases);
+  }
+
+  function renderTokenChart(phases) {
+    const labels = phases.map(p => p.phase_name);
+    const tokensIn = phases.map(p => p.tokens_in);
+    const tokensOut = phases.map(p => p.tokens_out);
+
+    new Chart(document.getElementById('tokenChart'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Tokens In',
+            data: tokensIn,
+            backgroundColor: 'rgba(41, 128, 185, 0.7)',
+          },
+          {
+            label: 'Tokens Out',
+            data: tokensOut,
+            backgroundColor: 'rgba(142, 68, 173, 0.7)',
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  function renderQualityChart(phases) {
+    const labels = phases.map(p => p.phase_name);
+    const quality = phases.map(p => p.quality_score || 0);
+
+    new Chart(document.getElementById('qualityChart'), {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Quality Score',
+          data: quality,
+          borderColor: '#27ae60',
+          backgroundColor: 'rgba(39, 174, 96, 0.1)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          y: { beginAtZero: true, max: 100 }
+        }
+      }
+    });
+  }
+
+  function renderTasks() {
+    const tasks = runData.tasks;
+    const phases = runData.phases;
+
+    let tableHtml = '';
+    tasks.forEach(task => {
+      const phase = phases.find(p => p.id === task.phase_id);
+      const phaseName = phase ? phase.phase_name : 'Unknown';
+      const statusBadge = task.status === 'passed' ? 'green' :
+                         task.status === 'running' ? 'orange' : 'red';
+      const completedAt = task.completed_at
+        ? new Date(task.completed_at).toLocaleTimeString()
+        : '-';
+
+      tableHtml += `
+        <tr>
+          <td>${task.task_id}</td>
+          <td>${phaseName}</td>
+          <td><span class="badge ${statusBadge}">${task.status}</span></td>
+          <td>${task.self_correction_loops}</td>
+          <td>${task.tokens_in.toLocaleString()}</td>
+          <td>${task.tokens_out.toLocaleString()}</td>
+          <td>${completedAt}</td>
+        </tr>
+      `;
+    });
+    document.getElementById('taskTableBody').innerHTML = tableHtml;
+  }
+
+  function renderGlobalHealth() {
+    const health = runData.global_health;
+
+    const complianceHtml = `
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">${health.compliance_index}%</div>
+          <div class="stat-label">Compliance Index</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.gate_passing_rate}%</div>
+          <div class="stat-label">Gate Passing Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.human_rejection_rate}%</div>
+          <div class="stat-label">Human Rejection Rate</div>
+        </div>
+      </div>
+    `;
+    document.getElementById('complianceMetrics').innerHTML = complianceHtml;
+
+    const agentHtml = `
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">${health.agent_success_rate}%</div>
+          <div class="stat-label">Agent Success Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.tasks_passed}/${health.tasks_total}</div>
+          <div class="stat-label">Tasks Passed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${health.total_refinement_iterations}</div>
+          <div class="stat-label">Total Refinements</div>
+        </div>
+      </div>
+    `;
+    document.getElementById('agentMetrics').innerHTML = agentHtml;
+
+    const resourceHtml = `
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">${(health.total_tokens_consumed / 1000).toFixed(1)}k</div>
+          <div class="stat-label">Total Tokens</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">$${health.total_run_cost_usd.toFixed(4)}</div>
+          <div class="stat-label">Total Cost</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">${(health.cumulative_wall_time_s / 60).toFixed(1)} min</div>
+          <div class="stat-label">Wall Time</div>
+        </div>
+      </div>
+    `;
+    document.getElementById('resourceMetrics').innerHTML = resourceHtml;
+  }
+
+  function renderArtifacts() {
+    const artifacts = runData.artifact_edits.artifacts;
+
+    let tableHtml = '';
+    artifacts.forEach(artifact => {
+      tableHtml += `
+        <tr>
+          <td>${artifact.artifact_id}</td>
+          <td>${artifact.phase_name}</td>
+          <td>${artifact.eval_refinements}</td>
+          <td>${artifact.feedback_rounds}</td>
+          <td><span class="badge ${artifact.total_edits > 0 ? 'orange' : 'green'}">${artifact.total_edits}</span></td>
+        </tr>
+      `;
+    });
+    document.getElementById('artifactTableBody').innerHTML = tableHtml;
+
+    // Chart
+    const labels = artifacts.map(a => a.artifact_id);
+    const evalRefine = artifacts.map(a => a.eval_refinements);
+    const feedbackRounds = artifacts.map(a => a.feedback_rounds);
+
+    new Chart(document.getElementById('editChart'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Eval Refinements',
+            data: evalRefine,
+            backgroundColor: 'rgba(231, 76, 60, 0.7)',
+          },
+          {
+            label: 'Feedback Rounds',
+            data: feedbackRounds,
+            backgroundColor: 'rgba(243, 156, 18, 0.7)',
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  function renderEvents() {
+    const events = runData.events.slice(0, 20); // Last 20 events
+
+    let tableHtml = '';
+    events.forEach(event => {
+      const timestamp = new Date(event.timestamp).toLocaleTimeString();
+      const eventTypeBadge = event.event_type === 'state_machine' ? 'blue' : 'gray';
+
+      tableHtml += `
+        <tr>
+          <td>${timestamp}</td>
+          <td>${event.agent_id}</td>
+          <td><span class="badge ${eventTypeBadge}">${event.event_type}</span></td>
+          <td>${event.message}</td>
+        </tr>
+      `;
+    });
+    document.getElementById('eventsTableBody').innerHTML = tableHtml;
+  }
+
+  loadData();
+</script>
+</body>
+</html>
