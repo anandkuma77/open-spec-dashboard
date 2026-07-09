@@ -489,7 +489,8 @@
                        (run.status === 'passed' || run.status === 'completed') ? 'green' : 'red';
 
     // Use estimated_cost_usd (new) or total_run_cost_usd (old) for backward compatibility
-    const costUsd = health.estimated_cost_usd || health.total_run_cost_usd || 0;
+    const costUsd = (health.estimated_cost_usd !== undefined ? health.estimated_cost_usd :
+                     health.total_run_cost_usd !== undefined ? health.total_run_cost_usd : 0);
 
     const html = `
       <div class="kpi-card ${statusClass}">
@@ -570,7 +571,8 @@
     `;
     document.getElementById('runDetails').innerHTML = detailsHtml;
 
-    const costUsd = health.estimated_cost_usd || health.total_run_cost_usd || 0;
+    const costUsd = (health.estimated_cost_usd !== undefined ? health.estimated_cost_usd :
+                     health.total_run_cost_usd !== undefined ? health.total_run_cost_usd : 0);
 
     const perfHtml = `
       <div class="stats-grid">
@@ -778,7 +780,8 @@
     `;
     document.getElementById('agentMetrics').innerHTML = agentHtml;
 
-    const costUsd = health.estimated_cost_usd || health.total_run_cost_usd || 0;
+    const costUsd = (health.estimated_cost_usd !== undefined ? health.estimated_cost_usd :
+                     health.total_run_cost_usd !== undefined ? health.total_run_cost_usd : 0);
 
     const resourceHtml = `
       <div class="stats-grid">
