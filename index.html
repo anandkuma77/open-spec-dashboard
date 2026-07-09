@@ -468,7 +468,9 @@
 
     document.getElementById('headerDate').textContent = dateStr;
     document.getElementById('footerDate').textContent = dateStr;
-    document.getElementById('runId').textContent = `Run ID: ${runData.run.id}`;
+
+    const operatorInfo = runData.operator_name ? ` | Operator: ${runData.operator_name}` : '';
+    document.getElementById('runId').textContent = `Run ID: ${runData.run.id}${operatorInfo}`;
   }
 
   function renderKPIs() {
@@ -482,8 +484,15 @@
       ? Math.round(phases.reduce((sum, p) => sum + (p.quality_score || 0), 0) / phases.length)
       : 0;
 
+    // Handle both 'completed' and 'passed' status for backward compatibility
+    const statusClass = run.status === 'running' ? 'orange' :
+                       (run.status === 'passed' || run.status === 'completed') ? 'green' : 'red';
+
+    // Use estimated_cost_usd (new) or total_run_cost_usd (old) for backward compatibility
+    const costUsd = health.estimated_cost_usd || health.total_run_cost_usd || 0;
+
     const html = `
-      <div class="kpi-card ${run.status === 'running' ? 'orange' : run.status === 'passed' ? 'green' : 'red'}">
+      <div class="kpi-card ${statusClass}">
         <div class="number">${run.status.toUpperCase()}</div>
         <div class="label">Pipeline Status</div>
       </div>
@@ -506,7 +515,7 @@
       <div class="kpi-card gray">
         <div class="number">${(health.total_tokens_consumed / 1000).toFixed(1)}k</div>
         <div class="label">Total Tokens</div>
-        <div class="sublabel">$${health.total_run_cost_usd.toFixed(4)}</div>
+        <div class="sublabel">$${costUsd.toFixed(4)}</div>
       </div>
     `;
 
@@ -561,6 +570,8 @@
     `;
     document.getElementById('runDetails').innerHTML = detailsHtml;
 
+    const costUsd = health.estimated_cost_usd || health.total_run_cost_usd || 0;
+
     const perfHtml = `
       <div class="stats-grid">
         <div class="stat-item">
@@ -576,8 +587,8 @@
           <div class="stat-label">Agent Success</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">${health.total_refinement_iterations}</div>
-          <div class="stat-label">Refinements</div>
+          <div class="stat-value">$${costUsd.toFixed(4)}</div>
+          <div class="stat-label">Estimated Cost</div>
         </div>
       </div>
     `;
@@ -616,13 +627,16 @@
       const statusBadge = phase.status === 'passed' ? 'green' :
                          phase.status === 'running' ? 'orange' : 'red';
       const duration = phase.duration_s ? `${Math.round(phase.duration_s)}s` : '-';
+      // Handle quality_score as float and format appropriately
+      const qualityScore = phase.quality_score > 0 ?
+        (Number.isInteger(phase.quality_score) ? phase.quality_score : phase.quality_score.toFixed(1)) : '-';
 
       tableHtml += `
         <tr>
           <td>${phase.phase_number}</td>
           <td>${phase.phase_name}</td>
           <td><span class="badge ${statusBadge}">${phase.status}</span></td>
-          <td>${phase.quality_score > 0 ? phase.quality_score : '-'}</td>
+          <td>${qualityScore}</td>
           <td>${duration}</td>
           <td>${phase.tokens_in.toLocaleString()}</td>
           <td>${phase.tokens_out.toLocaleString()}</td>
@@ -764,6 +778,8 @@
     `;
     document.getElementById('agentMetrics').innerHTML = agentHtml;
 
+    const costUsd = health.estimated_cost_usd || health.total_run_cost_usd || 0;
+
     const resourceHtml = `
       <div class="stats-grid">
         <div class="stat-item">
@@ -771,8 +787,8 @@
           <div class="stat-label">Total Tokens</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">$${health.total_run_cost_usd.toFixed(4)}</div>
-          <div class="stat-label">Total Cost</div>
+          <div class="stat-value">$${costUsd.toFixed(4)}</div>
+          <div class="stat-label">Estimated Cost</div>
         </div>
         <div class="stat-item">
           <div class="stat-value">${(health.cumulative_wall_time_s / 60).toFixed(1)} min</div>
