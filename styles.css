@@ -40,9 +40,17 @@ body {
 .header .subtitle { font-size: 1.1em; opacity: 0.8; }
 .header-tabs {
   display: flex;
-  gap: 4px;
-  padding-bottom: 0;
   justify-content: center;
+  padding-top: 4px;
+}
+.header-tabs .tab-segment {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 5px;
+  gap: 5px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
 }
 .header .breadcrumb { font-size: 0.9em; opacity: 0.7; margin-bottom: 12px; }
 .header .breadcrumb a { color: white; text-decoration: none; }
@@ -210,30 +218,39 @@ body {
 
 .footer {
   text-align: center; padding: 30px; color: var(--gray); font-size: 0.85em;
+  margin-top: auto;
 }
+html, body { min-height: 100vh; }
+body { display: flex; flex-direction: column; }
 .footer a { color: var(--blue); text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
 
 /* Tabs */
 .tab-btn {
-  padding: 10px 22px;
+  padding: 10px 32px;
   border: none;
   background: transparent;
-  font-size: 0.9em;
+  font-size: 0.95em;
   font-weight: 600;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  border-radius: 8px 8px 0 0;
-  transition: all 0.2s ease;
+  border-radius: 7px;
+  transition: all 0.25s ease;
   font-family: inherit;
+  user-select: none;
+  white-space: nowrap;
 }
 .tab-btn:hover {
-  color: rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.1);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.1);
 }
 .tab-btn.active {
   color: var(--dark);
-  background: var(--bg);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1);
+}
+.tab-btn.active:hover {
+  color: #1a252f;
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -244,6 +261,7 @@ body {
   .header { padding: 24px 20px; }
   .kpi-strip { padding: 16px 20px; }
   .layer-row { grid-template-columns: 100px 1fr; }
-  .header-tabs { overflow-x: auto; }
-  .tab-btn { padding: 8px 14px; font-size: 0.82em; white-space: nowrap; }
+  .header-tabs { overflow-x: auto; justify-content: center; }
+  .header-tabs .tab-segment { flex-direction: row; width: auto; }
+  .tab-btn { padding: 8px 18px; font-size: 0.85em; }
 }
