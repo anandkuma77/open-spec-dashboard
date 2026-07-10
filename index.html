@@ -20,7 +20,7 @@
       <button class="tab-btn active" data-tab="overview">Overview</button>
       <button class="tab-btn" data-tab="eso">ESO</button>
       <button class="tab-btn" data-tab="mustgather">Must-Gather</button>
-      <button class="tab-btn" data-tab="sscso">SSCSO</button>
+      <button class="tab-btn" data-tab="sscso">SSCSI</button>
       <button class="tab-btn" data-tab="ztwim">ZTWIM</button>
       <button class="tab-btn" data-tab="certmanager">cert-manager</button>
     </div>
@@ -42,44 +42,38 @@
             <tr>
               <th>Stream</th>
               <th>On-Boarded</th>
-              <th>Final Release</th>
               <th>QE E2E</th>
               <th>Bug Fix</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a href="operators/eso.html">ESO</a></td>
+              <td><a href="#" onclick="switchTab('eso'); return false;">ESO</a></td>
               <td><span class="badge green">Green</span></td>
-              <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/must-gather.html">Must-Gather</a></td>
+              <td><a href="#" onclick="switchTab('mustgather'); return false;">Must-Gather</a></td>
               <td><span class="badge green">Green</span></td>
-              <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/sscso.html">SSCSO</a></td>
+              <td><a href="#" onclick="switchTab('sscso'); return false;">SSCSI</a></td>
               <td><span class="badge green">Green</span></td>
-              <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/ztwim.html">ZTWIM</a></td>
+              <td><a href="#" onclick="switchTab('ztwim'); return false;">ZTWIM</a></td>
               <td><span class="badge green">Green</span></td>
-              <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/cert-manager.html">cert-manager</a></td>
+              <td><a href="#" onclick="switchTab('certmanager'); return false;">cert-manager</a></td>
               <td><span class="badge green">Green</span></td>
-              <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
@@ -102,122 +96,78 @@
       </div>
 
       <!-- Tools Summary -->
-      <div class="card">
-        <h3>Tools for Layered Architecture</h3>
-        <p class="section-sub">Platforms and tools across the five-layer architecture stack</p>
-        <div class="layer-stack">
-          <div class="layer-row">
-            <div class="layer-label l5">L5 Model</div>
-            <div class="layer-tools">
-              <div class="tool-chip">Claude Sonnet/Opus <span class="tool-status" style="background:var(--green)">Accepted</span></div>
-              <div class="tool-chip">Gemini <span class="tool-status" style="background:var(--red)">Dropped</span></div>
-              <div class="tool-chip">GPT <span class="tool-status" style="background:var(--orange)">Fair</span></div>
-            </div>
-          </div>
-          <div class="layer-row">
-            <div class="layer-label l4">L4 Runtime</div>
-            <div class="layer-tools">
-              <div class="tool-chip">OpenCode <span class="tool-status" style="background:var(--orange)">WIP</span></div>
-              <div class="tool-chip">ai-helpers <span class="tool-status" style="background:var(--green)">Reviewed</span></div>
-              <div class="tool-chip">Cursor <span class="tool-status" style="background:var(--orange)">Testing</span></div>
-              <div class="tool-chip">Claude Code <span class="tool-status" style="background:var(--orange)">WIP</span></div>
-            </div>
-          </div>
-          <div class="layer-row">
-            <div class="layer-label l3">L3 Harness</div>
-            <div class="layer-tools">
-              <div class="tool-chip">Agentic Docs <span class="tool-status" style="background:var(--blue)">In Use</span></div>
-            </div>
-          </div>
-          <div class="layer-row">
-            <div class="layer-label l2">L2 Sandbox</div>
-            <div class="layer-tools">
-              <div class="tool-chip">Ambient GHSK <span class="tool-status" style="background:var(--gray)">Frozen</span></div>
-              <div class="tool-chip">OpenSpec <span class="tool-status" style="background:var(--green)">Active</span></div>
-            </div>
-          </div>
-          <div class="layer-row">
-            <div class="layer-label l1">L1 Infra</div>
-            <div class="layer-tools">
-              <div class="tool-chip">Laptop &amp; Cluster <span class="tool-status" style="background:var(--green)">Tested</span></div>
+      <div class="card-collapsible">
+        <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <div><h3>Tools for Layered Architecture</h3><p class="section-sub">Platforms and tools across the five-layer architecture stack</p></div>
+        </div>
+        <div class="card-collapsible-body">
+          <div class="card-collapsible-content">
+            <div class="layer-stack">
+              <div class="layer-row">
+                <div class="layer-label l5">L5 Model</div>
+                <div class="layer-tools">
+                  <div class="tool-chip">Claude Sonnet/Opus <span class="tool-status" style="background:var(--green)">Accepted</span></div>
+                  <div class="tool-chip">Gemini <span class="tool-status" style="background:var(--red)">Dropped</span></div>
+                  <div class="tool-chip">GPT <span class="tool-status" style="background:var(--orange)">Fair</span></div>
+                </div>
+              </div>
+              <div class="layer-row">
+                <div class="layer-label l4">L4 Runtime</div>
+                <div class="layer-tools">
+                  <div class="tool-chip">OpenCode <span class="tool-status" style="background:var(--orange)">WIP</span></div>
+                  <div class="tool-chip">ai-helpers <span class="tool-status" style="background:var(--green)">Reviewed</span></div>
+                  <div class="tool-chip">Cursor <span class="tool-status" style="background:var(--orange)">Testing</span></div>
+                  <div class="tool-chip">Claude Code <span class="tool-status" style="background:var(--orange)">WIP</span></div>
+                </div>
+              </div>
+              <div class="layer-row">
+                <div class="layer-label l3">L3 Harness</div>
+                <div class="layer-tools">
+                  <div class="tool-chip">Agentic Docs <span class="tool-status" style="background:var(--blue)">In Use</span></div>
+                </div>
+              </div>
+              <div class="layer-row">
+                <div class="layer-label l2">L2 Sandbox</div>
+                <div class="layer-tools">
+                  <div class="tool-chip">Ambient GHSK <span class="tool-status" style="background:var(--gray)">Frozen</span></div>
+                  <div class="tool-chip">OpenSpec <span class="tool-status" style="background:var(--green)">Active</span></div>
+                </div>
+              </div>
+              <div class="layer-row">
+                <div class="layer-label l1">L1 Infra</div>
+                <div class="layer-tools">
+                  <div class="tool-chip">Laptop &amp; Cluster <span class="tool-status" style="background:var(--green)">Tested</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <table class="tbl" style="margin-top:16px;">
-          <thead>
-            <tr>
-              <th>Layer</th>
-              <th>Tool</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>L1 Infra</td>
-              <td>Laptop &amp; Cluster</td>
-              <td><span class="badge green">Tested</span> Agentic flow tested for both cluster and laptop</td>
-            </tr>
-            <tr>
-              <td rowspan="2">L2 Sandbox</td>
-              <td>Ambient GHSK</td>
-              <td><span class="badge gray">Frozen</span></td>
-            </tr>
-            <tr>
-              <td>OpenSpec</td>
-              <td><span class="badge green">Active</span> Active and adopted</td>
-            </tr>
-            <tr>
-              <td>L3 Harness</td>
-              <td>Agentic Docs</td>
-              <td><span class="badge blue">In Use</span></td>
-            </tr>
-            <tr>
-              <td rowspan="4">L4 Runtime</td>
-              <td>OpenCode</td>
-              <td><span class="badge orange">WIP</span></td>
-            </tr>
-            <tr>
-              <td>ai-helpers</td>
-              <td><span class="badge green">Reviewed</span> Tested and reviewed</td>
-            </tr>
-            <tr>
-              <td>Cursor</td>
-              <td><span class="badge orange">Testing</span> Testing in progress</td>
-            </tr>
-            <tr>
-              <td>Claude Code</td>
-              <td><span class="badge orange">WIP</span></td>
-            </tr>
-            <tr>
-              <td rowspan="3">L5 Model</td>
-              <td>Claude Sonnet/Opus</td>
-              <td><span class="badge green">Accepted</span> Reviewed and accepted</td>
-            </tr>
-            <tr>
-              <td>Gemini</td>
-              <td><span class="badge red">Dropped</span> Tested and dropped</td>
-            </tr>
-            <tr>
-              <td>GPT</td>
-              <td><span class="badge orange">Fair</span> Fair performance</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
 
       <!-- Agentic Pipeline Flow -->
-      <div class="card">
-        <h3>Agentic Pipeline Flow</h3>
-        <p class="section-sub">End-to-end automated agentic workflow from historical data to code generation</p>
-        <div style="text-align:center; padding: 16px 0;">
-          <img src="diagram-themed.svg" alt="Agentic Pipeline Flow Diagram" style="max-width:100%; height:auto;">
+      <div class="card-collapsible">
+        <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <div><h3>Agentic Pipeline Flow</h3><p class="section-sub">End-to-end automated agentic workflow from historical data to code generation</p></div>
+        </div>
+        <div class="card-collapsible-body">
+          <div class="card-collapsible-content">
+            <div style="text-align:center; padding: 16px 0;">
+              <img src="diagram-themed.svg" alt="Agentic Pipeline Flow Diagram" style="max-width:100%; height:auto;">
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Performance & Metrics Summary -->
-      <div class="card">
-        <h3>Performance &amp; Metrics</h3>
-        <p class="section-sub">Model performance across pipeline phases and code generation</p>
+      <div class="card-collapsible">
+        <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <div><h3>Performance &amp; Metrics</h3><p class="section-sub">Model performance across pipeline phases and code generation</p></div>
+        </div>
+        <div class="card-collapsible-body">
+          <div class="card-collapsible-content">
 
         <div class="metrics-group accent-purple">
           <h4>Overall Report Quality and Code Generation</h4>
@@ -319,6 +269,9 @@
               </tr>
             </tbody>
           </table>
+        </div>
+
+          </div>
         </div>
       </div>
 
@@ -673,7 +626,7 @@
 <!-- TAB: SSCSO -->
 <div id="tab-sscso" class="tab-panel">
   <div class="section">
-    <h2>Secrets Store CSI Driver Operator (SSCSO)</h2>
+    <h2>Secrets Store CSI Driver Operator (SSCSI)</h2>
     <p class="section-sub">Current status and readiness for the Secrets Store CSI Driver Operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
@@ -819,7 +772,7 @@
     </div>
 
     <h2>Operator Details</h2>
-    <p class="section-sub">Technical metadata for the SSCSO operator</p>
+    <p class="section-sub">Technical metadata for the SSCSI operator</p>
 
     <div class="card">
       <table class="tbl">
@@ -827,7 +780,7 @@
           <tr><th>Property</th><th>Value</th></tr>
         </thead>
         <tbody>
-          <tr><td>Operator Name</td><td>Secrets Store CSI Driver Operator (SSCSO)</td></tr>
+          <tr><td>Operator Name</td><td>Secrets Store CSI Driver Operator (SSCSI)</td></tr>
           <tr><td>Category</td><td>Secrets Management</td></tr>
           <tr><td>CRDs</td><td>SecretProviderClass</td></tr>
           <tr><td>API Version</td><td>secrets-store.csi.x-k8s.io/v1</td></tr>
@@ -837,7 +790,7 @@
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/sscso.html" style="color:var(--blue); font-weight:500;">View full SSCSO operator page &rarr;</a></p>
+    <p style="margin-top:12px;"><a href="operators/sscso.html" style="color:var(--blue); font-weight:500;">View full SSCSI operator page &rarr;</a></p>
   </div>
 </div>
 
@@ -1109,6 +1062,13 @@
       document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
     });
   });
+
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('.tab-btn[data-tab="' + tabId + '"]').classList.add('active');
+    document.getElementById('tab-' + tabId).classList.add('active');
+  }
 
   function toggleInline(el) {
     el.closest('.epic-inline').classList.toggle('open');

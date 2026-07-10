@@ -428,6 +428,24 @@ body { display: flex; flex-direction: column; }
 .edit-count.has-edits { color: var(--red); }
 .edit-count.zero { color: var(--green); }
 
+/* Collapsible card sections */
+.card-collapsible { background: white; border-radius: 12px; box-shadow: var(--card-shadow); margin-bottom: 28px; overflow: hidden; }
+.card-collapsible-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 24px 32px; cursor: pointer; user-select: none; transition: background 0.15s;
+}
+.card-collapsible-header:hover { background: #f8f9fa; }
+.card-collapsible-header .chevron {
+  width: 18px; height: 18px; flex-shrink: 0;
+  transition: transform 0.25s ease; color: var(--gray);
+}
+.card-collapsible.open > .card-collapsible-header > .chevron { transform: rotate(90deg); }
+.card-collapsible-header h3 { font-size: 1.15em; margin: 0; color: var(--dark); flex: 1; }
+.card-collapsible-header .section-sub { color: var(--gray); font-size: 0.85em; margin: 0; padding: 0; }
+.card-collapsible-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.card-collapsible.open > .card-collapsible-body { max-height: 80000px; }
+.card-collapsible-content { padding: 0 32px 32px; }
+
 @media (max-width: 900px) {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .section { padding: 24px 20px; }
