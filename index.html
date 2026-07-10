@@ -18,10 +18,11 @@
   <div class="header-tabs">
     <div class="tab-segment">
       <button class="tab-btn active" data-tab="overview">Overview</button>
-      <button class="tab-btn" data-tab="status">Operator Status</button>
-      <button class="tab-btn" data-tab="tools">Tools</button>
-      <button class="tab-btn" data-tab="performance">Performance &amp; Metrics</button>
-      <button class="tab-btn" data-tab="devpatterns">Development Patterns</button>
+      <button class="tab-btn" data-tab="eso">ESO</button>
+      <button class="tab-btn" data-tab="mustgather">Must-Gather</button>
+      <button class="tab-btn" data-tab="sscso">SSCSO</button>
+      <button class="tab-btn" data-tab="ztwin">ZTWIN</button>
+      <button class="tab-btn" data-tab="certmanager">Cert-Manager</button>
     </div>
   </div>
 </div>
@@ -204,12 +205,21 @@
         </table>
       </div>
 
+      <!-- Agentic Pipeline Flow -->
+      <div class="card">
+        <h3>Agentic Pipeline Flow</h3>
+        <p class="section-sub">End-to-end automated agentic workflow from historical data to code generation</p>
+        <div style="text-align:center; padding: 16px 0;">
+          <img src="diagram-themed.svg" alt="Agentic Pipeline Flow Diagram" style="max-width:100%; height:auto;">
+        </div>
+      </div>
+
       <!-- Performance & Metrics Summary -->
       <div class="card">
         <h3>Performance &amp; Metrics</h3>
         <p class="section-sub">Model performance across pipeline phases and code generation</p>
 
-        <div class="metrics-group">
+        <div class="metrics-group accent-purple">
           <h4>Overall Report Quality and Code Generation</h4>
           <table class="tbl">
             <thead>
@@ -223,33 +233,33 @@
             <tbody>
               <tr>
                 <td>Spec Validation</td>
-                <td>4.5</td>
-                <td>4.5</td>
-                <td>4.5</td>
+                <td><span class="score high">4.5</span></td>
+                <td><span class="score high">4.5</span></td>
+                <td><span class="score high">4.5</span></td>
               </tr>
               <tr>
                 <td>Planning</td>
-                <td>4.5</td>
-                <td>4.5</td>
-                <td>4.5</td>
+                <td><span class="score high">4.5</span></td>
+                <td><span class="score high">4.5</span></td>
+                <td><span class="score high">4.5</span></td>
               </tr>
               <tr>
                 <td>Tasks</td>
-                <td>3.0</td>
-                <td>4.0</td>
-                <td>4.0</td>
+                <td><span class="score low">3.0</span></td>
+                <td><span class="score mid">4.0</span></td>
+                <td><span class="score mid">4.0</span></td>
               </tr>
               <tr>
                 <td>Code-gen</td>
-                <td>3.5</td>
-                <td>4.0</td>
-                <td>4.0</td>
+                <td><span class="score low">3.5</span></td>
+                <td><span class="score mid">4.0</span></td>
+                <td><span class="score mid">4.0</span></td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="metrics-group">
+        <div class="metrics-group accent-teal">
           <h4>Quantitative Performance for Code Generation (Across Tasks)</h4>
           <table class="tbl">
             <thead>
@@ -263,27 +273,27 @@
             <tbody>
               <tr>
                 <td>Epic-1</td>
-                <td>120,000</td>
-                <td>90,000</td>
-                <td>85,000</td>
+                <td><span class="score low">120,000</span></td>
+                <td><span class="score mid">90,000</span></td>
+                <td><span class="score mid">85,000</span></td>
               </tr>
               <tr>
                 <td>Epic-2</td>
-                <td>100,000</td>
-                <td>95,000</td>
-                <td>93,000</td>
+                <td><span class="score low">100,000</span></td>
+                <td><span class="score mid">95,000</span></td>
+                <td><span class="score mid">93,000</span></td>
               </tr>
               <tr>
                 <td>Epic-3</td>
-                <td>70,000</td>
-                <td>72,000</td>
-                <td>73,000</td>
+                <td><span class="score mid">70,000</span></td>
+                <td><span class="score mid">72,000</span></td>
+                <td><span class="score mid">73,000</span></td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="metrics-group">
+        <div class="metrics-group accent-blue">
           <h4>ai-helpers vs Cursor for Code Generation</h4>
           <table class="tbl">
             <thead>
@@ -297,298 +307,408 @@
             <tbody>
               <tr>
                 <td>ai-helpers</td>
-                <td>3.0</td>
-                <td>3.5</td>
-                <td>3.0</td>
+                <td><span class="score low">3.0</span></td>
+                <td><span class="score low">3.5</span></td>
+                <td><span class="score low">3.0</span></td>
               </tr>
               <tr>
                 <td>Cursor</td>
-                <td>3.0</td>
-                <td>4.0</td>
-                <td>4.0</td>
+                <td><span class="score low">3.0</span></td>
+                <td><span class="score mid">4.0</span></td>
+                <td><span class="score mid">4.0</span></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- Agentic Pipeline Flow -->
-      <div class="card">
-        <h3>Agentic Pipeline Flow</h3>
-        <p class="section-sub">End-to-end automated agentic workflow from historical data to code generation</p>
-        <div style="text-align:center; padding: 16px 0;">
-          <img src="diagram-themed.svg" alt="Agentic Pipeline Flow Diagram" style="max-width:100%; height:auto;">
-        </div>
-      </div>
-
   </div>
 </div>
 
-<!-- TAB: Operator Status -->
-<div id="tab-status" class="tab-panel">
+<!-- TAB: ESO -->
+<div id="tab-eso" class="tab-panel">
   <div class="section">
-    <h2>Operator Status</h2>
-    <p class="section-sub">Onboarding and release readiness for each operator</p>
+    <h2>External Secrets Operator (ESO)</h2>
+    <p class="section-sub">Operator-specific status and development details</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Target Release</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
 
     <div class="card">
-      <h3>Final Release &mdash; Aug '26</h3>
+      <h3>Development Progress</h3>
       <table class="tbl">
         <thead>
-          <tr>
-            <th>Operator</th>
-            <th>Onboarded</th>
-            <th>Release Status</th>
-          </tr>
+          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><a href="operators/ztwin.html">ZTWIN</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/must-gather.html">Must-Gather</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/eso.html">ESO</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/sscso.html">SSCSO</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/cert-manager.html">Cert-Manager</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<!-- TAB: Tools for Layered Architecture -->
-<div id="tab-tools" class="tab-panel">
-  <div class="section">
-    <h2>Tools for Layered Architecture</h2>
-    <p class="section-sub">Platforms and tools across the five-layer architecture stack</p>
-
-    <div class="card">
-      <h3>Architecture Stack</h3>
-      <div class="layer-stack">
-        <div class="layer-row">
-          <div class="layer-label l5">L5 Model</div>
-          <div class="layer-tools">
-            <div class="tool-chip">Claude Sonnet/Opus <span class="tool-status" style="background:var(--green)">Accepted</span></div>
-            <div class="tool-chip">Gemini <span class="tool-status" style="background:var(--red)">Dropped</span></div>
-            <div class="tool-chip">GPT <span class="tool-status" style="background:var(--orange)">Fair</span></div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-label l4">L4 Runtime</div>
-          <div class="layer-tools">
-            <div class="tool-chip">OpenCode <span class="tool-status" style="background:var(--orange)">WIP</span></div>
-            <div class="tool-chip">ai-helpers <span class="tool-status" style="background:var(--green)">Reviewed</span></div>
-            <div class="tool-chip">Cursor <span class="tool-status" style="background:var(--orange)">Testing</span></div>
-            <div class="tool-chip">Claude Code <span class="tool-status" style="background:var(--orange)">WIP</span></div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-label l3">L3 Harness</div>
-          <div class="layer-tools">
-            <div class="tool-chip">Agentic Docs <span class="tool-status" style="background:var(--blue)">In Use</span></div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-label l2">L2 Sandbox</div>
-          <div class="layer-tools">
-            <div class="tool-chip">Ambient GHSK <span class="tool-status" style="background:var(--gray)">Frozen</span></div>
-            <div class="tool-chip">OpenSpec <span class="tool-status" style="background:var(--green)">Active</span></div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-label l1">L1 Infra</div>
-          <div class="layer-tools">
-            <div class="tool-chip">Laptop &amp; Cluster <span class="tool-status" style="background:var(--green)">Tested</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Tool Details</h3>
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Layer</th>
-            <th>Tool</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>L1 Infra</td>
-            <td>Laptop &amp; Cluster</td>
-            <td><span class="badge green">Tested</span> Agentic flow tested for both cluster and laptop</td>
-          </tr>
-          <tr>
-            <td rowspan="2">L2 Sandbox</td>
-            <td>Ambient GHSK</td>
-            <td><span class="badge gray">Frozen</span></td>
-          </tr>
-          <tr>
-            <td>OpenSpec</td>
-            <td><span class="badge green">Active</span> Active and adopted</td>
-          </tr>
-          <tr>
-            <td>L3 Harness</td>
-            <td>Agentic Docs</td>
-            <td><span class="badge blue">In Use</span></td>
-          </tr>
-          <tr>
-            <td rowspan="4">L4 Runtime</td>
-            <td>OpenCode</td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td>ai-helpers</td>
-            <td><span class="badge green">Reviewed</span> Tested and reviewed</td>
-          </tr>
-          <tr>
-            <td>Cursor</td>
-            <td><span class="badge orange">Testing</span> Testing in progress</td>
-          </tr>
-          <tr>
-            <td>Claude Code</td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td rowspan="3">L5 Model</td>
-            <td>Claude Sonnet/Opus</td>
-            <td><span class="badge green">Accepted</span> Reviewed and accepted</td>
-          </tr>
-          <tr>
-            <td>Gemini</td>
-            <td><span class="badge red">Dropped</span> Tested and dropped</td>
-          </tr>
-          <tr>
-            <td>GPT</td>
-            <td><span class="badge orange">Fair</span> Fair performance</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<!-- TAB: Performance & Metrics -->
-<div id="tab-performance" class="tab-panel">
-  <div class="section">
-    <h2>Performance &amp; Metrics</h2>
-    <p class="section-sub">Model performance graphs across pipeline phases and code generation tools</p>
-
-    <div class="callout info">
-      <strong>Phase-level Model Performance</strong>
-      Graphs for model performance across each pipeline phase will be linked here.
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>Code Generation &mdash; ai-helpers</h3>
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-value">&mdash;</div>
-            <div class="stat-label">Performance data will be linked from operator dashboards</div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Code Generation &mdash; Cursor</h3>
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-value">&mdash;</div>
-            <div class="stat-label">Performance data will be linked from operator dashboards</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TAB: Development Patterns -->
-<div id="tab-devpatterns" class="tab-panel">
-  <div class="section">
-    <h2>Development Patterns</h2>
-    <p class="section-sub">Development, QE, and bug fix progress across operators</p>
-
-    <div class="card">
-      <h3>Operator Development Status</h3>
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Operator</th>
-            <th>Development</th>
-            <th>QE</th>
-            <th>Bug Fix</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="operators/ztwin.html">ZTWIN</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/must-gather.html">Must-Gather</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/eso.html">ESO</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/sscso.html">SSCSO</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
-          <tr>
-            <td><a href="operators/cert-manager.html">Cert-Manager</a></td>
-            <td><span class="badge green">Yes</span></td>
-            <td><span class="badge orange">WIP</span></td>
-            <td><span class="badge orange">WIP</span></td>
-          </tr>
+          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
+          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
+          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="grid-3">
-      <div class="card" style="text-align:center;">
-        <h3>Development</h3>
-        <div style="font-size:3em; font-weight:800; color:var(--green);">5/5</div>
-        <div style="color:var(--gray); margin-top:4px;">Complete</div>
+    <div class="card">
+      <h3>Operator Details</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>External Secrets Operator (ESO)</td></tr>
+          <tr><td>Category</td><td>Secrets Management</td></tr>
+          <tr><td>CRDs</td><td>ExternalSecret, ClusterExternalSecret, SecretStore, ClusterSecretStore, PushSecret, ClusterPushSecret</td></tr>
+          <tr><td>API Version</td><td>external-secrets.io/v1</td></tr>
+          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
+          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>EPICs &amp; Tickets</h3>
+      <p class="section-sub" style="padding-left:0;">Development progress organized by EPIC</p>
+
+      <div class="epic-inline open">
+        <div class="epic-inline-header" onclick="toggleInline(this)">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1001</span>
+          <span style="font-weight:700; flex:1;">Core Operator Development</span>
+          <span class="badge green">Complete</span>
+        </div>
+        <div class="epic-inline-body">
+          <table class="tbl" style="margin-top:12px;">
+            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
+            <tbody>
+              <tr><td>OCPBUGS-1101</td><td>Scaffold ESO operator with OLM bundle</td><td>62.3k</td><td>$0.31</td><td>80%</td></tr>
+              <tr><td>OCPBUGS-1102</td><td>Implement ExternalSecret controller reconciler</td><td>85.1k</td><td>$0.42</td><td>60%</td></tr>
+              <tr><td>OCPBUGS-1103</td><td>Add SecretStore &amp; ClusterSecretStore CRDs</td><td>45.8k</td><td>$0.22</td><td>100%</td></tr>
+              <tr><td>OCPBUGS-1104</td><td>Implement PushSecret sync logic</td><td>55.5k</td><td>$0.25</td><td>60%</td></tr>
+              <tr><td>OCPBUGS-1105</td><td>ClusterPushSecret &amp; ClusterExternalSecret support</td><td>72.0k</td><td>$0.35</td><td>80%</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="card" style="text-align:center;">
-        <h3>QE</h3>
-        <div style="font-size:3em; font-weight:800; color:var(--orange);">0/5</div>
-        <div style="color:var(--gray); margin-top:4px;">In Progress</div>
+
+      <div class="epic-inline">
+        <div class="epic-inline-header" onclick="toggleInline(this)">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1002</span>
+          <span style="font-weight:700; flex:1;">QE &amp; Test Automation</span>
+          <span class="badge orange">In Progress</span>
+        </div>
+        <div class="epic-inline-body">
+          <table class="tbl" style="margin-top:12px;">
+            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
+            <tbody>
+              <tr><td>OCPBUGS-1201</td><td>Set up E2E test framework for ESO</td><td>38.2k</td><td>$0.18</td><td>100%</td></tr>
+              <tr><td>OCPBUGS-1202</td><td>Write ExternalSecret reconciler unit tests</td><td>42.0k</td><td>$0.20</td><td>80%</td></tr>
+              <tr><td>OCPBUGS-1203</td><td>SecretStore provider integration tests</td><td>31.4k</td><td>$0.15</td><td>60%</td></tr>
+              <tr><td>OCPBUGS-1204</td><td>ClusterSecretStore cross-namespace test coverage</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>OCPBUGS-1205</td><td>PushSecret sync E2E validation</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="card" style="text-align:center;">
-        <h3>Bug Fix</h3>
-        <div style="font-size:3em; font-weight:800; color:var(--orange);">0/5</div>
-        <div style="color:var(--gray); margin-top:4px;">In Progress</div>
+
+      <div class="epic-inline">
+        <div class="epic-inline-header" onclick="toggleInline(this)">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1003</span>
+          <span style="font-weight:700; flex:1;">Bug Fixes &amp; Stability</span>
+          <span class="badge orange">In Progress</span>
+        </div>
+        <div class="epic-inline-body">
+          <table class="tbl" style="margin-top:12px;">
+            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
+            <tbody>
+              <tr><td>OCPBUGS-1301</td><td>Fix secret rotation race condition</td><td>48.7k</td><td>$0.24</td><td>80%</td></tr>
+              <tr><td>OCPBUGS-1302</td><td>Handle provider authentication token expiry</td><td>29.3k</td><td>$0.14</td><td>40%</td></tr>
+              <tr><td>OCPBUGS-1303</td><td>Fix ClusterExternalSecret status propagation</td><td>18.6k</td><td>$0.09</td><td>40%</td></tr>
+              <tr><td>OCPBUGS-1304</td><td>Reconcile loop memory leak under high CRD count</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="epic-inline">
+        <div class="epic-inline-header" onclick="toggleInline(this)">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1004</span>
+          <span style="font-weight:700; flex:1;">Documentation &amp; Release Readiness</span>
+          <span class="badge blue">To Do</span>
+        </div>
+        <div class="epic-inline-body">
+          <table class="tbl" style="margin-top:12px;">
+            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
+            <tbody>
+              <tr><td>OCPBUGS-1401</td><td>Write operator upgrade &amp; migration guide</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>OCPBUGS-1402</td><td>Document CRD API reference (v1)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>OCPBUGS-1403</td><td>Create provider configuration examples</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>OCPBUGS-1404</td><td>Release notes &amp; changelog for Aug '26</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>OCPBUGS-1405</td><td>OLM bundle validation &amp; catalog publish</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
+
+    <p style="margin-top:12px;"><a href="operators/eso.html" style="color:var(--blue); font-weight:500;">View full ESO operator page &rarr;</a></p>
+  </div>
+</div>
+
+<!-- TAB: Must-Gather -->
+<div id="tab-mustgather" class="tab-panel">
+  <div class="section">
+    <h2>Must-Gather Operator</h2>
+    <p class="section-sub">Operator-specific status and development details</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Target Release</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Development Progress</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
+          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
+          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Operator Details</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>Must-Gather</td></tr>
+          <tr><td>Category</td><td>Diagnostics &amp; Debugging</td></tr>
+          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
+          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:12px;"><a href="operators/must-gather.html" style="color:var(--blue); font-weight:500;">View full Must-Gather operator page &rarr;</a></p>
+  </div>
+</div>
+
+<!-- TAB: SSCSO -->
+<div id="tab-sscso" class="tab-panel">
+  <div class="section">
+    <h2>Secrets Store CSI Driver Operator (SSCSO)</h2>
+    <p class="section-sub">Operator-specific status and development details</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Target Release</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Development Progress</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
+          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
+          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Operator Details</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>Secrets Store CSI Driver Operator (SSCSO)</td></tr>
+          <tr><td>Category</td><td>Secrets Management</td></tr>
+          <tr><td>CRDs</td><td>SecretProviderClass</td></tr>
+          <tr><td>API Version</td><td>secrets-store.csi.x-k8s.io/v1</td></tr>
+          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
+          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:12px;"><a href="operators/sscso.html" style="color:var(--blue); font-weight:500;">View full SSCSO operator page &rarr;</a></p>
+  </div>
+</div>
+
+<!-- TAB: ZTWIN -->
+<div id="tab-ztwin" class="tab-panel">
+  <div class="section">
+    <h2>ZTWIN &mdash; Zero Trust Workload Identity Manager</h2>
+    <p class="section-sub">Operator-specific status and development details</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Target Release</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Development Progress</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
+          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
+          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>EPICs &amp; Tickets</h3>
+      <p class="section-sub" style="padding-left:0;">Development progress organized by EPIC</p>
+
+      <div class="epic-inline open">
+        <div class="epic-inline-header" onclick="toggleInline(this)">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--blue); background:#f0f4f8; padding:2px 10px; border-radius:6px;">CM-861</span>
+          <span style="font-weight:700; flex:1;">Integrate Trust Manager with Cert Manager Operator</span>
+          <span class="badge green">Complete</span>
+        </div>
+        <div class="epic-inline-body">
+          <table class="tbl" style="margin-top:12px;">
+            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Wall Time</th><th>Agent Success</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://redhat.atlassian.net/browse/CM-830" target="_blank">CM-830</a></td><td>Create an enhancement proposal to integrate trust-manager</td><td>487.0k</td><td>$2.23</td><td>190m 58s</td><td>100% (18/18)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Operator Details</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>Zero Trust Workload Identity Manager (ZTWIN)</td></tr>
+          <tr><td>Category</td><td>Zero Trust Workload Identity &amp; Networking</td></tr>
+          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
+          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:12px;"><a href="operators/ztwin.html" style="color:var(--blue); font-weight:500;">View full ZTWIN operator page &rarr;</a></p>
+  </div>
+</div>
+
+<!-- TAB: Cert-Manager -->
+<div id="tab-certmanager" class="tab-panel">
+  <div class="section">
+    <h2>Cert-Manager Operator</h2>
+    <p class="section-sub">Operator-specific status and development details</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Target Release</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Development Progress</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
+          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
+          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Operator Details</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>Cert-Manager Operator for Red Hat OpenShift</td></tr>
+          <tr><td>Category</td><td>Certificate Management</td></tr>
+          <tr><td>CRDs</td><td>Certificate, Issuer, ClusterIssuer</td></tr>
+          <tr><td>API Version</td><td>cert-manager.io/v1</td></tr>
+          <tr><td>OLM Channel</td><td>stable-v1</td></tr>
+          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
+          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:12px;"><a href="operators/cert-manager.html" style="color:var(--blue); font-weight:500;">View full Cert-Manager operator page &rarr;</a></p>
   </div>
 </div>
 
@@ -605,6 +725,10 @@
       document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
     });
   });
+
+  function toggleInline(el) {
+    el.closest('.epic-inline').classList.toggle('open');
+  }
 </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     </filter>
   </defs>
 
-  <rect width="960" height="620" fill="#f5f6fa" rx="12"/>
+  <rect width="960" height="620" fill="white" rx="12"/>
 
   <!-- Step 1: Historical Epics (blue pentagon) -->
   <polygon points="480,18 600,48 600,108 360,108 360,48" fill="#2980b9" rx="8"/>
@@ -74,18 +74,18 @@
   <rect x="826" y="284" width="90" height="50" rx="8" fill="#2980b9"/>
   <text x="871" y="314" text-anchor="middle" fill="white" font-size="14" font-weight="600">Code gen</text>
 
-  <!-- Arrow 3 -->
-  <line x1="480" y1="360" x2="480" y2="396" stroke="#95a5a6" stroke-width="2"/>
-  <polygon points="480,404 474,394 486,394" fill="#95a5a6"/>
+  <!-- Arrow 3 (pointing upward into pipeline) -->
+  <line x1="480" y1="406" x2="480" y2="368" stroke="#95a5a6" stroke-width="2"/>
+  <polygon points="480,360 474,370 486,370" fill="#95a5a6"/>
 
   <!-- agents md and contextualization (gray) -->
   <rect x="310" y="406" width="340" height="56" rx="10" fill="#ecf0f1" filter="url(#shadow)"/>
   <text x="480" y="430" text-anchor="middle" fill="#2c3e50" font-size="14" font-weight="600">agents md and</text>
   <text x="480" y="448" text-anchor="middle" fill="#2c3e50" font-size="14" font-weight="600">contextualization</text>
 
-  <!-- Arrow 4 -->
-  <line x1="480" y1="462" x2="480" y2="498" stroke="#95a5a6" stroke-width="2"/>
-  <polygon points="480,506 474,496 486,496" fill="#95a5a6"/>
+  <!-- Arrow 4 (pointing upward) -->
+  <line x1="480" y1="508" x2="480" y2="470" stroke="#95a5a6" stroke-width="2"/>
+  <polygon points="480,462 474,472 486,472" fill="#95a5a6"/>
 
   <!-- ai-helpers agentic docs (blue - last step) -->
   <rect x="280" y="508" width="400" height="64" rx="10" fill="#2980b9" filter="url(#shadow)"/>
