@@ -17,7 +17,8 @@
   </div>
   <div class="header-tabs">
     <div class="tab-segment">
-      <button class="tab-btn active" data-tab="status">Operator Status</button>
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="status">Operator Status</button>
       <button class="tab-btn" data-tab="tools">Tools</button>
       <button class="tab-btn" data-tab="performance">Performance &amp; Metrics</button>
       <button class="tab-btn" data-tab="devpatterns">Development Patterns</button>
@@ -25,8 +26,306 @@
   </div>
 </div>
 
+<!-- TAB: Overview -->
+<div id="tab-overview" class="tab-panel active">
+  <div class="section">
+    <h2>Overview</h2>
+    <p class="section-sub">Project overview and summary</p>
+
+      <!-- Operator Status & Development Patterns -->
+      <div class="card">
+        <h3>Operator Status &amp; Development Patterns</h3>
+        <p class="section-sub">Onboarding, release readiness, and development progress across operators</p>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Stream</th>
+              <th>On-Boarded</th>
+              <th>Final Release</th>
+              <th>QE E2E</th>
+              <th>Bug Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="operators/eso.html">ESO</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+            <tr>
+              <td><a href="operators/must-gather.html">MUST-GATHER</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+            <tr>
+              <td><a href="operators/sscso.html">SSCSO</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+            <tr>
+              <td><a href="operators/ztwin.html">ZTWIN</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+            <tr>
+              <td><a href="operators/cert-manager.html">Cert-Manager</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grid-3" style="margin-top:16px;">
+          <div style="text-align:center;">
+            <div style="font-size:2em; font-weight:800; color:var(--green);">5/5</div>
+            <div style="color:var(--gray); margin-top:4px;">Development</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:2em; font-weight:800; color:var(--orange);">0/5</div>
+            <div style="color:var(--gray); margin-top:4px;">QE</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:2em; font-weight:800; color:var(--orange);">0/5</div>
+            <div style="color:var(--gray); margin-top:4px;">Bug Fix</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools Summary -->
+      <div class="card">
+        <h3>Tools for Layered Architecture</h3>
+        <p class="section-sub">Platforms and tools across the five-layer architecture stack</p>
+        <div class="layer-stack">
+          <div class="layer-row">
+            <div class="layer-label l5">L5 Model</div>
+            <div class="layer-tools">
+              <div class="tool-chip">Claude Sonnet/Opus <span class="tool-status" style="background:var(--green)">Accepted</span></div>
+              <div class="tool-chip">Gemini <span class="tool-status" style="background:var(--red)">Dropped</span></div>
+              <div class="tool-chip">GPT <span class="tool-status" style="background:var(--orange)">Fair</span></div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <div class="layer-label l4">L4 Runtime</div>
+            <div class="layer-tools">
+              <div class="tool-chip">OpenCode <span class="tool-status" style="background:var(--orange)">WIP</span></div>
+              <div class="tool-chip">ai-helpers <span class="tool-status" style="background:var(--green)">Reviewed</span></div>
+              <div class="tool-chip">Cursor <span class="tool-status" style="background:var(--orange)">Testing</span></div>
+              <div class="tool-chip">Claude Code <span class="tool-status" style="background:var(--orange)">WIP</span></div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <div class="layer-label l3">L3 Harness</div>
+            <div class="layer-tools">
+              <div class="tool-chip">Agentic Docs <span class="tool-status" style="background:var(--blue)">In Use</span></div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <div class="layer-label l2">L2 Sandbox</div>
+            <div class="layer-tools">
+              <div class="tool-chip">Ambient GHSK <span class="tool-status" style="background:var(--gray)">Frozen</span></div>
+              <div class="tool-chip">OpenSpec <span class="tool-status" style="background:var(--green)">Active</span></div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <div class="layer-label l1">L1 Infra</div>
+            <div class="layer-tools">
+              <div class="tool-chip">Laptop &amp; Cluster <span class="tool-status" style="background:var(--green)">Tested</span></div>
+            </div>
+          </div>
+        </div>
+        <table class="tbl" style="margin-top:16px;">
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Tool</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>L1 Infra</td>
+              <td>Laptop &amp; Cluster</td>
+              <td><span class="badge green">Tested</span> Agentic flow tested for both cluster and laptop</td>
+            </tr>
+            <tr>
+              <td rowspan="2">L2 Sandbox</td>
+              <td>Ambient GHSK</td>
+              <td><span class="badge gray">Frozen</span></td>
+            </tr>
+            <tr>
+              <td>OpenSpec</td>
+              <td><span class="badge green">Active</span> Active and adopted</td>
+            </tr>
+            <tr>
+              <td>L3 Harness</td>
+              <td>Agentic Docs</td>
+              <td><span class="badge blue">In Use</span></td>
+            </tr>
+            <tr>
+              <td rowspan="4">L4 Runtime</td>
+              <td>OpenCode</td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+            <tr>
+              <td>ai-helpers</td>
+              <td><span class="badge green">Reviewed</span> Tested and reviewed</td>
+            </tr>
+            <tr>
+              <td>Cursor</td>
+              <td><span class="badge orange">Testing</span> Testing in progress</td>
+            </tr>
+            <tr>
+              <td>Claude Code</td>
+              <td><span class="badge orange">WIP</span></td>
+            </tr>
+            <tr>
+              <td rowspan="3">L5 Model</td>
+              <td>Claude Sonnet/Opus</td>
+              <td><span class="badge green">Accepted</span> Reviewed and accepted</td>
+            </tr>
+            <tr>
+              <td>Gemini</td>
+              <td><span class="badge red">Dropped</span> Tested and dropped</td>
+            </tr>
+            <tr>
+              <td>GPT</td>
+              <td><span class="badge orange">Fair</span> Fair performance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Performance & Metrics Summary -->
+      <div class="card">
+        <h3>Performance &amp; Metrics</h3>
+        <p class="section-sub">Model performance across pipeline phases and code generation</p>
+
+        <div class="metrics-group">
+          <h4>Overall Report Quality and Code Generation</h4>
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Phase \ Model</th>
+                <th>Sonnet 5</th>
+                <th>Sonnet 4.5</th>
+                <th>Composer 2.5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Spec Validation</td>
+                <td>4.5</td>
+                <td>4.5</td>
+                <td>4.5</td>
+              </tr>
+              <tr>
+                <td>Planning</td>
+                <td>4.5</td>
+                <td>4.5</td>
+                <td>4.5</td>
+              </tr>
+              <tr>
+                <td>Tasks</td>
+                <td>3.0</td>
+                <td>4.0</td>
+                <td>4.0</td>
+              </tr>
+              <tr>
+                <td>Code-gen</td>
+                <td>3.5</td>
+                <td>4.0</td>
+                <td>4.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="metrics-group">
+          <h4>Quantitative Performance for Code Generation (Across Tasks)</h4>
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Phase \ Model</th>
+                <th>Sonnet 5</th>
+                <th>Sonnet 4.5</th>
+                <th>Composer 2.5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Epic-1</td>
+                <td>120,000</td>
+                <td>90,000</td>
+                <td>85,000</td>
+              </tr>
+              <tr>
+                <td>Epic-2</td>
+                <td>100,000</td>
+                <td>95,000</td>
+                <td>93,000</td>
+              </tr>
+              <tr>
+                <td>Epic-3</td>
+                <td>70,000</td>
+                <td>72,000</td>
+                <td>73,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="metrics-group">
+          <h4>ai-helpers vs Cursor for Code Generation</h4>
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Agent \ Model</th>
+                <th>Sonnet 5</th>
+                <th>Sonnet 4.5</th>
+                <th>Composer 2.5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ai-helpers</td>
+                <td>3.0</td>
+                <td>3.5</td>
+                <td>3.0</td>
+              </tr>
+              <tr>
+                <td>Cursor</td>
+                <td>3.0</td>
+                <td>4.0</td>
+                <td>4.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Agentic Pipeline Flow -->
+      <div class="card">
+        <h3>Agentic Pipeline Flow</h3>
+        <p class="section-sub">End-to-end automated agentic workflow from historical data to code generation</p>
+        <div style="text-align:center; padding: 16px 0;">
+          <img src="diagram-themed.svg" alt="Agentic Pipeline Flow Diagram" style="max-width:100%; height:auto;">
+        </div>
+      </div>
+
+  </div>
+</div>
+
 <!-- TAB: Operator Status -->
-<div id="tab-status" class="tab-panel active">
+<div id="tab-status" class="tab-panel">
   <div class="section">
     <h2>Operator Status</h2>
     <p class="section-sub">Onboarding and release readiness for each operator</p>
@@ -83,22 +382,11 @@
       <h3>Architecture Stack</h3>
       <div class="layer-stack">
         <div class="layer-row">
-          <div class="layer-label l1">L1 Infra</div>
+          <div class="layer-label l5">L5 Model</div>
           <div class="layer-tools">
-            <div class="tool-chip">Laptop &amp; Cluster <span class="tool-status" style="background:var(--green)">Tested</span></div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-label l2">L2 Sandbox</div>
-          <div class="layer-tools">
-            <div class="tool-chip">Ambient GHSK <span class="tool-status" style="background:var(--gray)">Frozen</span></div>
-            <div class="tool-chip">OpenSpec <span class="tool-status" style="background:var(--green)">Active</span></div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-label l3">L3 Harness</div>
-          <div class="layer-tools">
-            <div class="tool-chip">Agentic Docs <span class="tool-status" style="background:var(--blue)">In Use</span></div>
+            <div class="tool-chip">Claude Sonnet/Opus <span class="tool-status" style="background:var(--green)">Accepted</span></div>
+            <div class="tool-chip">Gemini <span class="tool-status" style="background:var(--red)">Dropped</span></div>
+            <div class="tool-chip">GPT <span class="tool-status" style="background:var(--orange)">Fair</span></div>
           </div>
         </div>
         <div class="layer-row">
@@ -111,11 +399,22 @@
           </div>
         </div>
         <div class="layer-row">
-          <div class="layer-label l5">L5 Model</div>
+          <div class="layer-label l3">L3 Harness</div>
           <div class="layer-tools">
-            <div class="tool-chip">Claude Sonnet/Opus <span class="tool-status" style="background:var(--green)">Accepted</span></div>
-            <div class="tool-chip">Gemini <span class="tool-status" style="background:var(--red)">Dropped</span></div>
-            <div class="tool-chip">GPT <span class="tool-status" style="background:var(--orange)">Fair</span></div>
+            <div class="tool-chip">Agentic Docs <span class="tool-status" style="background:var(--blue)">In Use</span></div>
+          </div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-label l2">L2 Sandbox</div>
+          <div class="layer-tools">
+            <div class="tool-chip">Ambient GHSK <span class="tool-status" style="background:var(--gray)">Frozen</span></div>
+            <div class="tool-chip">OpenSpec <span class="tool-status" style="background:var(--green)">Active</span></div>
+          </div>
+        </div>
+        <div class="layer-row">
+          <div class="layer-label l1">L1 Infra</div>
+          <div class="layer-tools">
+            <div class="tool-chip">Laptop &amp; Cluster <span class="tool-status" style="background:var(--green)">Tested</span></div>
           </div>
         </div>
       </div>
