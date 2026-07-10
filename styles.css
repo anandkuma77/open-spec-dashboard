@@ -280,7 +280,7 @@ body { display: flex; flex-direction: column; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
-/* Inline epic accordions */
+/* Inline epic accordions (legacy) */
 .epic-inline {
   border: 1px solid #e8ecf0;
   border-radius: 8px;
@@ -307,6 +307,127 @@ body { display: flex; flex-direction: column; }
 .epic-inline-body { padding: 0 18px; }
 .epic-inline.open > .epic-inline-body { padding: 0 18px 18px; }
 
+/* EPIC accordion */
+.epic { background: white; border-radius: 12px; box-shadow: var(--card-shadow); margin-bottom: 20px; overflow: hidden; }
+.epic-header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 28px; cursor: pointer; user-select: none; transition: background 0.15s;
+}
+.epic-header:hover { background: #f8f9fa; }
+.chevron {
+  width: 18px; height: 18px; flex-shrink: 0;
+  transition: transform 0.25s ease; color: var(--gray);
+}
+.epic.open > .epic-header > .chevron { transform: rotate(90deg); }
+.epic-title { font-size: 1.05em; font-weight: 700; color: var(--dark); flex: 1; }
+.epic-title a { color: var(--dark); text-decoration: none; }
+.epic-title a:hover { color: var(--blue); text-decoration: underline; }
+.epic-id {
+  font-size: 0.8em; font-weight: 600; color: var(--blue);
+  background: #f0f4f8; padding: 2px 10px; border-radius: 6px; font-family: 'Courier New', monospace;
+  text-decoration: none;
+}
+.epic-id:hover { text-decoration: underline; }
+.epic-meta { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+.epic-meta .badge { font-size: 0.75em; }
+.epic-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.epic.open > .epic-body { max-height: 80000px; }
+.epic-content { padding: 0 28px 24px; }
+
+/* EPIC metrics strip */
+.epic-metrics { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.metric-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: #f8f9fa; border-radius: 8px; padding: 10px 16px;
+  border-left: 3px solid var(--blue); flex: 1; min-width: 140px;
+}
+.metric-pill.green { border-left-color: var(--green); }
+.metric-pill.orange { border-left-color: var(--orange); }
+.metric-pill.red { border-left-color: var(--red); }
+.metric-pill.purple { border-left-color: var(--purple); }
+.metric-pill.teal { border-left-color: var(--teal); }
+.metric-pill .m-value { font-size: 1.5em; font-weight: 800; color: var(--dark); line-height: 1; }
+.metric-pill .m-label { font-size: 0.78em; color: var(--gray); line-height: 1.2; }
+
+.epic-progress { width: 100px; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.epic-progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--green) 0%, var(--teal) 100%);
+  border-radius: 3px; transition: width 0.3s ease;
+}
+
+/* Ticket dropdown */
+.ticket {
+  border: 1px solid #e8ecf0; border-radius: 8px; margin-bottom: 8px;
+  background: white; overflow: hidden;
+}
+.ticket-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; cursor: pointer; user-select: none; transition: background 0.15s;
+}
+.ticket-header:hover { background: #f8f9fa; }
+.ticket.open > .ticket-header { background: #f0f4f8; border-bottom: 1px solid #e0e4e8; }
+.ticket.open > .ticket-header > .chevron { transform: rotate(90deg); }
+.ticket-header .chevron { width: 14px; height: 14px; }
+.ticket-label {
+  font-family: 'Courier New', monospace; font-size: 0.85em;
+  color: var(--blue); font-weight: 600; flex-shrink: 0;
+  text-decoration: none;
+}
+.ticket-label:hover { text-decoration: underline; }
+.ticket-summary { font-size: 0.9em; color: var(--dark); flex: 1; }
+.ticket-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.ticket.open > .ticket-body { max-height: 5000px; }
+.ticket-content { padding: 20px; }
+
+/* Health metrics strip inside ticket */
+.health-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px; margin-bottom: 20px;
+}
+.health-card {
+  background: var(--dark); color: white; border-radius: 8px;
+  padding: 14px 12px; text-align: center;
+}
+.health-card .h-value { font-size: 1.3em; font-weight: 800; line-height: 1.2; }
+.health-card .h-label {
+  font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.5px;
+  opacity: 0.7; margin-bottom: 4px;
+}
+.health-card .h-sub { font-size: 0.65em; opacity: 0.5; margin-top: 2px; }
+
+/* Section labels inside ticket */
+.ticket-section-title {
+  font-size: 0.8em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--gray); margin: 16px 0 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.ticket-section-title::after {
+  content: ''; flex: 1; height: 1px; background: #e0e4e8;
+}
+.ticket-section-title .count {
+  font-size: 0.9em; color: var(--teal); font-weight: 600; text-transform: none; letter-spacing: 0;
+}
+
+/* Phase & artifact tables inside ticket */
+.metric-tbl { width: 100%; border-collapse: collapse; font-size: 0.82em; margin-bottom: 12px; }
+.metric-tbl th {
+  background: #2c3e50; color: white;
+  padding: 8px 12px; text-align: left; font-weight: 600; font-size: 0.9em;
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+.metric-tbl td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+.metric-tbl tr:hover { background: #fafbfc; }
+.metric-tbl .status-passed { color: var(--green); font-weight: 600; }
+.metric-tbl .status-running { color: var(--blue); font-weight: 600; }
+.metric-tbl .status-pending { color: var(--gray); font-weight: 600; }
+.check { color: var(--green); margin-right: 4px; }
+.spin { color: var(--blue); margin-right: 4px; }
+.dot-blue { color: var(--blue); margin-right: 4px; }
+.dot-gray { color: var(--gray); margin-right: 4px; }
+.edit-count { font-weight: 700; }
+.edit-count.has-edits { color: var(--red); }
+.edit-count.zero { color: var(--green); }
+
 @media (max-width: 900px) {
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .section { padding: 24px 20px; }
@@ -316,4 +437,10 @@ body { display: flex; flex-direction: column; }
   .header-tabs { overflow-x: auto; justify-content: center; }
   .header-tabs .tab-segment { flex-direction: row; width: auto; }
   .tab-btn { padding: 8px 18px; font-size: 0.85em; }
+  .epic-header { padding: 16px 20px; flex-wrap: wrap; }
+  .epic-content { padding: 0 20px 20px; }
+  .epic-metrics { flex-direction: column; }
+  .epic-progress { width: 80px; }
+  .epic-meta { flex-wrap: wrap; }
+  .health-strip { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
 }

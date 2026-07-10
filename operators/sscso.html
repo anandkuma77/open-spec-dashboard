@@ -23,7 +23,6 @@
   .section .section-sub { color: var(--gray); margin-bottom: 24px; padding-left: 20px; font-size: 0.95em; }
   .card { background: white; border-radius: 12px; padding: 32px; box-shadow: var(--card-shadow); margin-bottom: 28px; overflow-x: auto; }
   .card h3 { font-size: 1.15em; margin-bottom: 16px; color: var(--dark); }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
   .tbl { width: 100%; border-collapse: collapse; font-size: 0.9em; }
   .tbl th { background: var(--dark); color: white; padding: 12px 16px; text-align: left; font-weight: 600; }
@@ -34,12 +33,117 @@
   .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 600; color: white; }
   .badge.red { background: var(--red); } .badge.orange { background: var(--orange); }
   .badge.green { background: var(--green); } .badge.blue { background: var(--blue); }
-  .badge.gray { background: var(--gray); }
-  .stat-item { background: #f8f9fa; padding: 16px; border-radius: 8px; border-left: 3px solid var(--blue); }
-  .stat-value { font-size: 1.8em; font-weight: 700; color: var(--dark); }
-  .stat-label { font-size: 0.85em; color: var(--gray); margin-top: 4px; }
+  .badge.gray { background: var(--gray); } .badge.purple { background: var(--purple); } .badge.teal { background: var(--teal); }
   .footer { text-align: center; padding: 30px; color: var(--gray); font-size: 0.85em; }
-  @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .section { padding: 24px 20px; } .header { padding: 24px 20px; } .back-link { margin: 16px 20px 0; } }
+
+  .epic { background: white; border-radius: 12px; box-shadow: var(--card-shadow); margin-bottom: 20px; overflow: hidden; }
+  .epic-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 28px; cursor: pointer; user-select: none; transition: background 0.15s;
+  }
+  .epic-header:hover { background: #f8f9fa; }
+  .chevron { width: 18px; height: 18px; flex-shrink: 0; transition: transform 0.25s ease; color: var(--gray); }
+  .epic.open > .epic-header > .chevron { transform: rotate(90deg); }
+  .epic-title { font-size: 1.05em; font-weight: 700; color: var(--dark); flex: 1; }
+  .epic-title a { color: var(--dark); text-decoration: none; }
+  .epic-title a:hover { color: var(--blue); text-decoration: underline; }
+  .epic-id {
+    font-size: 0.8em; font-weight: 600; color: var(--blue);
+    background: #f0f4f8; padding: 2px 10px; border-radius: 6px; font-family: 'Courier New', monospace;
+    text-decoration: none;
+  }
+  .epic-id:hover { text-decoration: underline; }
+  .epic-meta { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+  .epic-meta .badge { font-size: 0.75em; }
+  .epic-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .epic.open > .epic-body { max-height: 80000px; }
+  .epic-content { padding: 0 28px 24px; }
+
+  .epic-metrics { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .metric-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: #f8f9fa; border-radius: 8px; padding: 10px 16px;
+    border-left: 3px solid var(--blue); flex: 1; min-width: 140px;
+  }
+  .metric-pill.green { border-left-color: var(--green); }
+  .metric-pill.orange { border-left-color: var(--orange); }
+  .metric-pill.red { border-left-color: var(--red); }
+  .metric-pill.purple { border-left-color: var(--purple); }
+  .metric-pill.teal { border-left-color: var(--teal); }
+  .metric-pill .m-value { font-size: 1.5em; font-weight: 800; color: var(--dark); line-height: 1; }
+  .metric-pill .m-label { font-size: 0.78em; color: var(--gray); line-height: 1.2; }
+
+  .epic-progress { width: 100px; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+  .epic-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--green) 0%, var(--teal) 100%);
+    border-radius: 3px; transition: width 0.3s ease;
+  }
+
+  .ticket { border: 1px solid #e8ecf0; border-radius: 8px; margin-bottom: 8px; background: white; overflow: hidden; }
+  .ticket-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; cursor: pointer; user-select: none; transition: background 0.15s;
+  }
+  .ticket-header:hover { background: #f8f9fa; }
+  .ticket.open > .ticket-header { background: #f0f4f8; border-bottom: 1px solid #e0e4e8; }
+  .ticket.open > .ticket-header > .chevron { transform: rotate(90deg); }
+  .ticket-header .chevron { width: 14px; height: 14px; }
+  .ticket-label {
+    font-family: 'Courier New', monospace; font-size: 0.85em;
+    color: var(--blue); font-weight: 600; flex-shrink: 0;
+    text-decoration: none;
+  }
+  .ticket-label:hover { text-decoration: underline; }
+  .ticket-summary { font-size: 0.9em; color: var(--dark); flex: 1; }
+  .ticket-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .ticket.open > .ticket-body { max-height: 5000px; }
+  .ticket-content { padding: 20px; }
+
+  .health-strip {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px; margin-bottom: 20px;
+  }
+  .health-card { background: var(--dark); color: white; border-radius: 8px; padding: 14px 12px; text-align: center; }
+  .health-card .h-value { font-size: 1.3em; font-weight: 800; line-height: 1.2; }
+  .health-card .h-label { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7; margin-bottom: 4px; }
+  .health-card .h-sub { font-size: 0.65em; opacity: 0.5; margin-top: 2px; }
+
+  .ticket-section-title {
+    font-size: 0.8em; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--gray); margin: 16px 0 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ticket-section-title::after { content: ''; flex: 1; height: 1px; background: #e0e4e8; }
+  .ticket-section-title .count { font-size: 0.9em; color: var(--teal); font-weight: 600; text-transform: none; letter-spacing: 0; }
+
+  .metric-tbl { width: 100%; border-collapse: collapse; font-size: 0.82em; margin-bottom: 12px; }
+  .metric-tbl th {
+    background: #2c3e50; color: white;
+    padding: 8px 12px; text-align: left; font-weight: 600; font-size: 0.9em;
+    text-transform: uppercase; letter-spacing: 0.3px;
+  }
+  .metric-tbl td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  .metric-tbl tr:hover { background: #fafbfc; }
+  .metric-tbl .status-passed { color: var(--green); font-weight: 600; }
+  .metric-tbl .status-running { color: var(--blue); font-weight: 600; }
+  .metric-tbl .status-pending { color: var(--gray); font-weight: 600; }
+  .check { color: var(--green); margin-right: 4px; }
+  .edit-count { font-weight: 700; }
+  .edit-count.has-edits { color: var(--red); }
+  .edit-count.zero { color: var(--green); }
+
+  @media (max-width: 900px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .section { padding: 24px 20px; }
+    .header { padding: 24px 20px; }
+    .back-link { margin: 16px 20px 0; }
+    .epic-header { padding: 16px 20px; flex-wrap: wrap; }
+    .epic-content { padding: 0 20px 20px; }
+    .epic-metrics { flex-direction: column; }
+    .epic-progress { width: 80px; }
+    .epic-meta { flex-wrap: wrap; }
+    .health-strip { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+  }
 </style>
 </head>
 <body>
@@ -84,8 +188,267 @@
     </table>
   </div>
 
+  <h2>EPICs &amp; Tickets</h2>
+  <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
+
+  <!-- EPIC: SSCSI-242 — Configurable secret rotation and WIF -->
+  <div class="epic open">
+    <div class="epic-header" onclick="toggle(this,'.epic')">
+      <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+      <a class="epic-id" href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">EPIC: SSCSI-242</a>
+      <span class="epic-title"><a href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">Configurable secret rotation and WIF in Secret Store CSI driver operator</a></span>
+      <div class="epic-meta">
+        <span class="badge green">Complete</span>
+        <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="epic-body">
+      <div class="epic-content">
+        <div class="epic-metrics">
+          <div class="metric-pill green"><div class="m-value">2/2</div><div class="m-label">Runs<br>Done</div></div>
+          <div class="metric-pill purple"><div class="m-value">1.5M</div><div class="m-label">Total<br>Tokens</div></div>
+          <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Agent<br>Success</div></div>
+          <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+        </div>
+
+        <!-- Ticket: SSCSI-254 (AI Helpers — Sonnet 5) -->
+        <div class="ticket">
+          <div class="ticket-header" onclick="toggle(this,'.ticket')">
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+            <a class="ticket-label" href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank" onclick="event.stopPropagation()">SSCSI-254</a>
+            <span class="ticket-summary">Enhancement proposal &mdash; <strong>AI Helpers + Sonnet 5</strong></span>
+            <span class="badge green" style="flex-shrink:0;">Completed</span>
+          </div>
+          <div class="ticket-body"><div class="ticket-content">
+
+            <!-- Global Health Metrics -->
+            <div class="health-strip">
+              <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">697.3k</div></div>
+              <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.62</div></div>
+              <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">263m 5s</div></div>
+              <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
+              <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
+              <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+              <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(19/19 Tasks)</div></div>
+            </div>
+
+            <!-- Phase-by-Phase Telemetry -->
+            <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+            <table class="metric-tbl">
+              <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>1. Spec Understanding</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>18m 0s</td>
+                  <td>21.1k / 4.1k</td>
+                  <td>APPROVED</td>
+                </tr>
+                <tr>
+                  <td>2. Repo Assessment</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>8m 58s</td>
+                  <td>13.5k / 10.7k</td>
+                  <td>Score: 100/100 &mdash; APPROVED</td>
+                </tr>
+                <tr>
+                  <td>3. Architectural Planning</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>4m 28s</td>
+                  <td>24.2k / 7.1k</td>
+                  <td>Score: 100/100 &mdash; APPROVED</td>
+                </tr>
+                <tr>
+                  <td>4. Sub-Tasks Creation (DAG)</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>4m 33s</td>
+                  <td>20.6k / 8.7k</td>
+                  <td>Score: 100/100 &mdash; APPROVED</td>
+                </tr>
+                <tr>
+                  <td>5. Code Generation / Harness</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>2 Iterations</td>
+                  <td>174m 58s</td>
+                  <td>573.5k / 13.9k</td>
+                  <td>19/19 tasks approved</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Per-Artifact Edit Counts -->
+            <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+            <table class="metric-tbl">
+              <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Validation</td>
+                  <td>Spec Understanding</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Specs</td>
+                  <td>Spec Understanding</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Repo Assessment</td>
+                  <td>Repo Assessment</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Plan</td>
+                  <td>Architectural Planning</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Tasks</td>
+                  <td>Sub-Tasks Creation (DAG)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div></div>
+        </div>
+
+        <!-- Ticket: SSCSI-254 (Cursor Agent — Sonnet 5) -->
+        <div class="ticket">
+          <div class="ticket-header" onclick="toggle(this,'.ticket')">
+            <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+            <a class="ticket-label" href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank" onclick="event.stopPropagation()">SSCSI-254</a>
+            <span class="ticket-summary">Enhancement proposal &mdash; <strong>Cursor Agent + Sonnet 5</strong></span>
+            <span class="badge green" style="flex-shrink:0;">Completed</span>
+          </div>
+          <div class="ticket-body"><div class="ticket-content">
+
+            <!-- Global Health Metrics -->
+            <div class="health-strip">
+              <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">800.1k</div></div>
+              <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.95</div></div>
+              <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">198m 42s</div></div>
+              <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">100%</div><div class="h-sub">Const. Pass</div></div>
+              <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">100%</div><div class="h-sub">First-pass phases</div></div>
+              <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">0</div><div class="h-sub">0% rejection proxy</div></div>
+              <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(22/22 Tasks)</div></div>
+            </div>
+
+            <!-- Phase-by-Phase Telemetry -->
+            <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+            <table class="metric-tbl">
+              <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>1. Spec Understanding</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>7m 46s</td>
+                  <td>21.0k / 4.0k</td>
+                  <td>Approved</td>
+                </tr>
+                <tr>
+                  <td>2. Repo Assessment</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>8m 48s</td>
+                  <td>13.4k / 9.8k</td>
+                  <td>Score: 98/100 &mdash; excellent</td>
+                </tr>
+                <tr>
+                  <td>3. Architectural Planning</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>7m 43s</td>
+                  <td>23.2k / 6.7k</td>
+                  <td>Score: 96/100 &mdash; excellent</td>
+                </tr>
+                <tr>
+                  <td>4. Sub-Tasks Creation (DAG)</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>8m 55s</td>
+                  <td>20.1k / 10.5k</td>
+                  <td>Score: 95/100 &mdash; excellent</td>
+                </tr>
+                <tr>
+                  <td>5. Code Generation / Harness</td>
+                  <td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td>
+                  <td>1 Iteration</td>
+                  <td>157m 6s</td>
+                  <td>676.5k / 15.0k</td>
+                  <td>22/22 tasks approved</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Per-Artifact Edit Counts -->
+            <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+            <table class="metric-tbl">
+              <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Validation</td>
+                  <td>Spec Understanding</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Specs</td>
+                  <td>Spec Understanding</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Repo Assessment</td>
+                  <td>Repo Assessment</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Plan</td>
+                  <td>Architectural Planning</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+                <tr>
+                  <td>Tasks</td>
+                  <td>Sub-Tasks Creation (DAG)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><span class="edit-count zero">0</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <h2>Operator Details</h2>
+  <p class="section-sub">Technical metadata for the SSCSO operator</p>
+
   <div class="card">
-    <h3>Operator Details</h3>
     <table class="tbl">
       <thead>
         <tr><th>Property</th><th>Value</th></tr>
@@ -103,5 +466,11 @@
 </div>
 
 <div class="footer">OpenSpec Dashboard | Secrets Store CSI Driver Operator</div>
+
+<script>
+  function toggle(el, selector) {
+    el.closest(selector).classList.toggle('open');
+  }
+</script>
 </body>
 </html>

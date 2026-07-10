@@ -21,8 +21,8 @@
       <button class="tab-btn" data-tab="eso">ESO</button>
       <button class="tab-btn" data-tab="mustgather">Must-Gather</button>
       <button class="tab-btn" data-tab="sscso">SSCSO</button>
-      <button class="tab-btn" data-tab="ztwin">ZTWIN</button>
-      <button class="tab-btn" data-tab="certmanager">Cert-Manager</button>
+      <button class="tab-btn" data-tab="ztwim">ZTWIM</button>
+      <button class="tab-btn" data-tab="certmanager">cert-manager</button>
     </div>
   </div>
 </div>
@@ -56,7 +56,7 @@
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/must-gather.html">MUST-GATHER</a></td>
+              <td><a href="operators/must-gather.html">Must-Gather</a></td>
               <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
@@ -70,14 +70,14 @@
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/ztwin.html">ZTWIN</a></td>
+              <td><a href="operators/ztwim.html">ZTWIM</a></td>
               <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="operators/cert-manager.html">Cert-Manager</a></td>
+              <td><a href="operators/cert-manager.html">cert-manager</a></td>
               <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
@@ -360,8 +360,241 @@
       </table>
     </div>
 
+    <h2>EPICs &amp; Tickets</h2>
+    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
+
+    <!-- EPIC 1: Core Operator Development -->
+    <div class="epic open">
+      <div class="epic-header" onclick="toggle(this,'.epic')">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+        <span class="epic-id">OCPBUGS-1001</span>
+        <span class="epic-title">Core Operator Development</span>
+        <div class="epic-meta">
+          <span class="badge green">Complete</span>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="epic-body">
+        <div class="epic-content">
+          <div class="epic-metrics">
+            <div class="metric-pill green"><div class="m-value">5/5</div><div class="m-label">Tickets<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">21</div><div class="m-label">Story<br>Points</div></div>
+            <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Completion<br>Rate</div></div>
+            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+          </div>
+
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <span class="ticket-label">OCPBUGS-1101</span>
+              <span class="ticket-summary">Scaffold ESO operator with OLM bundle</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">62.3k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.31</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">210m 12s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 04s</td><td>6k / 4k</td><td>User approved specs</td></tr>
+                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 20s</td><td>5k / 6k</td><td>Score: 95/100</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 10s</td><td>12k / 5k</td><td>Score: 97/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>10k / 8k</td><td>Score: 96/100</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>3m 15s</td><td>14k / 12k</td><td>Score: 92/100</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 1</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>1</td><td>0</td><td><span class="edit-count has-edits">1</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <span class="ticket-label">OCPBUGS-1102</span>
+              <span class="ticket-summary">Implement ExternalSecret controller reconciler</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">85.1k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.42</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">312m 45s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">60%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">60%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">3</div><div class="h-sub">60% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(3/3 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>3m 10s</td><td>8k / 5k</td><td>User approved specs</td></tr>
+                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>2m 30s</td><td>12k / 9k</td><td>Score: 91/100</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 45s</td><td>15k / 7k</td><td>Score: 93/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 20s</td><td>11k / 9k</td><td>Score: 95/100</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>5m 40s</td><td>20k / 18k</td><td>Score: 88/100</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 3</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>1</td><td>0</td><td><span class="edit-count has-edits">1</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <span class="ticket-label">OCPBUGS-1103</span>
+              <span class="ticket-summary">Add SecretStore &amp; ClusterSecretStore CRDs</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">45.8k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.22</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">145m 30s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">100%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">100%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">0</div><div class="h-sub">0% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 50s</td><td>5k / 3k</td><td>User approved specs</td></tr>
+                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>4k / 5k</td><td>Score: 96/100</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>0m 55s</td><td>8k / 4k</td><td>Score: 98/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>0m 45s</td><td>7k / 5k</td><td>Score: 97/100</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 20s</td><td>10k / 9k</td><td>Score: 94/100</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <span class="ticket-label">OCPBUGS-1104</span>
+              <span class="ticket-summary">Implement PushSecret sync logic</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">55.5k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.25</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">193m 34s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">60%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">60%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">2</div><div class="h-sub">40% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 04s</td><td>6k / 4k</td><td>User approved specs</td></tr>
+                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>1m 00s</td><td>5k / 6k</td><td>Score: 93/100</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>12k / 5k</td><td>Score: 94/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>10k / 8k</td><td>Score: 96/100</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 10s</td><td>16k / 14k</td><td>Score: 90/100</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 2</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <span class="ticket-label">OCPBUGS-1105</span>
+              <span class="ticket-summary">ClusterPushSecret &amp; ClusterExternalSecret support</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">72.0k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.35</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">250m 20s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 30s</td><td>7k / 5k</td><td>User approved specs</td></tr>
+                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>1m 40s</td><td>8k / 7k</td><td>Score: 92/100</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 15s</td><td>14k / 6k</td><td>Score: 95/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 05s</td><td>12k / 10k</td><td>Score: 94/100</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 50s</td><td>18k / 15k</td><td>Score: 91/100</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 1</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>0</td><td>1</td><td><span class="edit-count has-edits">1</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the External Secrets Operator</p>
+
     <div class="card">
-      <h3>Operator Details</h3>
       <table class="tbl">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
@@ -377,94 +610,6 @@
       </table>
     </div>
 
-    <div class="card">
-      <h3>EPICs &amp; Tickets</h3>
-      <p class="section-sub" style="padding-left:0;">Development progress organized by EPIC</p>
-
-      <div class="epic-inline open">
-        <div class="epic-inline-header" onclick="toggleInline(this)">
-          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1001</span>
-          <span style="font-weight:700; flex:1;">Core Operator Development</span>
-          <span class="badge green">Complete</span>
-        </div>
-        <div class="epic-inline-body">
-          <table class="tbl" style="margin-top:12px;">
-            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
-            <tbody>
-              <tr><td>OCPBUGS-1101</td><td>Scaffold ESO operator with OLM bundle</td><td>62.3k</td><td>$0.31</td><td>80%</td></tr>
-              <tr><td>OCPBUGS-1102</td><td>Implement ExternalSecret controller reconciler</td><td>85.1k</td><td>$0.42</td><td>60%</td></tr>
-              <tr><td>OCPBUGS-1103</td><td>Add SecretStore &amp; ClusterSecretStore CRDs</td><td>45.8k</td><td>$0.22</td><td>100%</td></tr>
-              <tr><td>OCPBUGS-1104</td><td>Implement PushSecret sync logic</td><td>55.5k</td><td>$0.25</td><td>60%</td></tr>
-              <tr><td>OCPBUGS-1105</td><td>ClusterPushSecret &amp; ClusterExternalSecret support</td><td>72.0k</td><td>$0.35</td><td>80%</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="epic-inline">
-        <div class="epic-inline-header" onclick="toggleInline(this)">
-          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1002</span>
-          <span style="font-weight:700; flex:1;">QE &amp; Test Automation</span>
-          <span class="badge orange">In Progress</span>
-        </div>
-        <div class="epic-inline-body">
-          <table class="tbl" style="margin-top:12px;">
-            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
-            <tbody>
-              <tr><td>OCPBUGS-1201</td><td>Set up E2E test framework for ESO</td><td>38.2k</td><td>$0.18</td><td>100%</td></tr>
-              <tr><td>OCPBUGS-1202</td><td>Write ExternalSecret reconciler unit tests</td><td>42.0k</td><td>$0.20</td><td>80%</td></tr>
-              <tr><td>OCPBUGS-1203</td><td>SecretStore provider integration tests</td><td>31.4k</td><td>$0.15</td><td>60%</td></tr>
-              <tr><td>OCPBUGS-1204</td><td>ClusterSecretStore cross-namespace test coverage</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-              <tr><td>OCPBUGS-1205</td><td>PushSecret sync E2E validation</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="epic-inline">
-        <div class="epic-inline-header" onclick="toggleInline(this)">
-          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1003</span>
-          <span style="font-weight:700; flex:1;">Bug Fixes &amp; Stability</span>
-          <span class="badge orange">In Progress</span>
-        </div>
-        <div class="epic-inline-body">
-          <table class="tbl" style="margin-top:12px;">
-            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
-            <tbody>
-              <tr><td>OCPBUGS-1301</td><td>Fix secret rotation race condition</td><td>48.7k</td><td>$0.24</td><td>80%</td></tr>
-              <tr><td>OCPBUGS-1302</td><td>Handle provider authentication token expiry</td><td>29.3k</td><td>$0.14</td><td>40%</td></tr>
-              <tr><td>OCPBUGS-1303</td><td>Fix ClusterExternalSecret status propagation</td><td>18.6k</td><td>$0.09</td><td>40%</td></tr>
-              <tr><td>OCPBUGS-1304</td><td>Reconcile loop memory leak under high CRD count</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="epic-inline">
-        <div class="epic-inline-header" onclick="toggleInline(this)">
-          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--gray); background:#f0f4f8; padding:2px 10px; border-radius:6px;">OCPBUGS-1004</span>
-          <span style="font-weight:700; flex:1;">Documentation &amp; Release Readiness</span>
-          <span class="badge blue">To Do</span>
-        </div>
-        <div class="epic-inline-body">
-          <table class="tbl" style="margin-top:12px;">
-            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Compliance</th></tr></thead>
-            <tbody>
-              <tr><td>OCPBUGS-1401</td><td>Write operator upgrade &amp; migration guide</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-              <tr><td>OCPBUGS-1402</td><td>Document CRD API reference (v1)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-              <tr><td>OCPBUGS-1403</td><td>Create provider configuration examples</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-              <tr><td>OCPBUGS-1404</td><td>Release notes &amp; changelog for Aug '26</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-              <tr><td>OCPBUGS-1405</td><td>OLM bundle validation &amp; catalog publish</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
     <p style="margin-top:12px;"><a href="operators/eso.html" style="color:var(--blue); font-weight:500;">View full ESO operator page &rarr;</a></p>
   </div>
 </div>
@@ -473,7 +618,7 @@
 <div id="tab-mustgather" class="tab-panel">
   <div class="section">
     <h2>Must-Gather Operator</h2>
-    <p class="section-sub">Operator-specific status and development details</p>
+    <p class="section-sub">Current status and readiness for the Must-Gather operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="card" style="text-align:center;">
@@ -504,8 +649,10 @@
       </table>
     </div>
 
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the Must-Gather operator</p>
+
     <div class="card">
-      <h3>Operator Details</h3>
       <table class="tbl">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
@@ -527,7 +674,7 @@
 <div id="tab-sscso" class="tab-panel">
   <div class="section">
     <h2>Secrets Store CSI Driver Operator (SSCSO)</h2>
-    <p class="section-sub">Operator-specific status and development details</p>
+    <p class="section-sub">Current status and readiness for the Secrets Store CSI Driver Operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="card" style="text-align:center;">
@@ -558,8 +705,123 @@
       </table>
     </div>
 
+    <h2>EPICs &amp; Tickets</h2>
+    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
+
+    <!-- EPIC: SSCSI-242 -->
+    <div class="epic open">
+      <div class="epic-header" onclick="toggle(this,'.epic')">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">EPIC: SSCSI-242</a>
+        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">Configurable secret rotation and WIF in Secret Store CSI driver operator</a></span>
+        <div class="epic-meta">
+          <span class="badge green">Complete</span>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="epic-body">
+        <div class="epic-content">
+          <div class="epic-metrics">
+            <div class="metric-pill green"><div class="m-value">2/2</div><div class="m-label">Runs<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">1.5M</div><div class="m-label">Total<br>Tokens</div></div>
+            <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Agent<br>Success</div></div>
+            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+          </div>
+
+          <!-- Ticket: SSCSI-254 (AI Helpers — Sonnet 5) -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank" onclick="event.stopPropagation()">SSCSI-254</a>
+              <span class="ticket-summary">Enhancement proposal &mdash; <strong>AI Helpers + Sonnet 5</strong></span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">697.3k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.62</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">263m 5s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(19/19 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>18m 0s</td><td>21.1k / 4.1k</td><td>APPROVED</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 58s</td><td>13.5k / 10.7k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 28s</td><td>24.2k / 7.1k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 33s</td><td>20.6k / 8.7k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>174m 58s</td><td>573.5k / 13.9k</td><td>19/19 tasks approved</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <!-- Ticket: SSCSI-254 (Cursor Agent — Sonnet 5) -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank" onclick="event.stopPropagation()">SSCSI-254</a>
+              <span class="ticket-summary">Enhancement proposal &mdash; <strong>Cursor Agent + Sonnet 5</strong></span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">800.1k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.95</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">198m 42s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">100%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">100%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">0</div><div class="h-sub">0% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(22/22 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>7m 46s</td><td>21.0k / 4.0k</td><td>Approved</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 48s</td><td>13.4k / 9.8k</td><td>Score: 98/100 &mdash; excellent</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>7m 43s</td><td>23.2k / 6.7k</td><td>Score: 96/100 &mdash; excellent</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 55s</td><td>20.1k / 10.5k</td><td>Score: 95/100 &mdash; excellent</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>157m 6s</td><td>676.5k / 15.0k</td><td>22/22 tasks approved</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the SSCSO operator</p>
+
     <div class="card">
-      <h3>Operator Details</h3>
       <table class="tbl">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
@@ -579,11 +841,11 @@
   </div>
 </div>
 
-<!-- TAB: ZTWIN -->
-<div id="tab-ztwin" class="tab-panel">
+<!-- TAB: ZTWIM -->
+<div id="tab-ztwim" class="tab-panel">
   <div class="section">
-    <h2>ZTWIN &mdash; Zero Trust Workload Identity Manager</h2>
-    <p class="section-sub">Operator-specific status and development details</p>
+    <h2>ZTWIM &mdash; Zero Trust Workload Identity Manager</h2>
+    <p class="section-sub">Current status and readiness for the ZTWIM operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="card" style="text-align:center;">
@@ -614,36 +876,86 @@
       </table>
     </div>
 
-    <div class="card">
-      <h3>EPICs &amp; Tickets</h3>
-      <p class="section-sub" style="padding-left:0;">Development progress organized by EPIC</p>
+    <h2>EPICs &amp; Tickets</h2>
+    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
 
-      <div class="epic-inline open">
-        <div class="epic-inline-header" onclick="toggleInline(this)">
-          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-          <span style="font-family:'Courier New',monospace; font-size:0.8em; color:var(--blue); background:#f0f4f8; padding:2px 10px; border-radius:6px;">CM-861</span>
-          <span style="font-weight:700; flex:1;">Integrate Trust Manager with Cert Manager Operator</span>
+    <!-- EPIC: Integrate trust-manager with cert-manager Operator -->
+    <div class="epic open">
+      <div class="epic-header" onclick="toggle(this,'.epic')">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/CM-861" target="_blank">EPIC: CM-861</a>
+        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/CM-861" target="_blank">Integrate trust-manager with cert-manager Operator</a></span>
+        <div class="epic-meta">
           <span class="badge green">Complete</span>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
         </div>
-        <div class="epic-inline-body">
-          <table class="tbl" style="margin-top:12px;">
-            <thead><tr><th>Ticket</th><th>Summary</th><th>Tokens</th><th>Cost</th><th>Wall Time</th><th>Agent Success</th></tr></thead>
-            <tbody>
-              <tr><td><a href="https://redhat.atlassian.net/browse/CM-830" target="_blank">CM-830</a></td><td>Create an enhancement proposal to integrate trust-manager</td><td>487.0k</td><td>$2.23</td><td>190m 58s</td><td>100% (18/18)</td></tr>
-            </tbody>
-          </table>
+      </div>
+      <div class="epic-body">
+        <div class="epic-content">
+          <div class="epic-metrics">
+            <div class="metric-pill green"><div class="m-value">1/1</div><div class="m-label">Tickets<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">487.0k</div><div class="m-label">Total<br>Tokens</div></div>
+            <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Agent<br>Success</div></div>
+            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+          </div>
+
+          <!-- Ticket: CM-830 -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/CM-830" target="_blank" onclick="event.stopPropagation()">Ticket: CM-830</a>
+              <span class="ticket-summary">Create an enhancement proposal to integrate trust-manager</span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">487.0k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.23</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">190m 58s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">0%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">0%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">8</div><div class="h-sub">100% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(18/18 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>38m 34s</td><td>20.0k / 7.8k</td><td>Approved &mdash; manual TLS scan scope</td></tr>
+                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>35m 24s</td><td>19.0k / 10.3k</td><td>Score: 94/100</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>5m 43s</td><td>30.0k / 7.4k</td><td>Score: 95/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>65m 18s</td><td>13.2k / 5.4k</td><td>Score: 97/100</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>15m 54s</td><td>341.1k / 32.8k</td><td>Implementation report complete (18 tasks)</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 7</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>1</td><td><span class="edit-count has-edits">1</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
         </div>
       </div>
     </div>
 
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the ZTWIM operator</p>
+
     <div class="card">
-      <h3>Operator Details</h3>
       <table class="tbl">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
         </thead>
         <tbody>
-          <tr><td>Operator Name</td><td>Zero Trust Workload Identity Manager (ZTWIN)</td></tr>
+          <tr><td>Operator Name</td><td>Zero Trust Workload Identity Manager (ZTWIM)</td></tr>
           <tr><td>Category</td><td>Zero Trust Workload Identity &amp; Networking</td></tr>
           <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
           <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
@@ -651,15 +963,15 @@
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/ztwin.html" style="color:var(--blue); font-weight:500;">View full ZTWIN operator page &rarr;</a></p>
+    <p style="margin-top:12px;"><a href="operators/ztwim.html" style="color:var(--blue); font-weight:500;">View full ZTWIM operator page &rarr;</a></p>
   </div>
 </div>
 
-<!-- TAB: Cert-Manager -->
+<!-- TAB: cert-manager -->
 <div id="tab-certmanager" class="tab-panel">
   <div class="section">
-    <h2>Cert-Manager Operator</h2>
-    <p class="section-sub">Operator-specific status and development details</p>
+    <h2>cert-manager Operator</h2>
+    <p class="section-sub">Current status and readiness for the cert-manager Operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="card" style="text-align:center;">
@@ -690,14 +1002,86 @@
       </table>
     </div>
 
+    <h2>EPICs &amp; Tickets</h2>
+    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
+
+    <!-- EPIC: CM-861 -->
+    <div class="epic open">
+      <div class="epic-header" onclick="toggle(this,'.epic')">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/CM-861" target="_blank">EPIC: CM-861</a>
+        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/CM-861" target="_blank">[Tech Preview] Integrate Trust Manager with Cert Manager Operator</a></span>
+        <div class="epic-meta">
+          <span class="badge green">Complete</span>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:92%"></div></div>
+        </div>
+      </div>
+      <div class="epic-body">
+        <div class="epic-content">
+          <div class="epic-metrics">
+            <div class="metric-pill green"><div class="m-value">1/1</div><div class="m-label">Tickets<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">1.3M</div><div class="m-label">Total<br>Tokens</div></div>
+            <div class="metric-pill teal"><div class="m-value">91.7%</div><div class="m-label">Agent<br>Success</div></div>
+            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+          </div>
+
+          <!-- Ticket: CM-830 -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/CM-830" target="_blank" onclick="event.stopPropagation()">Ticket: CM-830</a>
+              <span class="ticket-summary">Create an enhancement proposal to integrate trust-manager</span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">1.3M</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$4.45</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">184m 11s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">60%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">60%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">91.7%</div><div class="h-sub">(33/36 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>5m 0s</td><td>7.0k / 4.4k</td><td>PASS</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="spin">&#9881;</span><span class="status-running">RUNNING</span></td><td>1 Iteration</td><td>&mdash;</td><td>0 / 0</td><td>&mdash;</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 0s</td><td>6.0k / 5.7k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 0s</td><td>11.7k / 9.0k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>172m 23s</td><td>607.3k / 15.5k</td><td>Implementation report complete (33 task reports)</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the cert-manager operator</p>
+
     <div class="card">
-      <h3>Operator Details</h3>
       <table class="tbl">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
         </thead>
         <tbody>
-          <tr><td>Operator Name</td><td>Cert-Manager Operator for Red Hat OpenShift</td></tr>
+          <tr><td>Operator Name</td><td>cert-manager Operator for Red Hat OpenShift</td></tr>
           <tr><td>Category</td><td>Certificate Management</td></tr>
           <tr><td>CRDs</td><td>Certificate, Issuer, ClusterIssuer</td></tr>
           <tr><td>API Version</td><td>cert-manager.io/v1</td></tr>
@@ -708,7 +1092,7 @@
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/cert-manager.html" style="color:var(--blue); font-weight:500;">View full Cert-Manager operator page &rarr;</a></p>
+    <p style="margin-top:12px;"><a href="operators/cert-manager.html" style="color:var(--blue); font-weight:500;">View full cert-manager operator page &rarr;</a></p>
   </div>
 </div>
 
@@ -728,6 +1112,10 @@
 
   function toggleInline(el) {
     el.closest('.epic-inline').classList.toggle('open');
+  }
+
+  function toggle(el, selector) {
+    el.closest(selector).classList.toggle('open');
   }
 </script>
 </body>
