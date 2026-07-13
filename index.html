@@ -201,13 +201,9 @@
       </div>
 
       <!-- Performance & Metrics Summary -->
-      <div class="card-collapsible">
-        <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
-          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-          <div><h3>Performance &amp; Metrics</h3><p class="section-sub">Model performance across pipeline phases and code generation</p></div>
-        </div>
-        <div class="card-collapsible-body">
-          <div class="card-collapsible-content">
+      <div class="card">
+        <h3>Performance &amp; Metrics</h3>
+        <p class="section-sub">Model performance across pipeline phases and code generation</p>
 
         <div class="metrics-group accent-purple">
           <h4>Overall Report Quality and Code Generation *</h4>
@@ -251,69 +247,250 @@
         </div>
 
         <div class="metrics-group accent-teal">
-          <h4>Quantitative Performance for Code Generation (Across Tasks)</h4>
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th>Phase \ Model</th>
-                <th>Sonnet 5</th>
-                <th>Sonnet 4.5</th>
-                <th>Composer 2.5</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Epic-1</td>
-                <td><span class="score low">120,000</span></td>
-                <td><span class="score mid">90,000</span></td>
-                <td><span class="score mid">85,000</span></td>
-              </tr>
-              <tr>
-                <td>Epic-2</td>
-                <td><span class="score low">100,000</span></td>
-                <td><span class="score mid">95,000</span></td>
-                <td><span class="score mid">93,000</span></td>
-              </tr>
-              <tr>
-                <td>Epic-3</td>
-                <td><span class="score mid">70,000</span></td>
-                <td><span class="score mid">72,000</span></td>
-                <td><span class="score mid">73,000</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <h4 style="margin:0;">Quantitative Performance for Code Generation (Across Tasks)</h4>
+            <div class="view-toggle" id="quantViewToggle">
+              <button class="view-toggle-btn active" data-view="table" onclick="toggleQuantView('table')">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg>
+              </button>
+              <button class="view-toggle-btn" data-view="chart" onclick="toggleQuantView('chart')">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg>
+              </button>
+            </div>
+          </div>
 
-        <div class="metrics-group accent-blue">
-          <h4>ai-helpers vs Cursor for Code Generation</h4>
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th>Agent \ Model</th>
-                <th>Sonnet 5</th>
-                <th>Sonnet 4.5</th>
-                <th>Composer 2.5</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>ai-helpers</td>
-                <td><span class="score low">3.0</span></td>
-                <td><span class="score low">3.5</span></td>
-                <td><span class="score low">3.0</span></td>
-              </tr>
-              <tr>
-                <td>Cursor</td>
-                <td><span class="score low">3.0</span></td>
-                <td><span class="score mid">4.0</span></td>
-                <td><span class="score mid">4.0</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div id="quantTableView">
+            <table class="tbl">
+              <thead>
+                <tr>
+                  <th>Phase \ Model</th>
+                  <th>Sonnet 5</th>
+                  <th>Opus 4.6</th>
+                  <th>Composer 2.5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CM-830</td>
+                  <td><span class="score low">1,701,806</span></td>
+                  <td><span class="score low">1,732,589</span></td>
+                  <td><span class="score high">615,208</span></td>
+                </tr>
+                <tr>
+                  <td>SSCSI-254</td>
+                  <td><span class="score low">592,695</span></td>
+                  <td><span class="score low">598,962</span></td>
+                  <td><span class="score high">214,261</span></td>
+                </tr>
+                <tr>
+                  <td>SPIRE-359</td>
+                  <td><span class="score low">1,034,279</span></td>
+                  <td><span class="score low">1,152,367</span></td>
+                  <td><span class="score high">373,895</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
+          <div id="quantChartView" style="display:none;">
+            <div class="chart-type-tabs">
+              <button class="chart-type-btn active" onclick="switchChartType('barH')">Horizontal Bars</button>
+              <button class="chart-type-btn" onclick="switchChartType('barV')">Vertical Bars</button>
+              <button class="chart-type-btn" onclick="switchChartType('stacked')">Stacked</button>
+              <button class="chart-type-btn" onclick="switchChartType('donut')">Donut</button>
+            </div>
+
+            <!-- Type A: Horizontal Bar Chart -->
+            <div class="chart-type-panel active" id="chartBarH">
+              <div class="chart-container">
+                <div class="chart-group">
+                  <div class="chart-group-label">CM-830</div>
+                  <div class="chart-bars">
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Sonnet 5</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill sonnet5" style="width:98.2%"></div></div>
+                      <span class="chart-bar-value">1,701,806</span>
+                    </div>
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Opus 4.6</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill opus46" style="width:100%"></div></div>
+                      <span class="chart-bar-value">1,732,589</span>
+                    </div>
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Composer 2.5</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill composer25" style="width:35.5%"></div></div>
+                      <span class="chart-bar-value">615,208</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-group">
+                  <div class="chart-group-label">SSCSI-254</div>
+                  <div class="chart-bars">
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Sonnet 5</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill sonnet5" style="width:98.9%"></div></div>
+                      <span class="chart-bar-value">592,695</span>
+                    </div>
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Opus 4.6</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill opus46" style="width:100%"></div></div>
+                      <span class="chart-bar-value">598,962</span>
+                    </div>
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Composer 2.5</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill composer25" style="width:35.8%"></div></div>
+                      <span class="chart-bar-value">214,261</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-group">
+                  <div class="chart-group-label">SPIRE-359</div>
+                  <div class="chart-bars">
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Sonnet 5</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill sonnet5" style="width:89.8%"></div></div>
+                      <span class="chart-bar-value">1,034,279</span>
+                    </div>
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Opus 4.6</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill opus46" style="width:100%"></div></div>
+                      <span class="chart-bar-value">1,152,367</span>
+                    </div>
+                    <div class="chart-bar-row">
+                      <span class="chart-bar-label">Composer 2.5</span>
+                      <div class="chart-bar-track"><div class="chart-bar-fill composer25" style="width:32.4%"></div></div>
+                      <span class="chart-bar-value">373,895</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Type B: Vertical Grouped Bar Chart -->
+            <div class="chart-type-panel" id="chartBarV">
+              <div class="vchart-wrapper">
+                <div class="vchart-y-axis">
+                  <span>1.8M</span><span>1.5M</span><span>1.2M</span><span>0.9M</span><span>0.6M</span><span>0.3M</span><span>0</span>
+                </div>
+                <div class="vchart-area">
+                  <div class="vchart-gridlines">
+                    <div class="vchart-gridline"></div>
+                    <div class="vchart-gridline"></div>
+                    <div class="vchart-gridline"></div>
+                    <div class="vchart-gridline"></div>
+                    <div class="vchart-gridline"></div>
+                    <div class="vchart-gridline"></div>
+                  </div>
+                  <div class="vchart-groups">
+                    <div class="vchart-group">
+                      <div class="vchart-bars">
+                        <div class="vchart-bar sonnet5" style="height:94.5%" title="Sonnet 5: 1,701,806"><span class="vchart-bar-val">1.70M</span></div>
+                        <div class="vchart-bar opus46" style="height:96.3%" title="Opus 4.6: 1,732,589"><span class="vchart-bar-val">1.73M</span></div>
+                        <div class="vchart-bar composer25" style="height:34.2%" title="Composer 2.5: 615,208"><span class="vchart-bar-val">0.62M</span></div>
+                      </div>
+                      <span class="vchart-label">CM-830</span>
+                    </div>
+                    <div class="vchart-group">
+                      <div class="vchart-bars">
+                        <div class="vchart-bar sonnet5" style="height:32.9%" title="Sonnet 5: 592,695"><span class="vchart-bar-val">0.59M</span></div>
+                        <div class="vchart-bar opus46" style="height:33.3%" title="Opus 4.6: 598,962"><span class="vchart-bar-val">0.60M</span></div>
+                        <div class="vchart-bar composer25" style="height:11.9%" title="Composer 2.5: 214,261"><span class="vchart-bar-val">0.21M</span></div>
+                      </div>
+                      <span class="vchart-label">SSCSI-254</span>
+                    </div>
+                    <div class="vchart-group">
+                      <div class="vchart-bars">
+                        <div class="vchart-bar sonnet5" style="height:57.5%" title="Sonnet 5: 1,034,279"><span class="vchart-bar-val">1.03M</span></div>
+                        <div class="vchart-bar opus46" style="height:64.0%" title="Opus 4.6: 1,152,367"><span class="vchart-bar-val">1.15M</span></div>
+                        <div class="vchart-bar composer25" style="height:20.8%" title="Composer 2.5: 373,895"><span class="vchart-bar-val">0.37M</span></div>
+                      </div>
+                      <span class="vchart-label">SPIRE-359</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Type C: Stacked Bar Chart (percentage breakdown) -->
+            <div class="chart-type-panel" id="chartStacked">
+              <div class="stacked-container">
+                <div class="stacked-row">
+                  <div class="stacked-label">CM-830</div>
+                  <div class="stacked-bar">
+                    <div class="stacked-seg sonnet5" style="width:42.0%" title="Sonnet 5: 1,701,806 (42%)"><span>42%</span></div>
+                    <div class="stacked-seg opus46" style="width:42.8%" title="Opus 4.6: 1,732,589 (43%)"><span>43%</span></div>
+                    <div class="stacked-seg composer25" style="width:15.2%" title="Composer 2.5: 615,208 (15%)"><span>15%</span></div>
+                  </div>
+                  <div class="stacked-total">4.05M</div>
+                </div>
+                <div class="stacked-row">
+                  <div class="stacked-label">SSCSI-254</div>
+                  <div class="stacked-bar">
+                    <div class="stacked-seg sonnet5" style="width:42.2%" title="Sonnet 5: 592,695 (42%)"><span>42%</span></div>
+                    <div class="stacked-seg opus46" style="width:42.6%" title="Opus 4.6: 598,962 (43%)"><span>43%</span></div>
+                    <div class="stacked-seg composer25" style="width:15.2%" title="Composer 2.5: 214,261 (15%)"><span>15%</span></div>
+                  </div>
+                  <div class="stacked-total">1.41M</div>
+                </div>
+                <div class="stacked-row">
+                  <div class="stacked-label">SPIRE-359</div>
+                  <div class="stacked-bar">
+                    <div class="stacked-seg sonnet5" style="width:40.4%" title="Sonnet 5: 1,034,279 (40%)"><span>40%</span></div>
+                    <div class="stacked-seg opus46" style="width:45.0%" title="Opus 4.6: 1,152,367 (45%)"><span>45%</span></div>
+                    <div class="stacked-seg composer25" style="width:14.6%" title="Composer 2.5: 373,895 (15%)"><span>15%</span></div>
+                  </div>
+                  <div class="stacked-total">2.56M</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Type D: Donut Charts -->
+            <div class="chart-type-panel" id="chartDonut">
+              <div class="donut-container">
+                <div class="donut-card">
+                  <div class="donut-title">CM-830</div>
+                  <svg class="donut-svg" viewBox="0 0 120 120">
+                    <circle class="donut-ring" cx="60" cy="60" r="48"/>
+                    <circle class="donut-seg sonnet5" cx="60" cy="60" r="48" stroke-dasharray="126.6 301.6" stroke-dashoffset="0"/>
+                    <circle class="donut-seg opus46" cx="60" cy="60" r="48" stroke-dasharray="129.1 301.6" stroke-dashoffset="-126.6"/>
+                    <circle class="donut-seg composer25" cx="60" cy="60" r="48" stroke-dasharray="45.9 301.6" stroke-dashoffset="-255.7"/>
+                    <text x="60" y="58" class="donut-center-text">4.05M</text>
+                    <text x="60" y="72" class="donut-center-sub">tokens</text>
+                  </svg>
+                </div>
+                <div class="donut-card">
+                  <div class="donut-title">SSCSI-254</div>
+                  <svg class="donut-svg" viewBox="0 0 120 120">
+                    <circle class="donut-ring" cx="60" cy="60" r="48"/>
+                    <circle class="donut-seg sonnet5" cx="60" cy="60" r="48" stroke-dasharray="127.3 301.6" stroke-dashoffset="0"/>
+                    <circle class="donut-seg opus46" cx="60" cy="60" r="48" stroke-dasharray="128.5 301.6" stroke-dashoffset="-127.3"/>
+                    <circle class="donut-seg composer25" cx="60" cy="60" r="48" stroke-dasharray="45.8 301.6" stroke-dashoffset="-255.8"/>
+                    <text x="60" y="58" class="donut-center-text">1.41M</text>
+                    <text x="60" y="72" class="donut-center-sub">tokens</text>
+                  </svg>
+                </div>
+                <div class="donut-card">
+                  <div class="donut-title">SPIRE-359</div>
+                  <svg class="donut-svg" viewBox="0 0 120 120">
+                    <circle class="donut-ring" cx="60" cy="60" r="48"/>
+                    <circle class="donut-seg sonnet5" cx="60" cy="60" r="48" stroke-dasharray="121.8 301.6" stroke-dashoffset="0"/>
+                    <circle class="donut-seg opus46" cx="60" cy="60" r="48" stroke-dasharray="135.7 301.6" stroke-dashoffset="-121.8"/>
+                    <circle class="donut-seg composer25" cx="60" cy="60" r="48" stroke-dasharray="44.1 301.6" stroke-dashoffset="-257.5"/>
+                    <text x="60" y="58" class="donut-center-text">2.56M</text>
+                    <text x="60" y="72" class="donut-center-sub">tokens</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot sonnet5"></span> Sonnet 5</span>
+              <span class="legend-item"><span class="legend-dot opus46"></span> Opus 4.6</span>
+              <span class="legend-item"><span class="legend-dot composer25"></span> Composer 2.5</span>
+            </div>
           </div>
         </div>
+
       </div>
 
   </div>
@@ -1117,6 +1294,29 @@
 
   function toggle(el, selector) {
     el.closest(selector).classList.toggle('open');
+  }
+
+  function toggleQuantView(view) {
+    var tableView = document.getElementById('quantTableView');
+    var chartView = document.getElementById('quantChartView');
+    var btns = document.querySelectorAll('#quantViewToggle .view-toggle-btn');
+    btns.forEach(function(b) { b.classList.remove('active'); });
+    document.querySelector('#quantViewToggle .view-toggle-btn[data-view="' + view + '"]').classList.add('active');
+    if (view === 'chart') {
+      tableView.style.display = 'none';
+      chartView.style.display = 'block';
+    } else {
+      tableView.style.display = 'block';
+      chartView.style.display = 'none';
+    }
+  }
+
+  function switchChartType(type) {
+    var map = { barH: 'chartBarH', barV: 'chartBarV', stacked: 'chartStacked', donut: 'chartDonut' };
+    document.querySelectorAll('.chart-type-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.chart-type-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById(map[type]).classList.add('active');
+    event.currentTarget.classList.add('active');
   }
 </script>
 </body>
