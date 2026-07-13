@@ -241,6 +241,195 @@ body {
   color: white; font-weight: 600; font-size: 0.85em;
 }
 
+/* Development progress bar */
+.dev-progress-label {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px; font-weight: 600; font-size: 0.95em;
+}
+.segmented-progress {
+  display: flex; gap: 4px; height: 28px; border-radius: 14px; overflow: hidden;
+}
+.seg-item {
+  flex: 1; border-radius: 14px;
+}
+.seg-item.complete {
+  background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+}
+.seg-item.half-complete {
+  background: linear-gradient(90deg, var(--green) 0%, var(--green) 50%, #f9e79f 50%, #f9e79f 100%);
+  border-radius: 14px;
+}
+.seg-item.wip {
+  background: #f9e79f;
+}
+.seg-legends {
+  display: flex; gap: 4px; margin-top: 8px;
+}
+.seg-legend {
+  flex: 1; text-align: center; font-size: 0.82em; font-weight: 600;
+}
+.seg-legend.complete { color: var(--green); }
+.seg-legend.half-complete { color: var(--green); }
+.seg-legend.wip { color: #b7950b; }
+
+/* Design variant wrapper */
+.design-variant {
+  margin-bottom: 32px; padding-bottom: 32px;
+  border-bottom: 1px dashed #e0e4e8;
+}
+.design-variant:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+h4.variant-label {
+  font-size: 0.85em; font-weight: 700; color: var(--purple);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  margin-top: 0; margin-bottom: 16px; padding-left: 0; border-left: none;
+}
+
+/* Design B: Pill Stepper */
+.stepper {
+  display: flex; align-items: flex-start; justify-content: center; padding: 20px 0;
+}
+.stepper-step {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.stepper-circle {
+  width: 40px; height: 40px; min-width: 40px; min-height: 40px;
+  border-radius: 50%; border: 4px solid #ddd;
+  background: white; transition: all 0.3s;
+}
+.stepper-step.complete .stepper-circle {
+  background: var(--green); border-color: var(--green);
+  box-shadow: 0 0 0 5px rgba(39, 174, 96, 0.15);
+}
+.stepper-step.half-complete .stepper-circle {
+  background: linear-gradient(90deg, var(--green) 50%, #f9e79f 50%);
+  border-color: var(--green);
+  box-shadow: 0 0 0 5px rgba(39, 174, 96, 0.15);
+}
+.stepper-step.wip .stepper-circle {
+  background: #f9e79f; border-color: #f1c40f;
+  box-shadow: 0 0 0 5px rgba(241, 196, 15, 0.15);
+}
+.stepper-label {
+  font-size: 0.85em; font-weight: 600; color: var(--gray);
+}
+.stepper-step.complete .stepper-label { color: var(--green); }
+.stepper-step.half-complete .stepper-label { color: var(--green); }
+.stepper-step.wip .stepper-label { color: #b7950b; }
+.stepper-line {
+  flex: 1; height: 4px; background: #eee; margin: 0 8px;
+  margin-top: 18px;
+  border-radius: 2px; min-width: 60px;
+}
+.stepper-line.complete { background: var(--green); }
+
+/* Design C: Stacked Bars */
+.stacked-bars { display: flex; flex-direction: column; gap: 16px; }
+.stacked-row {
+  display: flex; align-items: center; gap: 12px;
+}
+.stacked-label {
+  width: 110px; min-width: 110px; font-size: 0.88em; font-weight: 600; color: var(--dark); text-align: right;
+}
+.stacked-track {
+  flex: 1; height: 24px; min-height: 24px; background: #eee; border-radius: 12px; overflow: hidden;
+}
+.stacked-fill {
+  height: 100%; min-height: 24px; border-radius: 12px; transition: width 0.4s ease;
+}
+.stacked-fill.complete {
+  background: linear-gradient(90deg, var(--green) 0%, var(--teal) 100%);
+}
+.stacked-fill.half-complete {
+  background: linear-gradient(90deg, var(--green) 0%, var(--teal) 100%);
+}
+.stacked-fill.wip {
+  background: linear-gradient(90deg, #f1c40f 0%, #f9e79f 100%);
+}
+.stacked-pct {
+  width: 44px; min-width: 44px; font-size: 0.88em; font-weight: 700; color: var(--dark);
+}
+
+/* Design D: Donut Gauge */
+.donut-wrapper {
+  position: relative; width: 160px; height: 160px; margin: 0 auto 20px;
+}
+.donut-svg { width: 100%; height: 100%; transform: rotate(-90deg); display: block; }
+.donut-bg {
+  fill: none; stroke: #eee; stroke-width: 12;
+}
+.donut-fill {
+  fill: none; stroke: var(--green); stroke-width: 12;
+  stroke-linecap: round; transition: stroke-dashoffset 0.6s ease;
+}
+.donut-center {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.donut-value { font-size: 2em; font-weight: 800; color: var(--dark); line-height: 1; }
+.donut-sub { font-size: 0.85em; color: var(--gray); margin-top: 4px; }
+.donut-legend {
+  display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+}
+.donut-legend-item {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.88em; font-weight: 500; color: var(--dark);
+}
+.donut-dot {
+  width: 12px; height: 12px; min-width: 12px; min-height: 12px; border-radius: 50%; display: inline-block;
+}
+.donut-dot.complete { background: var(--green); }
+.donut-dot.wip { background: #f1c40f; }
+
+/* Design E: Timeline Track */
+.timeline-track { position: relative; padding: 30px 20px 10px; }
+.timeline-rail {
+  position: absolute; top: 42px; left: 60px; right: 60px;
+  height: 4px; background: #eee; border-radius: 2px;
+}
+.timeline-rail-fill {
+  width: 33%; height: 100%; background: var(--green); border-radius: 2px;
+}
+.timeline-nodes {
+  display: flex; justify-content: space-between; position: relative;
+}
+.timeline-node {
+  display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 1;
+}
+.timeline-dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 3px solid #ddd; background: white;
+}
+.timeline-node.complete .timeline-dot {
+  background: var(--green); border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.2);
+}
+.timeline-node.half-complete .timeline-dot {
+  background: linear-gradient(90deg, var(--green) 50%, #f9e79f 50%);
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.2);
+}
+.timeline-node.active .timeline-dot {
+  background: #f1c40f; border-color: #f1c40f;
+  box-shadow: 0 0 0 4px rgba(241, 196, 15, 0.25), 0 0 8px rgba(241, 196, 15, 0.4);
+  animation: pulse-dot 1.5s infinite;
+}
+.timeline-node.pending .timeline-dot {
+  background: #eee; border-color: #ddd;
+}
+.timeline-label {
+  font-size: 0.82em; font-weight: 600;
+}
+.timeline-node.complete .timeline-label { color: var(--green); }
+.timeline-node.half-complete .timeline-label { color: var(--green); }
+.timeline-node.active .timeline-label { color: #b7950b; }
+.timeline-node.pending .timeline-label { color: var(--gray); }
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(241, 196, 15, 0.25); }
+  50% { box-shadow: 0 0 0 8px rgba(241, 196, 15, 0.15), 0 0 12px rgba(241, 196, 15, 0.3); }
+}
+
 .footer {
   text-align: center; padding: 30px; color: var(--gray); font-size: 0.85em;
   margin-top: auto;

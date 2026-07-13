@@ -930,6 +930,10 @@
 <!-- TAB: cert-manager -->
 <div id="tab-certmanager" class="tab-panel">
   <div class="section">
+    <div class="callout info" style="margin-bottom:24px;">
+      <strong>Experimental Tab</strong>
+      This is an experimental tab used for testing new UI designs and layout ideas before applying them to other operator tabs.
+    </div>
     <h2>cert-manager Operator</h2>
     <p class="section-sub">Current status and readiness for the cert-manager Operator</p>
 
@@ -943,23 +947,52 @@
         <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
       </div>
       <div class="card" style="text-align:center;">
-        <h3>Target Release</h3>
+        <h3>End to End Release</h3>
         <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="overflow:visible;">
       <h3>Development Progress</h3>
-      <table class="tbl">
-        <thead>
-          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
-          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
-          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
-        </tbody>
-      </table>
+
+      <!-- Design A: Segmented Bar -->
+      <div class="design-variant">
+        <h4 class="variant-label">Design A: Segmented Bar</h4>
+        <div class="segmented-progress">
+          <div class="seg-item complete"></div>
+          <div class="seg-item half-complete"></div>
+          <div class="seg-item wip"></div>
+        </div>
+        <div class="seg-legends">
+          <span class="seg-legend complete">Development</span>
+          <span class="seg-legend half-complete">QE</span>
+          <span class="seg-legend wip">Bug Fix</span>
+        </div>
+      </div>
+
+
+      <!-- Design C: Stacked Bars -->
+      <div class="design-variant">
+        <h4 class="variant-label">Design C: Stacked Bars</h4>
+        <div class="stacked-bars">
+          <div class="stacked-row">
+            <span class="stacked-label">Development</span>
+            <div class="stacked-track"><div class="stacked-fill complete" style="width:100%"></div></div>
+            <span class="stacked-pct">100%</span>
+          </div>
+          <div class="stacked-row">
+            <span class="stacked-label">QE</span>
+            <div class="stacked-track"><div class="stacked-fill half-complete" style="width:50%"></div></div>
+            <span class="stacked-pct">50%</span>
+          </div>
+          <div class="stacked-row">
+            <span class="stacked-label">Bug Fix</span>
+            <div class="stacked-track"><div class="stacked-fill wip" style="width:25%"></div></div>
+            <span class="stacked-pct">25%</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <h2>EPICs &amp; Tickets</h2>
