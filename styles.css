@@ -187,34 +187,6 @@ body {
 .callout.success { border-color: var(--green); background: var(--callout-success-bg); }
 .callout strong { display: block; margin-bottom: 4px; }
 
-/* Layer architecture visual */
-.layer-stack { display: flex; flex-direction: column; gap: 2px; }
-.layer-row { display: grid; grid-template-columns: 140px 1fr; gap: 0; min-height: 48px; }
-.layer-label {
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.85em; color: white;
-  padding: 12px 16px; text-align: center; border-radius: 8px 0 0 8px;
-}
-.layer-label.l1 { background: var(--blue); }
-.layer-label.l2 { background: var(--teal); }
-.layer-label.l3 { background: var(--purple); }
-.layer-label.l4 { background: var(--orange); }
-.layer-label.l5 { background: var(--red); }
-.layer-tools {
-  background: white; border: 1px solid #e8e8e8; border-left: none;
-  border-radius: 0 8px 8px 0; padding: 8px 16px;
-  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-}
-.tool-chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 14px; border-radius: 20px; font-size: 0.85em;
-  font-weight: 500; background: #f0f4f8; border: 1px solid #e0e6ed;
-}
-.tool-chip .tool-status {
-  font-size: 0.75em; padding: 2px 8px; border-radius: 10px;
-  color: white; font-weight: 600;
-}
-
 /* Stats Grid */
 .stats-grid {
   display: grid;
@@ -451,7 +423,6 @@ body { display: flex; flex-direction: column; }
   .section { padding: 24px 20px; }
   .header { padding: 24px 20px; }
   .kpi-strip { padding: 16px 20px; }
-  .layer-row { grid-template-columns: 100px 1fr; }
   .header-tabs { overflow-x: auto; justify-content: center; }
   .header-tabs .tab-segment { flex-direction: row; width: auto; }
   .tab-btn { padding: 8px 18px; font-size: 0.85em; }
@@ -461,4 +432,133 @@ body { display: flex; flex-direction: column; }
   .epic-progress { width: 80px; }
   .epic-meta { flex-wrap: wrap; }
   .health-strip { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+}
+
+/* ── Pipeline Flow 2 ── */
+.pf2-wrap { overflow-x: auto; padding: 8px 0; }
+.pf2-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-width: 1000px;
+  padding: 24px 16px 8px;
+}
+.pf2-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pf2-node {
+  position: relative;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.82em;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  line-height: 1.35;
+}
+.pf2-node:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  z-index: 10;
+  filter: brightness(1.08);
+}
+.pf2-node-orange { background: linear-gradient(135deg, #f5a623, #e67e22); color: #fff; }
+.pf2-node-blue   { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; }
+.pf2-node-dark   { background: linear-gradient(135deg, #34495e, #2c3e50); color: #fff; }
+.pf2-node-light  { background: #fff; border: 1.5px solid #dce1e8; color: var(--dark); }
+.pf2-node-wip    { background: #fff; border: 1.5px dashed #b0b8c4; color: #95a5a6; }
+.pf2-tip-data    { display: none; }
+
+.pf2-vconn { display: flex; justify-content: center; padding: 2px 0; }
+.pf2-hconn { display: inline-flex; align-items: center; padding: 0 3px; flex-shrink: 0; }
+
+.pf2-layer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 920px;
+  padding: 0 16px;
+}
+.pf2-group { display: flex; align-items: center; }
+
+.pf2-dual-conn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 920px;
+  padding: 0 80px;
+}
+
+.pf2-label {
+  font-size: 0.78em;
+  color: #95a5a6;
+  font-weight: 600;
+  padding: 5px 14px;
+  background: #f8f9fb;
+  border-radius: 8px;
+  border: 1px dashed #dce1e8;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pf2-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+/* Floating tooltip */
+.pf2-floating-tip {
+  position: fixed;
+  z-index: 100000;
+  width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  display: none;
+}
+.pf2-floating-tip.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.pf2-floating-tip h4 {
+  font-size: 0.95em;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.pf2-floating-tip p {
+  font-size: 0.84em;
+  color: #5a6a7a;
+  margin-bottom: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.pf2-tip-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pf2-tip-links a {
+  font-size: 0.8em;
+  padding: 5px 14px;
+  background: #eaf2f8;
+  color: #2980b9;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pf2-tip-links a:hover {
+  background: #2980b9;
+  color: #fff;
 }
