@@ -296,7 +296,6 @@
             <div class="chart-type-tabs">
               <button class="chart-type-btn active" onclick="switchChartType('barH')">Horizontal Bars</button>
               <button class="chart-type-btn" onclick="switchChartType('barV')">Vertical Bars</button>
-              <button class="chart-type-btn" onclick="switchChartType('stacked')">Stacked</button>
               <button class="chart-type-btn" onclick="switchChartType('donut')">Donut</button>
             </div>
 
@@ -411,73 +410,88 @@
               </div>
             </div>
 
-            <!-- Type C: Stacked Bar Chart (percentage breakdown) -->
-            <div class="chart-type-panel" id="chartStacked">
-              <div class="stacked-container">
-                <div class="stacked-row">
-                  <div class="stacked-label">CM-830</div>
-                  <div class="stacked-bar">
-                    <div class="stacked-seg sonnet5" style="width:42.0%" title="Sonnet 5: 1,701,806 (42%)"><span>42%</span></div>
-                    <div class="stacked-seg opus46" style="width:42.8%" title="Opus 4.6: 1,732,589 (43%)"><span>43%</span></div>
-                    <div class="stacked-seg composer25" style="width:15.2%" title="Composer 2.5: 615,208 (15%)"><span>15%</span></div>
-                  </div>
-                  <div class="stacked-total">4.05M</div>
-                </div>
-                <div class="stacked-row">
-                  <div class="stacked-label">SSCSI-254</div>
-                  <div class="stacked-bar">
-                    <div class="stacked-seg sonnet5" style="width:42.2%" title="Sonnet 5: 592,695 (42%)"><span>42%</span></div>
-                    <div class="stacked-seg opus46" style="width:42.6%" title="Opus 4.6: 598,962 (43%)"><span>43%</span></div>
-                    <div class="stacked-seg composer25" style="width:15.2%" title="Composer 2.5: 214,261 (15%)"><span>15%</span></div>
-                  </div>
-                  <div class="stacked-total">1.41M</div>
-                </div>
-                <div class="stacked-row">
-                  <div class="stacked-label">SPIRE-359</div>
-                  <div class="stacked-bar">
-                    <div class="stacked-seg sonnet5" style="width:40.4%" title="Sonnet 5: 1,034,279 (40%)"><span>40%</span></div>
-                    <div class="stacked-seg opus46" style="width:45.0%" title="Opus 4.6: 1,152,367 (45%)"><span>45%</span></div>
-                    <div class="stacked-seg composer25" style="width:14.6%" title="Composer 2.5: 373,895 (15%)"><span>15%</span></div>
-                  </div>
-                  <div class="stacked-total">2.56M</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Type D: Donut Charts -->
+            <!-- Type C: Donut Charts with Leader Lines -->
             <div class="chart-type-panel" id="chartDonut">
               <div class="donut-container">
-                <div class="donut-card">
+                <div class="donut-card-labeled">
                   <div class="donut-title">CM-830</div>
-                  <svg class="donut-svg" viewBox="0 0 120 120">
-                    <circle class="donut-ring" cx="60" cy="60" r="48"/>
-                    <circle class="donut-seg sonnet5" cx="60" cy="60" r="48" stroke-dasharray="126.6 301.6" stroke-dashoffset="0"/>
-                    <circle class="donut-seg opus46" cx="60" cy="60" r="48" stroke-dasharray="129.1 301.6" stroke-dashoffset="-126.6"/>
-                    <circle class="donut-seg composer25" cx="60" cy="60" r="48" stroke-dasharray="45.9 301.6" stroke-dashoffset="-255.7"/>
-                    <text x="60" y="58" class="donut-center-text">4.05M</text>
-                    <text x="60" y="72" class="donut-center-sub">tokens</text>
+                  <svg class="donut-labeled-svg" viewBox="0 0 340 170">
+                    <circle class="donut-ring" cx="145" cy="85" r="45"/>
+                    <circle class="donut-seg sonnet5" cx="145" cy="85" r="45" stroke-dasharray="119.1 282.7" stroke-dashoffset="70.7"/>
+                    <circle class="donut-seg opus46" cx="145" cy="85" r="45" stroke-dasharray="121.0 282.7" stroke-dashoffset="-48.4"/>
+                    <circle class="donut-seg composer25" cx="145" cy="85" r="45" stroke-dasharray="42.6 282.7" stroke-dashoffset="-169.4"/>
+                    <!-- Leader: Sonnet 5 (right) -->
+                    <polyline class="leader-line" points="197,69 212,62 232,62"/>
+                    <circle class="leader-dot" cx="197" cy="69" r="2.5"/>
+                    <text class="leader-text" x="235" y="58">Sonnet 5</text>
+                    <text class="leader-value" x="235" y="70">1,701,806</text>
+                    <!-- Leader: Opus 4.6 (bottom-left) -->
+                    <polyline class="leader-line" points="97,117 80,130 55,130"/>
+                    <circle class="leader-dot" cx="97" cy="117" r="2.5"/>
+                    <text class="leader-text" x="52" y="127" text-anchor="end">Opus 4.6</text>
+                    <text class="leader-value" x="52" y="139" text-anchor="end">1,732,589</text>
+                    <!-- Leader: Composer 2.5 (top-left) -->
+                    <polyline class="leader-line" points="117,42 102,28 55,28"/>
+                    <circle class="leader-dot" cx="117" cy="42" r="2.5"/>
+                    <text class="leader-text" x="52" y="24" text-anchor="end">Composer 2.5</text>
+                    <text class="leader-value" x="52" y="36" text-anchor="end">615,208</text>
+                    <!-- Center label -->
+                    <text class="donut-svg-center" x="145" y="83">4.05M</text>
+                    <text class="donut-svg-sub" x="145" y="96">tokens</text>
                   </svg>
                 </div>
-                <div class="donut-card">
+                <div class="donut-card-labeled">
                   <div class="donut-title">SSCSI-254</div>
-                  <svg class="donut-svg" viewBox="0 0 120 120">
-                    <circle class="donut-ring" cx="60" cy="60" r="48"/>
-                    <circle class="donut-seg sonnet5" cx="60" cy="60" r="48" stroke-dasharray="127.3 301.6" stroke-dashoffset="0"/>
-                    <circle class="donut-seg opus46" cx="60" cy="60" r="48" stroke-dasharray="128.5 301.6" stroke-dashoffset="-127.3"/>
-                    <circle class="donut-seg composer25" cx="60" cy="60" r="48" stroke-dasharray="45.8 301.6" stroke-dashoffset="-255.8"/>
-                    <text x="60" y="58" class="donut-center-text">1.41M</text>
-                    <text x="60" y="72" class="donut-center-sub">tokens</text>
+                  <svg class="donut-labeled-svg" viewBox="0 0 340 170">
+                    <circle class="donut-ring" cx="145" cy="85" r="45"/>
+                    <circle class="donut-seg sonnet5" cx="145" cy="85" r="45" stroke-dasharray="119.5 282.7" stroke-dashoffset="70.7"/>
+                    <circle class="donut-seg opus46" cx="145" cy="85" r="45" stroke-dasharray="120.6 282.7" stroke-dashoffset="-48.8"/>
+                    <circle class="donut-seg composer25" cx="145" cy="85" r="45" stroke-dasharray="42.6 282.7" stroke-dashoffset="-169.4"/>
+                    <!-- Leader: Sonnet 5 (right) -->
+                    <polyline class="leader-line" points="197,69 212,62 232,62"/>
+                    <circle class="leader-dot" cx="197" cy="69" r="2.5"/>
+                    <text class="leader-text" x="235" y="58">Sonnet 5</text>
+                    <text class="leader-value" x="235" y="70">592,695</text>
+                    <!-- Leader: Opus 4.6 (bottom-left) -->
+                    <polyline class="leader-line" points="97,117 80,130 55,130"/>
+                    <circle class="leader-dot" cx="97" cy="117" r="2.5"/>
+                    <text class="leader-text" x="52" y="127" text-anchor="end">Opus 4.6</text>
+                    <text class="leader-value" x="52" y="139" text-anchor="end">598,962</text>
+                    <!-- Leader: Composer 2.5 (top-left) -->
+                    <polyline class="leader-line" points="117,42 102,28 55,28"/>
+                    <circle class="leader-dot" cx="117" cy="42" r="2.5"/>
+                    <text class="leader-text" x="52" y="24" text-anchor="end">Composer 2.5</text>
+                    <text class="leader-value" x="52" y="36" text-anchor="end">214,261</text>
+                    <!-- Center label -->
+                    <text class="donut-svg-center" x="145" y="83">1.41M</text>
+                    <text class="donut-svg-sub" x="145" y="96">tokens</text>
                   </svg>
                 </div>
-                <div class="donut-card">
+                <div class="donut-card-labeled">
                   <div class="donut-title">SPIRE-359</div>
-                  <svg class="donut-svg" viewBox="0 0 120 120">
-                    <circle class="donut-ring" cx="60" cy="60" r="48"/>
-                    <circle class="donut-seg sonnet5" cx="60" cy="60" r="48" stroke-dasharray="121.8 301.6" stroke-dashoffset="0"/>
-                    <circle class="donut-seg opus46" cx="60" cy="60" r="48" stroke-dasharray="135.7 301.6" stroke-dashoffset="-121.8"/>
-                    <circle class="donut-seg composer25" cx="60" cy="60" r="48" stroke-dasharray="44.1 301.6" stroke-dashoffset="-257.5"/>
-                    <text x="60" y="58" class="donut-center-text">2.56M</text>
-                    <text x="60" y="72" class="donut-center-sub">tokens</text>
+                  <svg class="donut-labeled-svg" viewBox="0 0 340 170">
+                    <circle class="donut-ring" cx="145" cy="85" r="45"/>
+                    <circle class="donut-seg sonnet5" cx="145" cy="85" r="45" stroke-dasharray="114.4 282.7" stroke-dashoffset="70.7"/>
+                    <circle class="donut-seg opus46" cx="145" cy="85" r="45" stroke-dasharray="127.4 282.7" stroke-dashoffset="-43.7"/>
+                    <circle class="donut-seg composer25" cx="145" cy="85" r="45" stroke-dasharray="40.9 282.7" stroke-dashoffset="-171.1"/>
+                    <!-- Leader: Sonnet 5 (right) -->
+                    <polyline class="leader-line" points="195,66 210,58 232,58"/>
+                    <circle class="leader-dot" cx="195" cy="66" r="2.5"/>
+                    <text class="leader-text" x="235" y="54">Sonnet 5</text>
+                    <text class="leader-value" x="235" y="66">1,034,279</text>
+                    <!-- Leader: Opus 4.6 (bottom-left) -->
+                    <polyline class="leader-line" points="93,120 76,134 55,134"/>
+                    <circle class="leader-dot" cx="93" cy="120" r="2.5"/>
+                    <text class="leader-text" x="52" y="131" text-anchor="end">Opus 4.6</text>
+                    <text class="leader-value" x="52" y="143" text-anchor="end">1,152,367</text>
+                    <!-- Leader: Composer 2.5 (top-left) -->
+                    <polyline class="leader-line" points="115,40 100,26 55,26"/>
+                    <circle class="leader-dot" cx="115" cy="40" r="2.5"/>
+                    <text class="leader-text" x="52" y="22" text-anchor="end">Composer 2.5</text>
+                    <text class="leader-value" x="52" y="34" text-anchor="end">373,895</text>
+                    <!-- Center label -->
+                    <text class="donut-svg-center" x="145" y="83">2.56M</text>
+                    <text class="donut-svg-sub" x="145" y="96">tokens</text>
                   </svg>
                 </div>
               </div>
@@ -1312,7 +1326,7 @@
   }
 
   function switchChartType(type) {
-    var map = { barH: 'chartBarH', barV: 'chartBarV', stacked: 'chartStacked', donut: 'chartDonut' };
+    var map = { barH: 'chartBarH', barV: 'chartBarV', donut: 'chartDonut' };
     document.querySelectorAll('.chart-type-panel').forEach(function(p) { p.classList.remove('active'); });
     document.querySelectorAll('.chart-type-btn').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById(map[type]).classList.add('active');
