@@ -13,13 +13,13 @@ function toggleQuantView(view) {
   }
 }
 
-function switchChartType(type) {
+function switchChartType(type, btn) {
   var map = { barH: 'chartBarH', barV: 'chartBarV', donut: 'chartDonut' };
   var container = document.getElementById('quantChartView');
   container.querySelectorAll('.chart-type-panel').forEach(function(p) { p.classList.remove('active'); });
   container.querySelectorAll('.chart-type-btn').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById(map[type]).classList.add('active');
-  event.currentTarget.classList.add('active');
+  btn.classList.add('active');
 }
 
 function toggleEpicView(epic, view) {
