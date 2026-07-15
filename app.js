@@ -70,7 +70,7 @@ function switchEpicChart(epic, type, btn) {
 }
 
 function loadTabContent(tabId, url) {
-  fetch(url)
+  return fetch(url)
     .then(function(r) { return r.text(); })
     .then(function(html) {
       document.getElementById('tab-' + tabId).innerHTML = html;
@@ -79,7 +79,6 @@ function loadTabContent(tabId, url) {
 
 (function init() {
   var tabs = [
-    { id: 'overview', url: 'tabs/overview.html' },
     { id: 'certmanager', url: 'tabs/certmanager.html' },
     { id: 'ztwim', url: 'tabs/ztwim.html' },
     { id: 'sscso', url: 'tabs/sscso.html' },
@@ -92,22 +91,24 @@ function loadTabContent(tabId, url) {
     loadTabContent(tab.id, tab.url);
   });
 
-  fetch('layered-architecture.html')
-    .then(function(r) { return r.text(); })
-    .then(function(html) {
-      var container = document.getElementById('layeredArchitectureContainer');
-      if (container) container.innerHTML = html;
-    });
+  loadTabContent('overview', 'tabs/overview.html').then(function() {
+    fetch('layered-architecture.html')
+      .then(function(r) { return r.text(); })
+      .then(function(html) {
+        var container = document.getElementById('layeredArchitectureContainer');
+        if (container) container.innerHTML = html;
+      });
 
-  fetch('pipeline-flow2.html?v=3')
-    .then(function(r) { return r.text(); })
-    .then(function(html) {
-      var container = document.getElementById('pf2Container');
-      if (container) {
-        container.innerHTML = html;
-        var s = document.createElement('script');
-        s.src = 'pipeline-flow2.js';
-        document.body.appendChild(s);
-      }
-    });
+    fetch('pipeline-flow2.html?v=4')
+      .then(function(r) { return r.text(); })
+      .then(function(html) {
+        var container = document.getElementById('pf2Container');
+        if (container) {
+          container.innerHTML = html;
+          var s = document.createElement('script');
+          s.src = 'pipeline-flow2.js?v=3';
+          document.body.appendChild(s);
+        }
+      });
+  });
 })();

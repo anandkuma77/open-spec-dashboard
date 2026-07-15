@@ -21,6 +21,11 @@
       text: '',
       links: [['Prompt and result', 'https://github.com/anandkuma77/open-spec-dashboard/tree/main/prompt_examples/Tasks']]
     },
+    'historical': {
+      title: 'Eval Pipeline',
+      text: '',
+      links: [['eval-generation', 'https://github.com/sujkini/openspec/tree/openspec-operator-generic/eval-generation']]
+    },
     'codegen': {
       title: 'Code & Unit Tests Generation',
       text: '',
@@ -66,12 +71,15 @@
     }, 250);
   }
 
-  document.querySelectorAll('[data-tip]').forEach(function (node) {
-    node.addEventListener('mouseenter', function () {
-      showTip(node, node.getAttribute('data-tip'));
-    });
-    node.addEventListener('mouseleave', hideTip);
-  });
+  document.addEventListener('mouseenter', function (e) {
+    var node = e.target.closest('[data-tip]');
+    if (node) showTip(node, node.getAttribute('data-tip'));
+  }, true);
+
+  document.addEventListener('mouseleave', function (e) {
+    var node = e.target.closest('[data-tip]');
+    if (node) hideTip();
+  }, true);
 
   tip.addEventListener('mouseenter', function () {
     clearTimeout(hideTimer);
