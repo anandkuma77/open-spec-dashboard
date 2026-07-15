@@ -60,6 +60,15 @@
           <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="pf2-node pf2-light" data-tip="pr">PR raised for each<br>phase of human-approved<br>code</div>
+        <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pf2-node pf2-blue" data-tip="coderabbit">Code-rabbit<br>reviews</div>
+      </div>
+      <!-- U-shape feedback arrow: Code-rabbit reviews → Code & unit test generation -->
+      <div style="position:relative;width:100%;height:0;">
+        <svg style="position:absolute;right:20px;top:-8px;overflow:visible;" width="440" height="30" viewBox="0 0 440 30" fill="none">
+          <path d="M430 0 L430 16 Q430 24 420 24 L20 24 Q10 24 10 16 L10 0" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 4 L10 -4 L14 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
     </div>
 
@@ -92,13 +101,13 @@
       </div>
       <div style="flex:1"></div>
       <!-- Center-right: bidirectional vertical arrow + Unit tests run -->
-      <div style="display:flex;flex-direction:column;align-items:center;margin-right:100px">
+      <div style="display:flex;flex-direction:column;align-items:center;margin-right:170px">
         <svg class="pf2-arrow-v" width="16" style="margin-top: -20px"height="32" viewBox="0 0 16 32"><path d="M8 8v20" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 25l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="pf2-node pf2-light" data-tip="unit-tests">Unit test run</div>
       </div>
       <div style="width:60px"></div>
       <!-- Far right: down-arrow + OE E2E TESTS -->
-      <div style="display:flex;flex-direction:column;align-items:center;margin-right:88px">
+      <div style="display:flex;flex-direction:column;align-items:center;margin-right:178px">
         <svg class="pf2-arrow-v"  style="margin-top: -20px" width="16" height="32" viewBox="0 0 16 32"><path d="M8 0v24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 21l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="pf2-node pf2-light" data-tip="e2e">OE E2E tests<br>(WIP)</div>
       </div>
