@@ -1,0 +1,129 @@
+  <div class="section">
+    <h2>Cert Manager Operator</h2>
+    <p class="section-sub">Current status and readiness for the Cert Manager Operator</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>End-to-end Adoption Date</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Development Progress</h3>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
+      </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
+      </div>
+    </div>
+
+    <h2>Epics</h2>
+    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
+
+    <!-- EPIC: CM-861 -->
+    <div class="epic open">
+      <div class="epic-header" onclick="toggle(this,'.epic')">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/CM-861" target="_blank">Epic: CM-861</a>
+        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/CM-861" target="_blank">[Tech Preview] Integrate Trust Manager with Cert Manager Operator</a></span>
+        <div class="epic-meta">
+          <span class="badge green">Complete</span>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="epic-body">
+        <div class="epic-content">
+          <div class="epic-metrics">
+            <div class="metric-pill green"><div class="m-value">1/1</div><div class="m-label">Runs<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">1.3M</div><div class="m-label">Total<br>Tokens</div></div>
+            <div class="metric-pill teal"><div class="m-value">91.7%</div><div class="m-label">Agent<br>Success</div></div>
+            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">4</div><div class="m-label">Unit<br>Tests</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">74.2k</div><div class="m-label">Unit Test<br>Tokens</div></div>
+          </div>
+
+          <!-- Ticket: CM-830 (AI Helpers — Composer 2.5) -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/CM-830" target="_blank" onclick="event.stopPropagation()">CM-830</a>
+              <span class="ticket-summary">Enhancement proposal &mdash; <strong>AI Helpers + Composer 2.5</strong></span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">1.3M</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$4.45</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">184m 11s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">60%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">60%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">91.7%</div><div class="h-sub">(33/36 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>5m 0s</td><td>7.0k / 4.4k</td><td>PASS</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="spin">&#9881;</span><span class="status-running">RUNNING</span></td><td>1 Iteration</td><td>&mdash;</td><td>0 / 0</td><td>&mdash;</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 0s</td><td>6.0k / 5.7k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 0s</td><td>11.7k / 9.0k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>172m 23s</td><td>607.3k / 15.5k</td><td>Implementation report complete (33 task reports)</td></tr>
+                  <tr><td>5.1 Unit Tests (4 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>5m 34s</td><td>72.6k / 1.6k</td><td>4/4 tasks passed</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the Cert Manager operator</p>
+
+    <div class="card">
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>Cert Manager Operator for Red Hat OpenShift</td></tr>
+          <tr><td>Category</td><td>Certificate Management</td></tr>
+          <tr><td>CRDs</td><td>Certificate, Issuer, ClusterIssuer</td></tr>
+          <tr><td>API Version</td><td>cert-manager.io/v1</td></tr>
+          <tr><td>OLM Channel</td><td>stable-v1</td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/cert-manager-operator" target="_blank">openshift/cert-manager-operator</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>

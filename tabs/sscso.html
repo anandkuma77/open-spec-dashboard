@@ -1,0 +1,172 @@
+  <div class="section">
+    <h2>Secrets Store CSI Driver Operator (SSCSI)</h2>
+    <p class="section-sub">Current status and readiness for the Secrets Store CSI Driver Operator</p>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <h3>Onboarded</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--green);">Yes</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>Release Status</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <h3>End-to-end Adoption Date</h3>
+        <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Development Progress</h3>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
+      </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
+      </div>
+    </div>
+
+    <h2>Epics</h2>
+    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
+
+    <!-- EPIC: SSCSI-242 -->
+    <div class="epic open">
+      <div class="epic-header" onclick="toggle(this,'.epic')">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">Epic: SSCSI-242</a>
+        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">Configurable secret rotation and WIF in Secret Store CSI driver operator</a></span>
+        <div class="epic-meta">
+          <span class="badge green">Complete</span>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="epic-body">
+        <div class="epic-content">
+          <div class="epic-metrics">
+            <div class="metric-pill green"><div class="m-value">2/2</div><div class="m-label">Runs<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">1.5M</div><div class="m-label">Total<br>Tokens</div></div>
+            <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Agent<br>Success</div></div>
+            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">7</div><div class="m-label">Unit<br>Tests</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">217.2k</div><div class="m-label">Unit Test<br>Tokens</div></div>
+          </div>
+
+          <!-- Ticket: SSCSI-254 (AI Helpers — Sonnet 5) -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank" onclick="event.stopPropagation()">SSCSI-254</a>
+              <span class="ticket-summary">Enhancement proposal &mdash; <strong>AI Helpers + Sonnet 5</strong></span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">697.3k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.62</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">263m 5s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(19/19 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>18m 0s</td><td>21.1k / 4.1k</td><td>APPROVED</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 58s</td><td>13.5k / 10.7k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 28s</td><td>24.2k / 7.1k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 33s</td><td>20.6k / 8.7k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>174m 58s</td><td>573.5k / 13.9k</td><td>19/19 tasks approved</td></tr>
+                  <tr><td>5.1 Unit Tests (4 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>17m 41s</td><td>121.1k / 2.7k</td><td>4/4 tasks passed</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <!-- Ticket: SSCSI-254 (Cursor Agent — Sonnet 5) -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank" onclick="event.stopPropagation()">SSCSI-254</a>
+              <span class="ticket-summary">Enhancement proposal &mdash; <strong>Cursor Agent + Sonnet 5</strong></span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">800.1k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.95</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">198m 42s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">100%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">100%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">0</div><div class="h-sub">0% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(22/22 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>7m 46s</td><td>21.0k / 4.0k</td><td>Approved</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 48s</td><td>13.4k / 9.8k</td><td>Score: 98/100 &mdash; excellent</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>7m 43s</td><td>23.2k / 6.7k</td><td>Score: 96/100 &mdash; excellent</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 55s</td><td>20.1k / 10.5k</td><td>Score: 95/100 &mdash; excellent</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>157m 6s</td><td>676.5k / 15.0k</td><td>22/22 tasks approved</td></tr>
+                  <tr><td>5.1 Unit Tests (3 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>14m 16s</td><td>91.3k / 2.0k</td><td>3/3 tasks passed</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <h2>Operator Details</h2>
+    <p class="section-sub">Technical metadata for the SSCSI operator</p>
+
+    <div class="card">
+      <table class="tbl">
+        <thead>
+          <tr><th>Property</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Operator Name</td><td>Secrets Store CSI Driver Operator (SSCSI)</td></tr>
+          <tr><td>Category</td><td>Secrets Management</td></tr>
+          <tr><td>CRDs</td><td>SecretProviderClass</td></tr>
+          <tr><td>API Version</td><td>secrets-store.csi.x-k8s.io/v1</td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/secrets-store-csi-driver-operator" target="_blank">openshift/secrets-store-csi-driver-operator</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
