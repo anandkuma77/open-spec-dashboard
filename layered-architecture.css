@@ -1,15 +1,24 @@
 /* Layer architecture visual */
-.layer-stack { width: 100%; border-collapse: separate; border-spacing: 0 2px; }
-.layer-stack thead th {
-  background: var(--dark); color: white;
-  padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.9em;
+.layer-stack-wrap {
+  border-radius: 10px; overflow: hidden; border: 1px solid #d0d7de;
 }
-.layer-row td { vertical-align: top; padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+.layer-stack { width: 100%; border-collapse: collapse; }
+.layer-stack thead th {
+  background: linear-gradient(135deg, #1a5276 0%, #2980b9 100%); color: white;
+  padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.9em;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+.layer-stack thead th:last-child { border-right: none; }
+.layer-row td {
+  vertical-align: top; padding: 10px 14px; font-size: 0.9em;
+  border-top: 1px solid #d0d7de; border-right: 1px solid #d0d7de;
+}
+.layer-row td:last-child { border-right: none; }
 .layer-row ul, .layer-row ol { margin: 0; padding-left: 18px; }
 .layer-row ul li, .layer-row ol li { margin-bottom: 4px; }
 .layer-label {
   font-weight: 700; font-size: 0.85em; color: white;
-  padding: 12px 16px; text-align: center; border-radius: 8px 0 0 8px;
+  padding: 12px 16px; text-align: center;
   width: 140px; white-space: nowrap;
 }
 .layer-label.l1 { background: var(--blue); }

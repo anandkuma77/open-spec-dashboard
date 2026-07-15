@@ -204,12 +204,39 @@
   position: relative;
   transition: height 0.6s ease;
 }
+
+/* Zero-line charts: bars positioned relative to a zero line */
+.vchart-zero .vchart-groups {
+  align-items: stretch;
+}
+.vchart-zero .vchart-bars {
+  align-items: stretch;
+  position: relative;
+}
+.vchart-zero .vchart-bar {
+  position: absolute;
+  bottom: auto;
+}
+.vchart-zero .vchart-bar.bar-pos {
+  bottom: 33.33%;
+}
+.vchart-zero .vchart-bar.bar-neg {
+  top: 66.67%;
+  border-radius: 0 0 5px 5px;
+}
+.vchart-zero .vchart-bar.bar-neg .vchart-bar-val {
+  top: auto;
+  bottom: -20px;
+}
+.vchart-zero .vchart-bar:nth-child(1) { left: calc(50% - 35px); }
+.vchart-zero .vchart-bar:nth-child(2) { left: calc(50% + 3px); }
 .vchart-bar.sonnet5 { background: linear-gradient(180deg, #e74c3c, #c0392b); }
 .vchart-bar.opus46 { background: linear-gradient(180deg, #8e44ad, #6c3483); }
 .vchart-bar.composer25 { background: linear-gradient(180deg, #1abc9c, #148f77); }
 .vchart-bar.prod-model1 { background: linear-gradient(180deg, #2980b9, #1a5276); }
 .vchart-bar.prod-model2 { background: linear-gradient(180deg, #27ae60, #1e8449); }
 .vchart-bar.prod-negative { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+.vchart-zero .vchart-bar.bar-neg.prod-negative { background: linear-gradient(0deg, #e74c3c, #c0392b); }
 .vchart-bar-val {
   position: absolute;
   top: -20px;

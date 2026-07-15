@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenSpec Dashboard</title>
-<link rel="stylesheet" href="styles.css?v=2">
-<link rel="stylesheet" href="layered-architecture.css">
+<title>Agentic SDLC Dashboard (OAP team)</title>
+<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="layered-architecture.css?v=8">
 <link rel="stylesheet" href="performance-metrics.css">
-<link rel="stylesheet" href="pipeline-flow2.css">
+<link rel="stylesheet" href="pipeline-flow2.css?v=2">
 </head>
 <body>
 
 <div class="header">
   <div class="header-top">
     <div>
-      <h1>OpenSpec Dashboard</h1>
+      <h1>Agentic SDLC Dashboard (OAP team)</h1>
   
     </div>
   </div>
   <div class="header-tabs">
     <div class="tab-segment">
       <button class="tab-btn active" data-tab="overview">Overview</button>
-      <button class="tab-btn" data-tab="certmanager">cert-manager</button>
+      <button class="tab-btn" data-tab="certmanager">Cert Manager</button>
       <button class="tab-btn" data-tab="ztwim">ZTWIM</button>
       <button class="tab-btn" data-tab="sscso">SSCSI</button>
-      <button class="tab-btn" data-tab="mustgather">Must-Gather</button>
+      <button class="tab-btn" data-tab="mustgather">Must Gather</button>
       <button class="tab-btn" data-tab="eso">ESO</button>
+      <button class="tab-btn" data-tab="linksrepos">Links and Repos</button>
     </div>
   </div>
 </div>
@@ -36,28 +37,66 @@
     <h2>Overview</h2>
     <p class="section-sub">Project overview and summary</p>
 
+      <!-- Goals -->
+      <div class="card">
+        <h3>Goals</h3>
+        <div style="display:flex; flex-direction:column; gap:16px; margin-top:16px;">
+          <div style="display:flex; align-items:flex-start; gap:16px;">
+            <div style="min-width:44px; height:44px; background:linear-gradient(135deg,#2980b9,#3498db); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1em; font-weight:800; color:#fff; box-shadow:0 3px 8px rgba(41,128,185,0.3);">1</div>
+            <div>
+              <h4 style="margin:0 0 4px 0; color:#2c3e50; font-size:0.95em;">Accelerate Earliest Adoption</h4>
+              <p style="margin:0; font-size:0.88em; color:#5d6d7e; line-height:1.5;">Deliver a minimal, tool-agnostic (orchestration/model/sandbox), production-safe agentic flow for operator teams on real work, without waiting for full platform maturity.</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:16px;">
+            <div style="min-width:44px; height:44px; background:linear-gradient(135deg,#2980b9,#3498db); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1em; font-weight:800; color:#fff; box-shadow:0 3px 8px rgba(41,128,185,0.3);">2</div>
+            <div>
+              <h4 style="margin:0 0 4px 0; color:#2c3e50; font-size:0.95em;">Serve Every SDLC Persona</h4>
+              <p style="margin:0; font-size:0.88em; color:#5d6d7e; line-height:1.5;">Structure the flow so SEs, SSEs, and Architects each have explicit gates, artifacts, and approval points aligned to their responsibilities.</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:16px;">
+            <div style="min-width:44px; height:44px; background:linear-gradient(135deg,#2980b9,#3498db); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1em; font-weight:800; color:#fff; box-shadow:0 3px 8px rgba(41,128,185,0.3);">3</div>
+            <div>
+              <h4 style="margin:0 0 4px 0; color:#2c3e50; font-size:0.95em;">Shift Quality Left</h4>
+              <p style="margin:0; font-size:0.88em; color:#5d6d7e; line-height:1.5;">Use planning-stage reviews and human gates to surface bugs, design flaws, and scope risks before code generation begins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Operator Status & Development Patterns -->
       <div class="card">
         <h3>Operator Status &amp; Development Patterns</h3>
         <p class="section-sub">Onboarding, release readiness, and development progress across operators</p>
+
         <table class="tbl" style="table-layout:fixed;">
           <colgroup>
-            <col style="width:25%">
-            <col style="width:25%">
-            <col style="width:25%">
-            <col style="width:25%">
+            <col style="width:16%">
+            <col style="width:14%">
+            <col style="width:14%">
+            <col style="width:14%">
+            <col style="width:14%">
+            <col style="width:14%">
+            <col style="width:14%">
           </colgroup>
           <thead>
             <tr>
-              <th>Operator</th>
-              <th>On-Boarded</th>
-              <th>QE E2E</th>
-              <th>Bug Fix</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">Operator</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">On-Boarded</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">RFE</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">Development</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">Unit Tests</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">QE E2E</th>
+              <th style="background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%);">Bug Fix</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a href="#" onclick="switchTab('certmanager'); return false;">cert-manager</a></td>
+              <td><a href="#" onclick="switchTab('certmanager'); return false;">Cert Manager</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
               <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
@@ -65,17 +104,26 @@
             <tr>
               <td><a href="#" onclick="switchTab('ztwim'); return false;">ZTWIM</a></td>
               <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
               <td><a href="#" onclick="switchTab('sscso'); return false;">SSCSI</a></td>
               <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
             <tr>
-              <td><a href="#" onclick="switchTab('mustgather'); return false;">Must-Gather</a></td>
+              <td><a href="#" onclick="switchTab('mustgather'); return false;">Must Gather</a></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
               <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
@@ -83,33 +131,37 @@
             <tr>
               <td><a href="#" onclick="switchTab('eso'); return false;">ESO</a></td>
               <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
+              <td><span class="badge green">Green</span></td>
               <td><span class="badge orange">WIP</span></td>
               <td><span class="badge orange">WIP</span></td>
             </tr>
           </tbody>
         </table>
-        <div class="grid-3" style="margin-top:16px;">
-          <div style="text-align:center;">
-            <div style="font-size:2em; font-weight:800; color:var(--green);">5/5</div>
-            <div style="color:var(--gray); margin-top:4px;">Development</div>
+
+        <!-- Overall Progress -->
+        <div style="margin-top:24px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+            <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+            <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">5 / 7 phases complete across all operators</span>
           </div>
-          <div style="text-align:center;">
-            <div style="font-size:2em; font-weight:800; color:var(--orange);">0/5</div>
-            <div style="color:var(--gray); margin-top:4px;">QE</div>
+          <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; position:relative; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+            <div style="width:67%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+            <div style="width:33%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
           </div>
-          <div style="text-align:center;">
-            <div style="font-size:2em; font-weight:800; color:var(--orange);">0/5</div>
-            <div style="color:var(--gray); margin-top:4px;">Bug Fix</div>
+          <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+            <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+            <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
           </div>
         </div>
+
       </div>
 
       <!-- Tools for Layered Architecture (loaded from layered-architecture.html) -->
       <div id="layeredArchitectureContainer"></div>
 
-      <!-- Agentic Pipeline Flow (disabled) -->
-
-      <!-- Agentic Pipeline Flow 2 -->
+      <!-- Agentic Pipeline Flow -->
       <div class="card-collapsible">
         <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
           <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
@@ -117,12 +169,16 @@
         </div>
         <div class="card-collapsible-body">
           <div class="card-collapsible-content" id="pf2Container"></div>
+          <div class="pf2-tab-links">
+            <span class="pf2-tab-links-label">View operator results:</span>
+            <a href="#" onclick="switchTab('ztwim'); return false;" class="pf2-tab-link">ZTWIM</a>
+            <a href="#" onclick="switchTab('sscso'); return false;" class="pf2-tab-link">SSCSI</a>
+          </div>
         </div>
       </div>
 
-      <!-- Performance & Metrics Summary (source: performance-metrics.html) -->
       <!-- Performance & Metrics Summary -->
-      <div class="card-collapsible open">
+      <div class="card-collapsible">
         <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
           <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
           <div><h3>Performance &amp; Metrics</h3><p class="section-sub">Model performance across pipeline phases and code generation</p></div>
@@ -131,60 +187,88 @@
           <div class="card-collapsible-content">
 
         <div class="metrics-group accent-purple">
-          <h4>Overall Report Quality and Code Generation *</h4>
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th>Phase \ Model</th>
-                <th>Sonnet 5</th>
-                <th>Sonnet 4.5</th>
-                <th>Composer 2.5</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Spec Validation</td>
-                <td><span class="score high">4.5</span></td>
-                <td><span class="score high">4.5</span></td>
-                <td><span class="score high">4.5</span></td>
-              </tr>
-              <tr>
-                <td>Planning</td>
-                <td><span class="score high">4.5</span></td>
-                <td><span class="score high">4.5</span></td>
-                <td><span class="score high">4.5</span></td>
-              </tr>
-              <tr>
-                <td>Tasks</td>
-                <td><span class="score low">3.0</span></td>
-                <td><span class="score mid">4.0</span></td>
-                <td><span class="score mid">4.0</span></td>
-              </tr>
-              <tr>
-                <td>Code-gen</td>
-                <td><span class="score low">3.5</span></td>
-                <td><span class="score mid">4.0</span></td>
-                <td><span class="score mid">4.0</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">* All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <h4 style="margin:0;">Overall Report Quality and Code Generation *</h4>
+            <div class="view-toggle" id="qualityViewToggle">
+              <button class="view-toggle-btn" data-view="table" onclick="toggleEpicView('quality','table')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg></button>
+              <button class="view-toggle-btn active" data-view="chart" onclick="toggleEpicView('quality','chart')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg></button>
+            </div>
+          </div>
+          <div id="qualityTableView" style="display:none;">
+            <table class="tbl">
+              <thead>
+                <tr>
+                  <th>Phase \ Model</th>
+                  <th>Sonnet 5</th>
+                  <th>Sonnet 4.5</th>
+                  <th>Composer 2.5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Spec Validation</td>
+                  <td><span class="score high">4.5</span></td>
+                  <td><span class="score high">4.5</span></td>
+                  <td><span class="score high">4.5</span></td>
+                </tr>
+                <tr>
+                  <td>Planning</td>
+                  <td><span class="score high">4.5</span></td>
+                  <td><span class="score high">4.5</span></td>
+                  <td><span class="score high">4.5</span></td>
+                </tr>
+                <tr>
+                  <td>Tasks</td>
+                  <td><span class="score low">3.0</span></td>
+                  <td><span class="score mid">4.0</span></td>
+                  <td><span class="score mid">4.0</span></td>
+                </tr>
+                <tr>
+                  <td>Code-gen</td>
+                  <td><span class="score low">3.5</span></td>
+                  <td><span class="score mid">4.0</span></td>
+                  <td><span class="score mid">4.0</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">* All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
+          </div>
+          <div id="qualityChartView">
+            <div class="vchart-wrapper">
+              <div class="vchart-y-axis"><span>5.0</span><span>4.0</span><span>3.0</span><span>2.0</span><span>1.0</span><span>0</span></div>
+              <div class="vchart-area">
+                <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div></div>
+                <div class="vchart-groups">
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:90%" title="Sonnet 5: 4.5"><span class="vchart-bar-val">4.5</span></div><div class="vchart-bar opus46" style="height:90%" title="Sonnet 4.5: 4.5"><span class="vchart-bar-val">4.5</span></div><div class="vchart-bar composer25" style="height:90%" title="Composer 2.5: 4.5"><span class="vchart-bar-val">4.5</span></div></div><span class="vchart-label">Spec Valid.</span></div>
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:90%" title="Sonnet 5: 4.5"><span class="vchart-bar-val">4.5</span></div><div class="vchart-bar opus46" style="height:90%" title="Sonnet 4.5: 4.5"><span class="vchart-bar-val">4.5</span></div><div class="vchart-bar composer25" style="height:90%" title="Composer 2.5: 4.5"><span class="vchart-bar-val">4.5</span></div></div><span class="vchart-label">Planning</span></div>
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:60%" title="Sonnet 5: 3.0"><span class="vchart-bar-val">3.0</span></div><div class="vchart-bar opus46" style="height:80%" title="Sonnet 4.5: 4.0"><span class="vchart-bar-val">4.0</span></div><div class="vchart-bar composer25" style="height:80%" title="Composer 2.5: 4.0"><span class="vchart-bar-val">4.0</span></div></div><span class="vchart-label">Tasks</span></div>
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:70%" title="Sonnet 5: 3.5"><span class="vchart-bar-val">3.5</span></div><div class="vchart-bar opus46" style="height:80%" title="Sonnet 4.5: 4.0"><span class="vchart-bar-val">4.0</span></div><div class="vchart-bar composer25" style="height:80%" title="Composer 2.5: 4.0"><span class="vchart-bar-val">4.0</span></div></div><span class="vchart-label">Code-gen</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot sonnet5"></span> Sonnet 5</span>
+              <span class="legend-item"><span class="legend-dot opus46"></span> Sonnet 4.5</span>
+              <span class="legend-item"><span class="legend-dot composer25"></span> Composer 2.5</span>
+            </div>
+            <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">* All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
+          </div>
         </div>
 
         <div class="metrics-group accent-teal">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
             <h4 style="margin:0;">Quantitative Performance for Code Generation (Across Tasks)</h4>
             <div class="view-toggle" id="quantViewToggle">
-              <button class="view-toggle-btn active" data-view="table" onclick="toggleQuantView('table')">
+              <button class="view-toggle-btn" data-view="table" onclick="toggleQuantView('table')">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg>
               </button>
-              <button class="view-toggle-btn" data-view="chart" onclick="toggleQuantView('chart')">
+              <button class="view-toggle-btn active" data-view="chart" onclick="toggleQuantView('chart')">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg>
               </button>
             </div>
           </div>
 
-          <div id="quantTableView">
+          <div id="quantTableView" style="display:none;">
             <table class="tbl">
               <thead>
                 <tr>
@@ -196,19 +280,19 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>CM-830</td>
+                  <td><a href="https://redhat.atlassian.net/browse/CM-830" target="_blank">CM-830</a></td>
                   <td><span class="score low">1,701,806</span></td>
                   <td><span class="score low">1,732,589</span></td>
                   <td><span class="score high">615,208</span></td>
                 </tr>
                 <tr>
-                  <td>SSCSI-254</td>
+                  <td><a href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank">SSCSI-254</a></td>
                   <td><span class="score low">592,695</span></td>
                   <td><span class="score low">598,962</span></td>
                   <td><span class="score high">214,261</span></td>
                 </tr>
                 <tr>
-                  <td>SPIRE-359</td>
+                  <td><a href="https://redhat.atlassian.net/browse/SPIRE-359" target="_blank">SPIRE-359</a></td>
                   <td><span class="score low">1,034,279</span></td>
                   <td><span class="score low">1,152,367</span></td>
                   <td><span class="score high">373,895</span></td>
@@ -217,94 +301,18 @@
             </table>
           </div>
 
-          <div id="quantChartView" style="display:none;">
-            <div class="chart-type-tabs">
-              <button class="chart-type-btn active" onclick="switchChartType('barH',this)">Horizontal Bars</button>
-              <button class="chart-type-btn" onclick="switchChartType('barV',this)">Vertical Bars</button>
-              <button class="chart-type-btn" onclick="switchChartType('donut',this)">Donut</button>
-            </div>
-
-            <!-- Horizontal Bar Chart -->
-            <div class="chart-type-panel active" id="chartBarH">
-              <div class="chart-container">
-                <div class="chart-group">
-                  <div class="chart-group-label">CM-830</div>
-                  <div class="chart-bars">
-                    <div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5</span><div class="chart-bar-track"><div class="chart-bar-fill sonnet5" style="width:98.2%"></div></div><span class="chart-bar-value">1,701,806</span></div>
-                    <div class="chart-bar-row"><span class="chart-bar-label">Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill opus46" style="width:100%"></div></div><span class="chart-bar-value">1,732,589</span></div>
-                    <div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill composer25" style="width:35.5%"></div></div><span class="chart-bar-value">615,208</span></div>
-                  </div>
-                </div>
-                <div class="chart-group">
-                  <div class="chart-group-label">SSCSI-254</div>
-                  <div class="chart-bars">
-                    <div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5</span><div class="chart-bar-track"><div class="chart-bar-fill sonnet5" style="width:98.9%"></div></div><span class="chart-bar-value">592,695</span></div>
-                    <div class="chart-bar-row"><span class="chart-bar-label">Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill opus46" style="width:100%"></div></div><span class="chart-bar-value">598,962</span></div>
-                    <div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill composer25" style="width:35.8%"></div></div><span class="chart-bar-value">214,261</span></div>
-                  </div>
-                </div>
-                <div class="chart-group">
-                  <div class="chart-group-label">SPIRE-359</div>
-                  <div class="chart-bars">
-                    <div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5</span><div class="chart-bar-track"><div class="chart-bar-fill sonnet5" style="width:89.8%"></div></div><span class="chart-bar-value">1,034,279</span></div>
-                    <div class="chart-bar-row"><span class="chart-bar-label">Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill opus46" style="width:100%"></div></div><span class="chart-bar-value">1,152,367</span></div>
-                    <div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill composer25" style="width:32.4%"></div></div><span class="chart-bar-value">373,895</span></div>
-                  </div>
+          <div id="quantChartView">
+            <div class="vchart-wrapper">
+              <div class="vchart-y-axis"><span>1.8M</span><span>1.5M</span><span>1.2M</span><span>0.9M</span><span>0.6M</span><span>0.3M</span><span>0</span></div>
+              <div class="vchart-area">
+                <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div></div>
+                <div class="vchart-groups">
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:94.5%" title="Sonnet 5: 1,701,806"><span class="vchart-bar-val">1.70M</span></div><div class="vchart-bar opus46" style="height:96.3%" title="Opus 4.6: 1,732,589"><span class="vchart-bar-val">1.73M</span></div><div class="vchart-bar composer25" style="height:34.2%" title="Composer 2.5: 615,208"><span class="vchart-bar-val">0.62M</span></div></div><span class="vchart-label"><a href="https://redhat.atlassian.net/browse/CM-830" target="_blank">CM-830</a></span></div>
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:32.9%" title="Sonnet 5: 592,695"><span class="vchart-bar-val">0.59M</span></div><div class="vchart-bar opus46" style="height:33.3%" title="Opus 4.6: 598,962"><span class="vchart-bar-val">0.60M</span></div><div class="vchart-bar composer25" style="height:11.9%" title="Composer 2.5: 214,261"><span class="vchart-bar-val">0.21M</span></div></div><span class="vchart-label"><a href="https://redhat.atlassian.net/browse/SSCSI-254" target="_blank">SSCSI-254</a></span></div>
+                  <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:57.5%" title="Sonnet 5: 1,034,279"><span class="vchart-bar-val">1.03M</span></div><div class="vchart-bar opus46" style="height:64.0%" title="Opus 4.6: 1,152,367"><span class="vchart-bar-val">1.15M</span></div><div class="vchart-bar composer25" style="height:20.8%" title="Composer 2.5: 373,895"><span class="vchart-bar-val">0.37M</span></div></div><span class="vchart-label"><a href="https://redhat.atlassian.net/browse/SPIRE-359" target="_blank">SPIRE-359</a></span></div>
                 </div>
               </div>
             </div>
-
-            <!-- Vertical Grouped Bar Chart -->
-            <div class="chart-type-panel" id="chartBarV">
-              <div class="vchart-wrapper">
-                <div class="vchart-y-axis"><span>1.8M</span><span>1.5M</span><span>1.2M</span><span>0.9M</span><span>0.6M</span><span>0.3M</span><span>0</span></div>
-                <div class="vchart-area">
-                  <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div></div>
-                  <div class="vchart-groups">
-                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:94.5%" title="Sonnet 5: 1,701,806"><span class="vchart-bar-val">1.70M</span></div><div class="vchart-bar opus46" style="height:96.3%" title="Opus 4.6: 1,732,589"><span class="vchart-bar-val">1.73M</span></div><div class="vchart-bar composer25" style="height:34.2%" title="Composer 2.5: 615,208"><span class="vchart-bar-val">0.62M</span></div></div><span class="vchart-label">CM-830</span></div>
-                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:32.9%" title="Sonnet 5: 592,695"><span class="vchart-bar-val">0.59M</span></div><div class="vchart-bar opus46" style="height:33.3%" title="Opus 4.6: 598,962"><span class="vchart-bar-val">0.60M</span></div><div class="vchart-bar composer25" style="height:11.9%" title="Composer 2.5: 214,261"><span class="vchart-bar-val">0.21M</span></div></div><span class="vchart-label">SSCSI-254</span></div>
-                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar sonnet5" style="height:57.5%" title="Sonnet 5: 1,034,279"><span class="vchart-bar-val">1.03M</span></div><div class="vchart-bar opus46" style="height:64.0%" title="Opus 4.6: 1,152,367"><span class="vchart-bar-val">1.15M</span></div><div class="vchart-bar composer25" style="height:20.8%" title="Composer 2.5: 373,895"><span class="vchart-bar-val">0.37M</span></div></div><span class="vchart-label">SPIRE-359</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Donut Charts -->
-            <div class="chart-type-panel" id="chartDonut">
-              <div class="donut-container">
-                <div class="donut-card-labeled">
-                  <div class="donut-title">CM-830</div>
-                  <svg class="donut-labeled-svg" viewBox="0 0 340 170">
-                    <circle class="donut-ring" cx="145" cy="85" r="45"/><circle class="donut-seg sonnet5" cx="145" cy="85" r="45" stroke-dasharray="119.1 282.7" stroke-dashoffset="70.7"/><circle class="donut-seg opus46" cx="145" cy="85" r="45" stroke-dasharray="121.0 282.7" stroke-dashoffset="-48.4"/><circle class="donut-seg composer25" cx="145" cy="85" r="45" stroke-dasharray="42.6 282.7" stroke-dashoffset="-169.4"/>
-                    <polyline class="leader-line" points="197,69 212,62 232,62"/><circle class="leader-dot" cx="197" cy="69" r="2.5"/><text class="leader-text" x="235" y="58">Sonnet 5</text><text class="leader-value" x="235" y="70">1,701,806</text>
-                    <polyline class="leader-line" points="97,117 80,130 55,130"/><circle class="leader-dot" cx="97" cy="117" r="2.5"/><text class="leader-text" x="52" y="127" text-anchor="end">Opus 4.6</text><text class="leader-value" x="52" y="139" text-anchor="end">1,732,589</text>
-                    <polyline class="leader-line" points="117,42 102,28 55,28"/><circle class="leader-dot" cx="117" cy="42" r="2.5"/><text class="leader-text" x="52" y="24" text-anchor="end">Composer 2.5</text><text class="leader-value" x="52" y="36" text-anchor="end">615,208</text>
-                    <text class="donut-svg-center" x="145" y="83">4.05M</text><text class="donut-svg-sub" x="145" y="96">tokens</text>
-                  </svg>
-                </div>
-                <div class="donut-card-labeled">
-                  <div class="donut-title">SSCSI-254</div>
-                  <svg class="donut-labeled-svg" viewBox="0 0 340 170">
-                    <circle class="donut-ring" cx="145" cy="85" r="45"/><circle class="donut-seg sonnet5" cx="145" cy="85" r="45" stroke-dasharray="119.5 282.7" stroke-dashoffset="70.7"/><circle class="donut-seg opus46" cx="145" cy="85" r="45" stroke-dasharray="120.6 282.7" stroke-dashoffset="-48.8"/><circle class="donut-seg composer25" cx="145" cy="85" r="45" stroke-dasharray="42.6 282.7" stroke-dashoffset="-169.4"/>
-                    <polyline class="leader-line" points="197,69 212,62 232,62"/><circle class="leader-dot" cx="197" cy="69" r="2.5"/><text class="leader-text" x="235" y="58">Sonnet 5</text><text class="leader-value" x="235" y="70">592,695</text>
-                    <polyline class="leader-line" points="97,117 80,130 55,130"/><circle class="leader-dot" cx="97" cy="117" r="2.5"/><text class="leader-text" x="52" y="127" text-anchor="end">Opus 4.6</text><text class="leader-value" x="52" y="139" text-anchor="end">598,962</text>
-                    <polyline class="leader-line" points="117,42 102,28 55,28"/><circle class="leader-dot" cx="117" cy="42" r="2.5"/><text class="leader-text" x="52" y="24" text-anchor="end">Composer 2.5</text><text class="leader-value" x="52" y="36" text-anchor="end">214,261</text>
-                    <text class="donut-svg-center" x="145" y="83">1.41M</text><text class="donut-svg-sub" x="145" y="96">tokens</text>
-                  </svg>
-                </div>
-                <div class="donut-card-labeled">
-                  <div class="donut-title">SPIRE-359</div>
-                  <svg class="donut-labeled-svg" viewBox="0 0 340 170">
-                    <circle class="donut-ring" cx="145" cy="85" r="45"/><circle class="donut-seg sonnet5" cx="145" cy="85" r="45" stroke-dasharray="114.4 282.7" stroke-dashoffset="70.7"/><circle class="donut-seg opus46" cx="145" cy="85" r="45" stroke-dasharray="127.4 282.7" stroke-dashoffset="-43.7"/><circle class="donut-seg composer25" cx="145" cy="85" r="45" stroke-dasharray="40.9 282.7" stroke-dashoffset="-171.1"/>
-                    <polyline class="leader-line" points="195,66 210,58 232,58"/><circle class="leader-dot" cx="195" cy="66" r="2.5"/><text class="leader-text" x="235" y="54">Sonnet 5</text><text class="leader-value" x="235" y="66">1,034,279</text>
-                    <polyline class="leader-line" points="93,120 76,134 55,134"/><circle class="leader-dot" cx="93" cy="120" r="2.5"/><text class="leader-text" x="52" y="131" text-anchor="end">Opus 4.6</text><text class="leader-value" x="52" y="143" text-anchor="end">1,152,367</text>
-                    <polyline class="leader-line" points="115,40 100,26 55,26"/><circle class="leader-dot" cx="115" cy="40" r="2.5"/><text class="leader-text" x="52" y="22" text-anchor="end">Composer 2.5</text><text class="leader-value" x="52" y="34" text-anchor="end">373,895</text>
-                    <text class="donut-svg-center" x="145" y="83">2.56M</text><text class="donut-svg-sub" x="145" y="96">tokens</text>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
             <div class="chart-legend">
               <span class="legend-item"><span class="legend-dot sonnet5"></span> Sonnet 5</span>
               <span class="legend-item"><span class="legend-dot opus46"></span> Opus 4.6</span>
@@ -321,11 +329,11 @@
             <div style="display:flex; align-items:center; justify-content:space-between; margin:14px 0 10px;">
               <h5 style="margin:0; color:var(--dark);">SSCSI</h5>
               <div class="view-toggle" id="sscsiViewToggle">
-                <button class="view-toggle-btn active" data-view="table" onclick="toggleEpicView('sscsi','table')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg></button>
-                <button class="view-toggle-btn" data-view="chart" onclick="toggleEpicView('sscsi','chart')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg></button>
+                <button class="view-toggle-btn" data-view="table" onclick="toggleEpicView('sscsi','table')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg></button>
+                <button class="view-toggle-btn active" data-view="chart" onclick="toggleEpicView('sscsi','chart')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg></button>
               </div>
             </div>
-            <div id="sscsiTableView">
+            <div id="sscsiTableView" style="display:none;">
               <table class="tbl">
                 <thead><tr><th>Phase \ Model</th><th>Sonnet 5 / Opus 4.6</th><th>Composer 2.5</th></tr></thead>
                 <tbody>
@@ -337,43 +345,16 @@
               </table>
               <p style="font-size:0.82em; color:var(--gray); margin-top:6px;">* Tasks report: negative due to too many tasks generated by Sonnet 5.</p>
             </div>
-            <div id="sscsiChartView" style="display:none;">
-              <div class="chart-type-tabs">
-                <button class="chart-type-btn active" onclick="switchEpicChart('sscsi','barH',this)">Horizontal Bars</button>
-                <button class="chart-type-btn" onclick="switchEpicChart('sscsi','barV',this)">Vertical Bars</button>
-                <button class="chart-type-btn" onclick="switchEpicChart('sscsi','donut',this)">Donut</button>
-              </div>
-              <div class="chart-type-panel active" id="sscsi-barH">
-                <div class="chart-container">
-                  <div class="chart-group"><div class="chart-group-label">Spec Validation</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model1" style="width:75%"></div></div><span class="chart-bar-value">60%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model2" style="width:75%"></div></div><span class="chart-bar-value">60%</span></div></div></div>
-                  <div class="chart-group"><div class="chart-group-label">Planning report generation &amp; review</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model1" style="width:68.75%"></div></div><span class="chart-bar-value">55%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model2" style="width:62.5%"></div></div><span class="chart-bar-value">50%</span></div></div></div>
-                  <div class="chart-group"><div class="chart-group-label">Tasks report generation &amp; review</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-negative" style="width:37.5%"></div></div><span class="chart-bar-value">-30%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-negative" style="width:37.5%"></div></div><span class="chart-bar-value">-30%</span></div></div></div>
-                  <div class="chart-group"><div class="chart-group-label">Code generation &amp; review</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model1" style="width:75%"></div></div><span class="chart-bar-value">60%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model2" style="width:68.75%"></div></div><span class="chart-bar-value">55%</span></div></div></div>
-                </div>
-              </div>
-              <div class="chart-type-panel" id="sscsi-barV">
-                <div class="vchart-wrapper">
-                  <div class="vchart-y-axis"><span>80%</span><span>60%</span><span>40%</span><span>20%</span><span>0</span><span>-20%</span><span>-40%</span></div>
-                  <div class="vchart-area">
-                    <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline" style="border-bottom:1.5px solid #ccc;"></div><div class="vchart-gridline"></div></div>
-                    <div class="vchart-groups">
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-model1" style="height:75%"><span class="vchart-bar-val">60%</span></div><div class="vchart-bar prod-model2" style="height:75%"><span class="vchart-bar-val">60%</span></div></div><span class="vchart-label">Spec Valid.</span></div>
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-model1" style="height:68.75%"><span class="vchart-bar-val">55%</span></div><div class="vchart-bar prod-model2" style="height:62.5%"><span class="vchart-bar-val">50%</span></div></div><span class="vchart-label">Planning</span></div>
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-negative" style="height:37.5%"><span class="vchart-bar-val">-30%</span></div><div class="vchart-bar prod-negative" style="height:37.5%"><span class="vchart-bar-val">-30%</span></div></div><span class="vchart-label">Tasks</span></div>
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-model1" style="height:75%"><span class="vchart-bar-val">60%</span></div><div class="vchart-bar prod-model2" style="height:68.75%"><span class="vchart-bar-val">55%</span></div></div><span class="vchart-label">Code-gen</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="chart-type-panel" id="sscsi-donut">
-                <div class="donut-container" style="justify-content:center;">
-                  <div class="donut-card-labeled">
-                    <svg class="donut-labeled-svg" viewBox="0 0 340 170">
-                      <circle class="donut-ring" cx="145" cy="85" r="45"/><circle class="donut-seg prod-model1-stroke" cx="145" cy="85" r="45" stroke-dasharray="166.8 282.7" stroke-dashoffset="70.7"/><circle class="donut-seg prod-model2-stroke" cx="145" cy="85" r="45" stroke-dasharray="115.9 282.7" stroke-dashoffset="-96.1"/>
-                      <polyline class="leader-line" points="195,62 212,54 232,54"/><circle class="leader-dot" cx="195" cy="62" r="2.5"/><text class="leader-text" x="235" y="50">Sonnet 5 / Opus 4.6</text><text class="leader-value" x="235" y="62">+36.25% avg</text>
-                      <polyline class="leader-line" points="93,120 76,132 55,132"/><circle class="leader-dot" cx="93" cy="120" r="2.5"/><text class="leader-text" x="52" y="129" text-anchor="end">Composer 2.5</text><text class="leader-value" x="52" y="141" text-anchor="end">+33.75% avg</text>
-                      <text class="donut-svg-center" x="145" y="83">+35%</text><text class="donut-svg-sub" x="145" y="96">avg gain</text>
-                    </svg>
+            <div id="sscsiChartView">
+              <div class="vchart-wrapper vchart-zero">
+                <div class="vchart-y-axis"><span>80%</span><span>60%</span><span>40%</span><span>20%</span><span>0</span><span>-20%</span><span>-40%</span></div>
+                <div class="vchart-area">
+                  <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline" style="border-bottom:2px solid #999;"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div></div>
+                  <div class="vchart-groups">
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:50%"><span class="vchart-bar-val">60%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:50%"><span class="vchart-bar-val">60%</span></div></div><span class="vchart-label">Spec Valid.</span></div>
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:45.83%"><span class="vchart-bar-val">55%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:41.67%"><span class="vchart-bar-val">50%</span></div></div><span class="vchart-label">Planning</span></div>
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-neg prod-negative" style="height:25%"><span class="vchart-bar-val">-30%</span></div><div class="vchart-bar bar-neg prod-negative" style="height:25%"><span class="vchart-bar-val">-30%</span></div></div><span class="vchart-label">Tasks</span></div>
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:50%"><span class="vchart-bar-val">60%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:45.83%"><span class="vchart-bar-val">55%</span></div></div><span class="vchart-label">Code-gen</span></div>
                   </div>
                 </div>
               </div>
@@ -382,6 +363,7 @@
                 <span class="legend-item"><span class="legend-dot prod-model2"></span> Composer 2.5</span>
                 <span class="legend-item"><span class="legend-dot prod-negative"></span> Negative (time lost)</span>
               </div>
+              <p style="font-size:0.82em; color:var(--gray); margin-top:6px;">* Tasks report: negative due to too many tasks generated by Sonnet 5.</p>
             </div>
           </div>
 
@@ -390,55 +372,32 @@
             <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
               <h5 style="margin:0; color:var(--dark);">ZTWIM</h5>
               <div class="view-toggle" id="ztwimViewToggle">
-                <button class="view-toggle-btn active" data-view="table" onclick="toggleEpicView('ztwim','table')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg></button>
-                <button class="view-toggle-btn" data-view="chart" onclick="toggleEpicView('ztwim','chart')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg></button>
+                <button class="view-toggle-btn" data-view="table" onclick="toggleEpicView('ztwim','table')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg></button>
+                <button class="view-toggle-btn active" data-view="chart" onclick="toggleEpicView('ztwim','chart')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg></button>
               </div>
             </div>
-            <div id="ztwimTableView">
+            <div id="ztwimTableView" style="display:none;">
               <table class="tbl">
                 <thead><tr><th>Phase \ Model</th><th>Sonnet 5 / Opus 4.6</th><th>Composer 2.5</th></tr></thead>
                 <tbody>
                   <tr><td>Spec Validation</td><td><span class="score high">80%</span></td><td><span class="score high">80%</span></td></tr>
                   <tr><td>Planning report generation &amp; review</td><td><span class="score high">60%</span></td><td><span class="score high">60%</span></td></tr>
-                  <tr><td>Tasks report generation &amp; review</td><td><span class="score low">-20%</span></td><td><span class="score low">-10%</span></td></tr>
+                  <tr><td>Tasks report generation &amp; review</td><td><span class="score low">10%</span></td><td><span class="score low">10%</span></td></tr>
+                  <tr><td>Code generation &amp; review</td><td><span class="score mid">50%</span></td><td><span class="score high">60%</span></td></tr>
                 </tbody>
               </table>
+              <p style="font-size:0.82em; color:var(--gray); margin-top:6px;">* Tasks report: negative due to too many tasks generated by Sonnet 5.</p>
             </div>
-            <div id="ztwimChartView" style="display:none;">
-              <div class="chart-type-tabs">
-                <button class="chart-type-btn active" onclick="switchEpicChart('ztwim','barH',this)">Horizontal Bars</button>
-                <button class="chart-type-btn" onclick="switchEpicChart('ztwim','barV',this)">Vertical Bars</button>
-                <button class="chart-type-btn" onclick="switchEpicChart('ztwim','donut',this)">Donut</button>
-              </div>
-              <div class="chart-type-panel active" id="ztwim-barH">
-                <div class="chart-container">
-                  <div class="chart-group"><div class="chart-group-label">Spec Validation</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model1" style="width:100%"></div></div><span class="chart-bar-value">80%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model2" style="width:100%"></div></div><span class="chart-bar-value">80%</span></div></div></div>
-                  <div class="chart-group"><div class="chart-group-label">Planning report generation &amp; review</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model1" style="width:75%"></div></div><span class="chart-bar-value">60%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-model2" style="width:75%"></div></div><span class="chart-bar-value">60%</span></div></div></div>
-                  <div class="chart-group"><div class="chart-group-label">Tasks report generation &amp; review</div><div class="chart-bars"><div class="chart-bar-row"><span class="chart-bar-label">Sonnet 5 / Opus 4.6</span><div class="chart-bar-track"><div class="chart-bar-fill prod-negative" style="width:25%"></div></div><span class="chart-bar-value">-20%</span></div><div class="chart-bar-row"><span class="chart-bar-label">Composer 2.5</span><div class="chart-bar-track"><div class="chart-bar-fill prod-negative" style="width:12.5%"></div></div><span class="chart-bar-value">-10%</span></div></div></div>
-                </div>
-              </div>
-              <div class="chart-type-panel" id="ztwim-barV">
-                <div class="vchart-wrapper">
-                  <div class="vchart-y-axis"><span>80%</span><span>60%</span><span>40%</span><span>20%</span><span>0</span><span>-20%</span><span>-40%</span></div>
-                  <div class="vchart-area">
-                    <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline" style="border-bottom:1.5px solid #ccc;"></div><div class="vchart-gridline"></div></div>
-                    <div class="vchart-groups">
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-model1" style="height:100%"><span class="vchart-bar-val">80%</span></div><div class="vchart-bar prod-model2" style="height:100%"><span class="vchart-bar-val">80%</span></div></div><span class="vchart-label">Spec Valid.</span></div>
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-model1" style="height:75%"><span class="vchart-bar-val">60%</span></div><div class="vchart-bar prod-model2" style="height:75%"><span class="vchart-bar-val">60%</span></div></div><span class="vchart-label">Planning</span></div>
-                      <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar prod-negative" style="height:25%"><span class="vchart-bar-val">-20%</span></div><div class="vchart-bar prod-negative" style="height:12.5%"><span class="vchart-bar-val">-10%</span></div></div><span class="vchart-label">Tasks</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="chart-type-panel" id="ztwim-donut">
-                <div class="donut-container" style="justify-content:center;">
-                  <div class="donut-card-labeled">
-                    <svg class="donut-labeled-svg" viewBox="0 0 340 170">
-                      <circle class="donut-ring" cx="145" cy="85" r="45"/><circle class="donut-seg prod-model1-stroke" cx="145" cy="85" r="45" stroke-dasharray="169.6 282.7" stroke-dashoffset="70.7"/><circle class="donut-seg prod-model2-stroke" cx="145" cy="85" r="45" stroke-dasharray="113.1 282.7" stroke-dashoffset="-98.9"/>
-                      <polyline class="leader-line" points="195,62 212,54 232,54"/><circle class="leader-dot" cx="195" cy="62" r="2.5"/><text class="leader-text" x="235" y="50">Sonnet 5 / Opus 4.6</text><text class="leader-value" x="235" y="62">+40% avg</text>
-                      <polyline class="leader-line" points="93,120 76,132 55,132"/><circle class="leader-dot" cx="93" cy="120" r="2.5"/><text class="leader-text" x="52" y="129" text-anchor="end">Composer 2.5</text><text class="leader-value" x="52" y="141" text-anchor="end">+43.3% avg</text>
-                      <text class="donut-svg-center" x="145" y="83">+41.7%</text><text class="donut-svg-sub" x="145" y="96">avg gain</text>
-                    </svg>
+            <div id="ztwimChartView">
+              <div class="vchart-wrapper vchart-zero">
+                <div class="vchart-y-axis"><span>80%</span><span>60%</span><span>40%</span><span>20%</span><span>0</span><span>-20%</span><span>-40%</span></div>
+                <div class="vchart-area">
+                  <div class="vchart-gridlines"><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div><div class="vchart-gridline" style="border-bottom:2px solid #999;"></div><div class="vchart-gridline"></div><div class="vchart-gridline"></div></div>
+                  <div class="vchart-groups">
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:66.67%"><span class="vchart-bar-val">80%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:66.67%"><span class="vchart-bar-val">80%</span></div></div><span class="vchart-label">Spec Valid.</span></div>
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:50%"><span class="vchart-bar-val">60%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:50%"><span class="vchart-bar-val">60%</span></div></div><span class="vchart-label">Planning</span></div>
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:8.33%"><span class="vchart-bar-val">10%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:8.33%"><span class="vchart-bar-val">10%</span></div></div><span class="vchart-label">Tasks</span></div>
+                    <div class="vchart-group"><div class="vchart-bars"><div class="vchart-bar bar-pos prod-model1" style="height:41.67%"><span class="vchart-bar-val">50%</span></div><div class="vchart-bar bar-pos prod-model2" style="height:50%"><span class="vchart-bar-val">60%</span></div></div><span class="vchart-label">Code-gen</span></div>
                   </div>
                 </div>
               </div>
@@ -447,9 +406,39 @@
                 <span class="legend-item"><span class="legend-dot prod-model2"></span> Composer 2.5</span>
                 <span class="legend-item"><span class="legend-dot prod-negative"></span> Negative (time lost)</span>
               </div>
+              <p style="font-size:0.82em; color:var(--gray); margin-top:6px;">* Tasks report: negative due to too many tasks generated by Sonnet 5.</p>
             </div>
           </div>
         </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenges and Recommendations -->
+      <div class="card-collapsible">
+        <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <div><h3>Challenges and Recommendations</h3><p class="section-sub">Key challenges encountered and recommendations for improvement</p></div>
+        </div>
+        <div class="card-collapsible-body">
+          <div class="card-collapsible-content">
+            <div class="metrics-group accent-purple" style="margin-bottom:20px;">
+              <h4 style="margin:0 0 12px;">Key Challenges</h4>
+              <ul style="margin:0; padding-left:20px; line-height:1.8; color:#2c3e50; font-size:0.92em;">
+                <li>Alignment of agentic flow with human thoughts for ease of review and adaptation (for example, the review of <a href="https://tasks.md/" target="_blank">tasks.md</a> and code gen followed by PR should follow a modular approach instead of mass generation and one PR approach).</li>
+                <li>Mis-interpretation of Spec/contextual docs by LLMs/agents and delayed identification of issues.</li>
+                <li>Cross-repo governance and secured agentic flow.</li>
+              </ul>
+            </div>
+
+            <div class="metrics-group accent-teal">
+              <h4 style="margin:0 0 12px;">Recommendations</h4>
+              <ul style="margin:0; padding-left:20px; line-height:1.8; color:#2c3e50; font-size:0.92em;">
+                <li>Adaptation of OpenSpec Orchestration (customized) for agentic SDLC given the flexibility for customization and native integrations as well as alignment with human reviewer thought process.</li>
+                <li>Hybrid approach to building and refining the contextualization docs using ai-helpers agentic docs and Cursor. Ai-helpers generated certain sections which were more meaningful and aided in higher efficiency.</li>
+              </ul>
+            </div>
 
           </div>
         </div>
@@ -474,253 +463,24 @@
         <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
       </div>
       <div class="card" style="text-align:center;">
-        <h3>Target Release</h3>
+        <h3>End-to-end Adoption Date</h3>
         <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
       </div>
     </div>
 
     <div class="card">
       <h3>Development Progress</h3>
-      <table class="tbl">
-        <thead>
-          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
-          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
-          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h2>EPICs &amp; Tickets</h2>
-    <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
-
-    <!-- EPIC 1: Core Operator Development -->
-    <div class="epic open">
-      <div class="epic-header" onclick="toggle(this,'.epic')">
-        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-        <span class="epic-id">OCPBUGS-1001</span>
-        <span class="epic-title">Core Operator Development</span>
-        <div class="epic-meta">
-          <span class="badge green">Complete</span>
-          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
-        </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
       </div>
-      <div class="epic-body">
-        <div class="epic-content">
-          <div class="epic-metrics">
-            <div class="metric-pill green"><div class="m-value">5/5</div><div class="m-label">Tickets<br>Done</div></div>
-            <div class="metric-pill purple"><div class="m-value">21</div><div class="m-label">Story<br>Points</div></div>
-            <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Completion<br>Rate</div></div>
-            <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
-          </div>
-
-          <div class="ticket">
-            <div class="ticket-header" onclick="toggle(this,'.ticket')">
-              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <span class="ticket-label">OCPBUGS-1101</span>
-              <span class="ticket-summary">Scaffold ESO operator with OLM bundle</span>
-            </div>
-            <div class="ticket-body"><div class="ticket-content">
-              <div class="health-strip">
-                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">62.3k</div></div>
-                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.31</div></div>
-                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">210m 12s</div></div>
-                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
-                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
-                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
-                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
-              </div>
-              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
-              <table class="metric-tbl">
-                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
-                <tbody>
-                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 04s</td><td>6k / 4k</td><td>User approved specs</td></tr>
-                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 20s</td><td>5k / 6k</td><td>Score: 95/100</td></tr>
-                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 10s</td><td>12k / 5k</td><td>Score: 97/100</td></tr>
-                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>10k / 8k</td><td>Score: 96/100</td></tr>
-                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>3m 15s</td><td>14k / 12k</td><td>Score: 92/100</td></tr>
-                </tbody>
-              </table>
-              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 1</span></div>
-              <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
-                <tbody>
-                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Plan</td><td>Architectural Planning</td><td>1</td><td>0</td><td><span class="edit-count has-edits">1</span></td></tr>
-                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                </tbody>
-              </table>
-            </div></div>
-          </div>
-
-          <div class="ticket">
-            <div class="ticket-header" onclick="toggle(this,'.ticket')">
-              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <span class="ticket-label">OCPBUGS-1102</span>
-              <span class="ticket-summary">Implement ExternalSecret controller reconciler</span>
-            </div>
-            <div class="ticket-body"><div class="ticket-content">
-              <div class="health-strip">
-                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">85.1k</div></div>
-                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.42</div></div>
-                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">312m 45s</div></div>
-                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">60%</div><div class="h-sub">Const. Pass</div></div>
-                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">60%</div><div class="h-sub">First-pass phases</div></div>
-                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">3</div><div class="h-sub">60% rejection proxy</div></div>
-                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(3/3 Tasks)</div></div>
-              </div>
-              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
-              <table class="metric-tbl">
-                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
-                <tbody>
-                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>3m 10s</td><td>8k / 5k</td><td>User approved specs</td></tr>
-                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>2m 30s</td><td>12k / 9k</td><td>Score: 91/100</td></tr>
-                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 45s</td><td>15k / 7k</td><td>Score: 93/100</td></tr>
-                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 20s</td><td>11k / 9k</td><td>Score: 95/100</td></tr>
-                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>5m 40s</td><td>20k / 18k</td><td>Score: 88/100</td></tr>
-                </tbody>
-              </table>
-              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 3</span></div>
-              <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
-                <tbody>
-                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Specs</td><td>Spec Understanding</td><td>1</td><td>0</td><td><span class="edit-count has-edits">1</span></td></tr>
-                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
-                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                </tbody>
-              </table>
-            </div></div>
-          </div>
-
-          <div class="ticket">
-            <div class="ticket-header" onclick="toggle(this,'.ticket')">
-              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <span class="ticket-label">OCPBUGS-1103</span>
-              <span class="ticket-summary">Add SecretStore &amp; ClusterSecretStore CRDs</span>
-            </div>
-            <div class="ticket-body"><div class="ticket-content">
-              <div class="health-strip">
-                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">45.8k</div></div>
-                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.22</div></div>
-                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">145m 30s</div></div>
-                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">100%</div><div class="h-sub">Const. Pass</div></div>
-                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">100%</div><div class="h-sub">First-pass phases</div></div>
-                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">0</div><div class="h-sub">0% rejection proxy</div></div>
-                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
-              </div>
-              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
-              <table class="metric-tbl">
-                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
-                <tbody>
-                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 50s</td><td>5k / 3k</td><td>User approved specs</td></tr>
-                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>4k / 5k</td><td>Score: 96/100</td></tr>
-                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>0m 55s</td><td>8k / 4k</td><td>Score: 98/100</td></tr>
-                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>0m 45s</td><td>7k / 5k</td><td>Score: 97/100</td></tr>
-                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 20s</td><td>10k / 9k</td><td>Score: 94/100</td></tr>
-                </tbody>
-              </table>
-              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
-              <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
-                <tbody>
-                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                </tbody>
-              </table>
-            </div></div>
-          </div>
-
-          <div class="ticket">
-            <div class="ticket-header" onclick="toggle(this,'.ticket')">
-              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <span class="ticket-label">OCPBUGS-1104</span>
-              <span class="ticket-summary">Implement PushSecret sync logic</span>
-            </div>
-            <div class="ticket-body"><div class="ticket-content">
-              <div class="health-strip">
-                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">55.5k</div></div>
-                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.25</div></div>
-                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">193m 34s</div></div>
-                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">60%</div><div class="h-sub">Const. Pass</div></div>
-                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">60%</div><div class="h-sub">First-pass phases</div></div>
-                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">2</div><div class="h-sub">40% rejection proxy</div></div>
-                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
-              </div>
-              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
-              <table class="metric-tbl">
-                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
-                <tbody>
-                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 04s</td><td>6k / 4k</td><td>User approved specs</td></tr>
-                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>1m 00s</td><td>5k / 6k</td><td>Score: 93/100</td></tr>
-                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>12k / 5k</td><td>Score: 94/100</td></tr>
-                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 00s</td><td>10k / 8k</td><td>Score: 96/100</td></tr>
-                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 10s</td><td>16k / 14k</td><td>Score: 90/100</td></tr>
-                </tbody>
-              </table>
-              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 2</span></div>
-              <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
-                <tbody>
-                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
-                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                </tbody>
-              </table>
-            </div></div>
-          </div>
-
-          <div class="ticket">
-            <div class="ticket-header" onclick="toggle(this,'.ticket')">
-              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <span class="ticket-label">OCPBUGS-1105</span>
-              <span class="ticket-summary">ClusterPushSecret &amp; ClusterExternalSecret support</span>
-            </div>
-            <div class="ticket-body"><div class="ticket-content">
-              <div class="health-strip">
-                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">72.0k</div></div>
-                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$0.35</div></div>
-                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">250m 20s</div></div>
-                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
-                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
-                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
-                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(2/2 Tasks)</div></div>
-              </div>
-              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
-              <table class="metric-tbl">
-                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
-                <tbody>
-                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>2m 30s</td><td>7k / 5k</td><td>User approved specs</td></tr>
-                  <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>1m 40s</td><td>8k / 7k</td><td>Score: 92/100</td></tr>
-                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 15s</td><td>14k / 6k</td><td>Score: 95/100</td></tr>
-                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 05s</td><td>12k / 10k</td><td>Score: 94/100</td></tr>
-                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 50s</td><td>18k / 15k</td><td>Score: 91/100</td></tr>
-                </tbody>
-              </table>
-              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 1</span></div>
-              <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
-                <tbody>
-                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>0</td><td>1</td><td><span class="edit-count has-edits">1</span></td></tr>
-                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
-                </tbody>
-              </table>
-            </div></div>
-          </div>
-        </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
       </div>
     </div>
 
@@ -737,21 +497,20 @@
           <tr><td>Category</td><td>Secrets Management</td></tr>
           <tr><td>CRDs</td><td>ExternalSecret, ClusterExternalSecret, SecretStore, ClusterSecretStore, PushSecret, ClusterPushSecret</td></tr>
           <tr><td>API Version</td><td>external-secrets.io/v1</td></tr>
-          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
-          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/external-secrets-operator" target="_blank">openshift/external-secrets-operator</a></td></tr>
         </tbody>
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/eso.html" style="color:var(--blue); font-weight:500;">View full ESO operator page &rarr;</a></p>
   </div>
 </div>
 
-<!-- TAB: Must-Gather -->
+<!-- TAB: Must Gather -->
 <div id="tab-mustgather" class="tab-panel">
   <div class="section">
-    <h2>Must-Gather Operator</h2>
-    <p class="section-sub">Current status and readiness for the Must-Gather operator</p>
+    <h2>Must Gather Operator</h2>
+    <p class="section-sub">Current status and readiness for the Must Gather operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="card" style="text-align:center;">
@@ -763,27 +522,29 @@
         <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
       </div>
       <div class="card" style="text-align:center;">
-        <h3>Target Release</h3>
+        <h3>End-to-end Adoption Date</h3>
         <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
       </div>
     </div>
 
     <div class="card">
       <h3>Development Progress</h3>
-      <table class="tbl">
-        <thead>
-          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
-          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
-          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
-        </tbody>
-      </table>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
+      </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
+      </div>
     </div>
 
     <h2>Operator Details</h2>
-    <p class="section-sub">Technical metadata for the Must-Gather operator</p>
+    <p class="section-sub">Technical metadata for the Must Gather operator</p>
 
     <div class="card">
       <table class="tbl">
@@ -791,15 +552,14 @@
           <tr><th>Property</th><th>Value</th></tr>
         </thead>
         <tbody>
-          <tr><td>Operator Name</td><td>Must-Gather</td></tr>
+          <tr><td>Operator Name</td><td>Must Gather</td></tr>
           <tr><td>Category</td><td>Diagnostics &amp; Debugging</td></tr>
-          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
-          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/must-gather-operator" target="_blank">openshift/must-gather-operator</a></td></tr>
         </tbody>
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/must-gather.html" style="color:var(--blue); font-weight:500;">View full Must-Gather operator page &rarr;</a></p>
   </div>
 </div>
 
@@ -819,33 +579,35 @@
         <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
       </div>
       <div class="card" style="text-align:center;">
-        <h3>Target Release</h3>
+        <h3>End-to-end Adoption Date</h3>
         <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
       </div>
     </div>
 
     <div class="card">
       <h3>Development Progress</h3>
-      <table class="tbl">
-        <thead>
-          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
-          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
-          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
-        </tbody>
-      </table>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
+      </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
+      </div>
     </div>
 
-    <h2>EPICs &amp; Tickets</h2>
+    <h2>Epics</h2>
     <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
 
     <!-- EPIC: SSCSI-242 -->
     <div class="epic open">
       <div class="epic-header" onclick="toggle(this,'.epic')">
         <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-        <a class="epic-id" href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">EPIC: SSCSI-242</a>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">Epic: SSCSI-242</a>
         <span class="epic-title"><a href="https://redhat.atlassian.net/browse/SSCSI-242" target="_blank">Configurable secret rotation and WIF in Secret Store CSI driver operator</a></span>
         <div class="epic-meta">
           <span class="badge green">Complete</span>
@@ -859,6 +621,8 @@
             <div class="metric-pill purple"><div class="m-value">1.5M</div><div class="m-label">Total<br>Tokens</div></div>
             <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Agent<br>Success</div></div>
             <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">7</div><div class="m-label">Unit<br>Tests</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">217.2k</div><div class="m-label">Unit Test<br>Tokens</div></div>
           </div>
 
           <!-- Ticket: SSCSI-254 (AI Helpers — Sonnet 5) -->
@@ -888,11 +652,12 @@
                   <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 28s</td><td>24.2k / 7.1k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
                   <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 33s</td><td>20.6k / 8.7k</td><td>Score: 100/100 &mdash; APPROVED</td></tr>
                   <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>174m 58s</td><td>573.5k / 13.9k</td><td>19/19 tasks approved</td></tr>
+                  <tr><td>5.1 Unit Tests (4 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>17m 41s</td><td>121.1k / 2.7k</td><td>4/4 tasks passed</td></tr>
                 </tbody>
               </table>
               <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
               <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
                 <tbody>
                   <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
                   <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
@@ -931,11 +696,12 @@
                   <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>7m 43s</td><td>23.2k / 6.7k</td><td>Score: 96/100 &mdash; excellent</td></tr>
                   <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>8m 55s</td><td>20.1k / 10.5k</td><td>Score: 95/100 &mdash; excellent</td></tr>
                   <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>157m 6s</td><td>676.5k / 15.0k</td><td>22/22 tasks approved</td></tr>
+                  <tr><td>5.1 Unit Tests (3 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>14m 16s</td><td>91.3k / 2.0k</td><td>3/3 tasks passed</td></tr>
                 </tbody>
               </table>
               <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
               <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
                 <tbody>
                   <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
                   <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
@@ -964,13 +730,12 @@
           <tr><td>Category</td><td>Secrets Management</td></tr>
           <tr><td>CRDs</td><td>SecretProviderClass</td></tr>
           <tr><td>API Version</td><td>secrets-store.csi.x-k8s.io/v1</td></tr>
-          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
-          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/secrets-store-csi-driver-operator" target="_blank">openshift/secrets-store-csi-driver-operator</a></td></tr>
         </tbody>
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/sscso.html" style="color:var(--blue); font-weight:500;">View full SSCSI operator page &rarr;</a></p>
   </div>
 </div>
 
@@ -990,34 +755,36 @@
         <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
       </div>
       <div class="card" style="text-align:center;">
-        <h3>Target Release</h3>
+        <h3>End-to-end Adoption Date</h3>
         <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
       </div>
     </div>
 
     <div class="card">
       <h3>Development Progress</h3>
-      <table class="tbl">
-        <thead>
-          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
-          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
-          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
-        </tbody>
-      </table>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
+      </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
+      </div>
     </div>
 
-    <h2>EPICs &amp; Tickets</h2>
+    <h2>Epics</h2>
     <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
 
-    <!-- EPIC: Integrate Trust Manager -->
+    <!-- EPIC: OCPSTRAT-2611 -->
     <div class="epic open">
       <div class="epic-header" onclick="toggle(this,'.epic')">
         <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-        <a class="epic-id" href="https://redhat.atlassian.net/browse/CM-861" target="_blank">EPIC: CM-861</a>
-        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/CM-861" target="_blank">Integrate Trust Manager</a></span>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/OCPSTRAT-2611" target="_blank">Epic: OCPSTRAT-2611</a>
+        <span class="epic-title"><a href="https://redhat.atlassian.net/browse/OCPSTRAT-2611" target="_blank">[GA] Centralized &amp; enforced TLS configuration throughout OpenShift</a></span>
         <div class="epic-meta">
           <span class="badge green">Complete</span>
           <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
@@ -1026,18 +793,20 @@
       <div class="epic-body">
         <div class="epic-content">
           <div class="epic-metrics">
-            <div class="metric-pill green"><div class="m-value">1/1</div><div class="m-label">Tickets<br>Done</div></div>
-            <div class="metric-pill purple"><div class="m-value">487.0k</div><div class="m-label">Total<br>Tokens</div></div>
+            <div class="metric-pill green"><div class="m-value">2/2</div><div class="m-label">Runs<br>Done</div></div>
+            <div class="metric-pill purple"><div class="m-value">946.2k</div><div class="m-label">Total<br>Tokens</div></div>
             <div class="metric-pill teal"><div class="m-value">100%</div><div class="m-label">Agent<br>Success</div></div>
             <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">6</div><div class="m-label">Unit<br>Tests</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">127.3k</div><div class="m-label">Unit Test<br>Tokens</div></div>
           </div>
 
-          <!-- Ticket: CM-830 -->
+          <!-- Ticket: SPIRE-359 (AI Helpers — Composer 2.5) -->
           <div class="ticket">
             <div class="ticket-header" onclick="toggle(this,'.ticket')">
               <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <a class="ticket-label" href="https://redhat.atlassian.net/browse/CM-830" target="_blank" onclick="event.stopPropagation()">Ticket: CM-830</a>
-              <span class="ticket-summary">Create an enhancement proposal to integrate trust-manager</span>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/SPIRE-359" target="_blank" onclick="event.stopPropagation()">SPIRE-359</a>
+              <span class="ticket-summary">Central TLS Profile consistency &mdash; <strong>AI Helpers + Composer 2.5</strong></span>
               <span class="badge green" style="flex-shrink:0;">Completed</span>
             </div>
             <div class="ticket-body"><div class="ticket-content">
@@ -1057,19 +826,64 @@
                   <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>38m 34s</td><td>20.0k / 7.8k</td><td>Approved &mdash; manual TLS scan scope</td></tr>
                   <tr><td>2. Repo Assessment (MCP)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>35m 24s</td><td>19.0k / 10.3k</td><td>Score: 94/100</td></tr>
                   <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>5m 43s</td><td>30.0k / 7.4k</td><td>Score: 95/100</td></tr>
-                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>65m 18s</td><td>13.2k / 5.4k</td><td>Score: 97/100</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>3 Iterations</td><td>65m 18s</td><td>13.2k / 5.4k</td><td>Score: 97/100 &mdash; approved</td></tr>
                   <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>15m 54s</td><td>341.1k / 32.8k</td><td>Implementation report complete (18 tasks)</td></tr>
+                  <tr><td>5.1 Unit Tests (3 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>&lt; 1s</td><td>56.8k / 5.7k</td><td>3/3 tasks passed</td></tr>
                 </tbody>
               </table>
               <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 7</span></div>
               <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
                 <tbody>
                   <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
                   <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>1</td><td><span class="edit-count has-edits">1</span></td></tr>
                   <tr><td>Repo Assessment</td><td>Repo Assessment (MCP)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
                   <tr><td>Plan</td><td>Architectural Planning</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
                   <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>1</td><td>1</td><td><span class="edit-count has-edits">2</span></td></tr>
+                </tbody>
+              </table>
+            </div></div>
+          </div>
+
+          <!-- Ticket: SPIRE-359 (Cursor Agent — Composer 2.5) -->
+          <div class="ticket">
+            <div class="ticket-header" onclick="toggle(this,'.ticket')">
+              <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/SPIRE-359" target="_blank" onclick="event.stopPropagation()">SPIRE-359</a>
+              <span class="ticket-summary">Central TLS Profile consistency &mdash; <strong>Cursor Agent + Composer 2.5</strong></span>
+              <span class="badge green" style="flex-shrink:0;">Completed</span>
+            </div>
+            <div class="ticket-body"><div class="ticket-content">
+              <div class="health-strip">
+                <div class="health-card"><div class="h-label">Total Tokens</div><div class="h-value">459.2k</div></div>
+                <div class="health-card"><div class="h-label">Run Cost</div><div class="h-value">$2.05</div></div>
+                <div class="health-card"><div class="h-label">Wall Time</div><div class="h-value">32m 38s</div></div>
+                <div class="health-card"><div class="h-label">Compliance</div><div class="h-value">80%</div><div class="h-sub">Const. Pass</div></div>
+                <div class="health-card"><div class="h-label">Gate Pass Rate</div><div class="h-value">80%</div><div class="h-sub">First-pass phases</div></div>
+                <div class="health-card"><div class="h-label">Refinement Iter.</div><div class="h-value">1</div><div class="h-sub">20% rejection proxy</div></div>
+                <div class="health-card"><div class="h-label">Agent Success</div><div class="h-value">100%</div><div class="h-sub">(18/18 Tasks)</div></div>
+              </div>
+              <div class="ticket-section-title">Phase-by-Phase Telemetry &amp; Iteration Waterfall</div>
+              <table class="metric-tbl">
+                <thead><tr><th>Phase</th><th>Status</th><th>Loops / Iter.</th><th>Time Taken</th><th>Tokens In / Out</th><th>Quality / Eval Output</th></tr></thead>
+                <tbody>
+                  <tr><td>1. Spec Understanding</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>4m 33s</td><td>12.1k / 4.3k</td><td>Approved</td></tr>
+                  <tr><td>2. Repo Assessment</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 39s</td><td>9.4k / 6.0k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>5m 7s</td><td>15.4k / 3.7k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>3m 47s</td><td>13.1k / 6.3k</td><td>Score: 100/100 &mdash; approved</td></tr>
+                  <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>0m 4s</td><td>353.5k / 35.4k</td><td>All tasks approved</td></tr>
+                  <tr><td>5.1 Unit Tests (3 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>&lt; 1s</td><td>58.9k / 5.9k</td><td>3/3 tasks passed</td></tr>
+                </tbody>
+              </table>
+              <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 1</span></div>
+              <table class="metric-tbl">
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
+                <tbody>
+                  <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Repo Assessment</td><td>Repo Assessment</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
+                  <tr><td>Plan</td><td>Architectural Planning</td><td>0</td><td>1</td><td><span class="edit-count has-edits">1</span></td></tr>
+                  <tr><td>Tasks</td><td>Sub-Tasks Creation (DAG)</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
                 </tbody>
               </table>
             </div></div>
@@ -1090,21 +904,20 @@
         <tbody>
           <tr><td>Operator Name</td><td>Zero Trust Workload Identity Manager (ZTWIM)</td></tr>
           <tr><td>Category</td><td>Zero Trust Workload Identity &amp; Networking</td></tr>
-          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
-          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/zero-trust-workload-identity-manager" target="_blank">openshift/zero-trust-workload-identity-manager</a></td></tr>
         </tbody>
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/ztwim.html" style="color:var(--blue); font-weight:500;">View full ZTWIM operator page &rarr;</a></p>
   </div>
 </div>
 
-<!-- TAB: cert-manager -->
+<!-- TAB: Cert Manager -->
 <div id="tab-certmanager" class="tab-panel">
   <div class="section">
-    <h2>cert-manager Operator</h2>
-    <p class="section-sub">Current status and readiness for the cert-manager Operator</p>
+    <h2>Cert Manager Operator</h2>
+    <p class="section-sub">Current status and readiness for the Cert Manager Operator</p>
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="card" style="text-align:center;">
@@ -1116,54 +929,58 @@
         <div style="font-size:2.5em; font-weight:800; color:var(--orange);">WIP</div>
       </div>
       <div class="card" style="text-align:center;">
-        <h3>Target Release</h3>
+        <h3>End-to-end Adoption Date</h3>
         <div style="font-size:2.5em; font-weight:800; color:var(--teal);">Aug '26</div>
       </div>
     </div>
 
     <div class="card">
       <h3>Development Progress</h3>
-      <table class="tbl">
-        <thead>
-          <tr><th>Phase</th><th>Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Development</td><td><span class="badge green">Complete</span></td><td>Core operator development finished</td></tr>
-          <tr><td>QE</td><td><span class="badge orange">WIP</span></td><td>Quality engineering in progress</td></tr>
-          <tr><td>Bug Fix</td><td><span class="badge orange">WIP</span></td><td>Bug fixes ongoing</td></tr>
-        </tbody>
-      </table>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">Overall Progress</span>
+        <span style="font-size:0.9em; font-weight:700; color:#2c3e50;">4 / 6 phases complete</span>
+      </div>
+      <div style="width:100%; height:32px; background:#eef1f5; border-radius:10px; overflow:hidden; box-shadow:inset 0 2px 4px rgba(0,0,0,0.06); display:flex;">
+        <div style="width:66.7%; height:100%; background:linear-gradient(90deg,#27ae60,#2ecc71); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">67%</div>
+        <div style="width:33.3%; height:100%; background:linear-gradient(90deg,#e67e22,#f39c12); display:flex; align-items:center; justify-content:center; font-size:0.85em; font-weight:800; color:#fff;">33%</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:6px; font-size:0.78em; color:#95a5a6;">
+        <span>On-Boarded &bull; RFE &bull; Development &bull; Unit Tests</span>
+        <span style="color:#f39c12; font-weight:600;">QE E2E &bull; Bug Fix &mdash; WIP</span>
+      </div>
     </div>
 
-    <h2>EPICs &amp; Tickets</h2>
+    <h2>Epics</h2>
     <p class="section-sub">Development progress organized by EPIC &mdash; click any ticket to view its pipeline metrics</p>
 
     <!-- EPIC: CM-861 -->
     <div class="epic open">
       <div class="epic-header" onclick="toggle(this,'.epic')">
         <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-        <a class="epic-id" href="https://redhat.atlassian.net/browse/CM-861" target="_blank">EPIC: CM-861</a>
+        <a class="epic-id" href="https://redhat.atlassian.net/browse/CM-861" target="_blank">Epic: CM-861</a>
         <span class="epic-title"><a href="https://redhat.atlassian.net/browse/CM-861" target="_blank">[Tech Preview] Integrate Trust Manager with Cert Manager Operator</a></span>
         <div class="epic-meta">
           <span class="badge green">Complete</span>
-          <div class="epic-progress"><div class="epic-progress-fill" style="width:92%"></div></div>
+          <div class="epic-progress"><div class="epic-progress-fill" style="width:100%"></div></div>
         </div>
       </div>
       <div class="epic-body">
         <div class="epic-content">
           <div class="epic-metrics">
-            <div class="metric-pill green"><div class="m-value">1/1</div><div class="m-label">Tickets<br>Done</div></div>
+            <div class="metric-pill green"><div class="m-value">1/1</div><div class="m-label">Runs<br>Done</div></div>
             <div class="metric-pill purple"><div class="m-value">1.3M</div><div class="m-label">Total<br>Tokens</div></div>
             <div class="metric-pill teal"><div class="m-value">91.7%</div><div class="m-label">Agent<br>Success</div></div>
             <div class="metric-pill"><div class="m-value">0</div><div class="m-label">Open<br>Blockers</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">4</div><div class="m-label">Unit<br>Tests</div></div>
+            <div class="metric-pill" style="border-left:4px solid #8e44ad;"><div class="m-value">74.2k</div><div class="m-label">Unit Test<br>Tokens</div></div>
           </div>
 
-          <!-- Ticket: CM-830 -->
+          <!-- Ticket: CM-830 (AI Helpers — Composer 2.5) -->
           <div class="ticket">
             <div class="ticket-header" onclick="toggle(this,'.ticket')">
               <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
-              <a class="ticket-label" href="https://redhat.atlassian.net/browse/CM-830" target="_blank" onclick="event.stopPropagation()">Ticket: CM-830</a>
-              <span class="ticket-summary">Create an enhancement proposal to integrate trust-manager</span>
+              <a class="ticket-label" href="https://redhat.atlassian.net/browse/CM-830" target="_blank" onclick="event.stopPropagation()">CM-830</a>
+              <span class="ticket-summary">Enhancement proposal &mdash; <strong>AI Helpers + Composer 2.5</strong></span>
               <span class="badge green" style="flex-shrink:0;">Completed</span>
             </div>
             <div class="ticket-body"><div class="ticket-content">
@@ -1185,11 +1002,12 @@
                   <tr><td>3. Architectural Planning</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 0s</td><td>6.0k / 5.7k</td><td>Score: 100/100 &mdash; approved</td></tr>
                   <tr><td>4. Sub-Tasks Creation (DAG)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>1 Iteration</td><td>1m 0s</td><td>11.7k / 9.0k</td><td>Score: 100/100 &mdash; approved</td></tr>
                   <tr><td>5. Code Generation / Harness</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>2 Iterations</td><td>172m 23s</td><td>607.3k / 15.5k</td><td>Implementation report complete (33 task reports)</td></tr>
+                  <tr><td>5.1 Unit Tests (4 tasks)</td><td><span class="check">&#9745;</span><span class="status-passed">PASSED</span></td><td>0 Self-corrections</td><td>5m 34s</td><td>72.6k / 1.6k</td><td>4/4 tasks passed</td></tr>
                 </tbody>
               </table>
               <div class="ticket-section-title">Per-Artifact Edit Counts <span class="count">Total: 0</span></div>
               <table class="metric-tbl">
-                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Total Edits</th></tr></thead>
+                <thead><tr><th>Artifact</th><th>Phase</th><th>Eval Refinements</th><th>User Feedback Rounds</th><th>Manual Corrections</th></tr></thead>
                 <tbody>
                   <tr><td>Validation</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
                   <tr><td>Specs</td><td>Spec Understanding</td><td>0</td><td>0</td><td><span class="edit-count zero">0</span></td></tr>
@@ -1206,7 +1024,7 @@
     </div>
 
     <h2>Operator Details</h2>
-    <p class="section-sub">Technical metadata for the cert-manager operator</p>
+    <p class="section-sub">Technical metadata for the Cert Manager operator</p>
 
     <div class="card">
       <table class="tbl">
@@ -1214,18 +1032,25 @@
           <tr><th>Property</th><th>Value</th></tr>
         </thead>
         <tbody>
-          <tr><td>Operator Name</td><td>cert-manager Operator for Red Hat OpenShift</td></tr>
+          <tr><td>Operator Name</td><td>Cert Manager Operator for Red Hat OpenShift</td></tr>
           <tr><td>Category</td><td>Certificate Management</td></tr>
           <tr><td>CRDs</td><td>Certificate, Issuer, ClusterIssuer</td></tr>
           <tr><td>API Version</td><td>cert-manager.io/v1</td></tr>
           <tr><td>OLM Channel</td><td>stable-v1</td></tr>
-          <tr><td>Onboarding Date</td><td>&mdash;</td></tr>
-          <tr><td>Repository</td><td><a href="#">&mdash;</a></td></tr>
+
+          <tr><td>Repository</td><td><a href="https://github.com/openshift/cert-manager-operator" target="_blank">openshift/cert-manager-operator</a></td></tr>
         </tbody>
       </table>
     </div>
 
-    <p style="margin-top:12px;"><a href="operators/cert-manager.html" style="color:var(--blue); font-weight:500;">View full cert-manager operator page &rarr;</a></p>
+  </div>
+</div>
+
+<!-- TAB: Links and Repos -->
+<div id="tab-linksrepos" class="tab-panel">
+  <div class="section">
+    <h2>Links and Repos</h2>
+    <p class="section-sub">Relevant links and repositories</p>
   </div>
 </div>
 
@@ -1314,7 +1139,7 @@
 
 
   /* Load Pipeline Flow 2 diagram from external file */
-  fetch('pipeline-flow2.html')
+  fetch('pipeline-flow2.html?v=3')
     .then(function(r) { return r.text(); })
     .then(function(html) {
       document.getElementById('pf2Container').innerHTML = html;

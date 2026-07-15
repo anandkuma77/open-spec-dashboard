@@ -1,10 +1,10 @@
 {
   "exported_at": "2026-07-08T17:38:41.501047+00:00",
-  "operator_name": "ccert-manager operator",
+  "operator_name": "cert-manager-old-version",
   "jira_epic_link": "https://redhat.atlassian.net/browse/CM-861",
   "jira_epic_name": "[Tech Preview] Integrate Trust Manager with Cert Manager Operator",
   "jira_task_name": "Create an enhancement proposal to integrate trust-manager",
-  "Jira_task_link": "https://redhat.atlassian.net/browse/CM-830",
+  "jira_task_link": "https://redhat.atlassian.net/browse/CM-830",
   "run": {
     "id": "05de617f-0d54-4c00-8578-d89fbb2cbda6",
     "change_name": "CM-830 \u2014 cm-830",
