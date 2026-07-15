@@ -563,3 +563,32 @@ body { display: flex; flex-direction: column; }
   color: #fff;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #1a252f, #2c3e50);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+

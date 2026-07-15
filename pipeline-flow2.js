@@ -30,6 +30,11 @@
       title: 'Code & Unit Tests Generation',
       text: '',
       links: [['Prompt and result', 'https://github.com/anandkuma77/open-spec-dashboard/tree/main/prompt_examples/Code-Generation-evals-example-ztwim']]
+    },
+    'agents-md': {
+      title: 'agents.md',
+      text: '',
+      links: [['agents.md', 'https://github.com/nhegde07/zero-trust-workload-identity-manager/blob/OAPE-859/openspec/inputs/agents.md']]
     }
   };
 

@@ -77,6 +77,15 @@ function loadTabContent(tabId, url) {
     });
 }
 
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('backToTop');
+  if (window.scrollY > 300) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
 (function init() {
   var tabs = [
     { id: 'certmanager', url: 'tabs/certmanager.html' },
@@ -106,7 +115,7 @@ function loadTabContent(tabId, url) {
         if (container) {
           container.innerHTML = html;
           var s = document.createElement('script');
-          s.src = 'pipeline-flow2.js?v=3';
+          s.src = 'pipeline-flow2.js?v=4';
           document.body.appendChild(s);
         }
       });
