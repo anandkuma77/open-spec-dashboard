@@ -4,13 +4,18 @@
 
     <!-- Top: Historical Data -->
     <div class="pf2-row">
-      <div class="pf2-node pf2-light" data-tip="historical">Historical Epic's, dev PRs,<br>bugs, testcases</div>
+      <div class="pf2-node pf2-orange" data-tip="historical">Historical epics, dev PRs,<br>bugs, and test cases</div>
     </div>
-    <svg class="pf2-arrow-v" width="16" height="32" viewBox="0 0 16 32"><path d="M8 0v24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 21l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="pf2-row" style="gap:12px;align-items:center;">
+      <svg class="pf2-arrow-v" width="16" height="32" viewBox="0 0 16 32"><path d="M8 0v24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 21l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="pf2-human-icon" width="30" height="34" viewBox="0 0 24 24" fill="#2c3e50">
+        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+      </svg>
+    </div>
 
     <!-- Evals Derivation -->
     <div class="pf2-row">
-      <div class="pf2-node pf2-light" data-tip="evals">Evals derivation for automated agentic flow</div>
+      <div class="pf2-node pf2-pink" data-tip="evals">Evals derivation for automated agentic flow</div>
     </div>
     <svg class="pf2-arrow-v" width="16" height="32" viewBox="0 0 16 32"><path d="M8 0v24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 21l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
 
@@ -19,53 +24,91 @@
       <div class="pf2-row">
         <div class="pf2-node pf2-blue" data-tip="jira">Jira</div>
         <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-orange" data-tip="spec">Spec Validation</div>
-        <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-orange" data-tip="repo-assess">Repo assessment for<br>the given Epic</div>
-        <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pf2-node pf2-orange" data-tip="spec">Spec validation</div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <svg class="pf2-human-icon" width="22" height="24" viewBox="0 0 24 24" fill="#2c3e50">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+          </svg>
+          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pf2-node pf2-orange" data-tip="repo-assess">Repo assessment for<br>the given epic</div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <svg class="pf2-human-icon" width="22" height="24" viewBox="0 0 24 24" fill="#2c3e50">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+          </svg>
+          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
         <div class="pf2-node pf2-orange" data-tip="planning">Planning</div>
-        <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-orange" data-tip="tasks">Tasks Generated in<br>phases (set of tasks)</div>
-        <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M8 8h32" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M11 4l-7 4 7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-orange" data-tip="codegen">Code &amp; Unit tests<br>Generation</div>
-        <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-light" data-tip="pr">PR raised for each<br>phase of the code<br>generated for rass</div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <svg class="pf2-human-icon" width="22" height="24" viewBox="0 0 24 24" fill="#2c3e50">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+          </svg>
+          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pf2-node pf2-orange" data-tip="tasks">Tasks generated in<br>phases</div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <svg class="pf2-human-icon" width="22" height="24" viewBox="0 0 24 24" fill="#2c3e50">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+          </svg>
+          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M8 8h32" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M11 4l-7 4 7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pf2-node pf2-blue" data-tip="codegen">Code &amp; unit test<br>generation</div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <svg class="pf2-human-icon" width="22" height="24" viewBox="0 0 24 24" fill="#2c3e50">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+          </svg>
+          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pf2-node pf2-light" data-tip="pr">PR raised for each<br>phase of human-approved<br>code</div>
       </div>
     </div>
 
     <!-- Bottom section: each node paired with its own vertical connector -->
     <div style="display:flex;align-items:flex-start;width:100%;padding:0 8px">
       <!-- Left: up-arrow + Repo → CURSOR → agents.md -->
-      <div style="display:flex;flex-direction:column;align-items:center">
-        <svg class="pf2-arrow-v" width="16" height="32" viewBox="0 0 16 32"><path d="M8 32v-24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="display:flex;flex-direction:column;align-items:center;margin-left:200px">
+        <svg class="pf2-arrow-v"  style="margin-left: 340px"  width="16" height="32" viewBox="0 0 16 32"><path d="M8 32v-24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="pf2-grp">
-          <div class="pf2-node pf2-light" data-tip="repo">Repo</div>
-          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div class="pf2-node pf2-dark" data-tip="cursor">CURSOR</div>
-          <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div class="pf2-node pf2-light" data-tip="agents-md">agents.md and<br>contextualization docs</div>
+          <svg class="pf2-node pf2-db" data-tip="repo" style="margin-top:-60px" width="64" height="56" viewBox="0 0 64 56">
+              <ellipse cx="32" cy="10" rx="26" ry="10" fill="#fff" stroke="#d0d7df" stroke-width="1.5"/>
+              <path d="M6 10v36c0 5.5 11.6 10 26 10s26-4.5 26-10V10" fill="#fff" stroke="#d0d7df" stroke-width="1.5"/>
+              <ellipse cx="32" cy="10" rx="26" ry="10" fill="#fff" stroke="#d0d7df" stroke-width="1.5"/>
+              <text x="32" y="35" text-anchor="middle" font-size="11" font-weight="600" fill="#2c3e50">Repo</text>
+            </svg>
+          <svg class="pf2-arrow-h" style="margin-top:-60px" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="pf2-node pf2-dark" style="margin-top:-60px" data-tip="cursor">Cursor</div>
+          <div style="display:flex;flex-direction:column;align-items:center;margin-top:-60px;">
+            <svg class="pf2-human-icon" width="22" height="24" viewBox="0 0 24 24" fill="#2c3e50">
+              <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+            </svg>
+            <svg class="pf2-arrow-h" width="48" height="16" viewBox="0 0 48 16"><path d="M0 8h40" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M37 4l7 4-7 4" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <div class="pf2-node pf2-pink" data-tip="agents-md">agents.md and<br>contextualization docs</div>
+            <svg class="pf2-arrow-v" width="16" height="28" viewBox="0 0 16 28"><path d="M8 28v-20" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="pf2-node pf2-blue" data-tip="ai-helpers">AI helpers agentic docs</div>
+          </div>
         </div>
       </div>
       <div style="flex:1"></div>
       <!-- Center-right: bidirectional vertical arrow + Unit tests run -->
-      <div style="display:flex;flex-direction:column;align-items:center">
-        <svg class="pf2-arrow-v" width="16" height="36" viewBox="0 0 16 36"><path d="M8 8v20" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 25l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-light" data-tip="unit-tests">Unit tests run</div>
+      <div style="display:flex;flex-direction:column;align-items:center;margin-right:100px">
+        <svg class="pf2-arrow-v" width="16" style="margin-top: -20px"height="32" viewBox="0 0 16 32"><path d="M8 8v20" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 25l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pf2-node pf2-light" data-tip="unit-tests">Unit test run</div>
       </div>
       <div style="width:60px"></div>
       <!-- Far right: down-arrow + OE E2E TESTS -->
-      <div style="display:flex;flex-direction:column;align-items:center;margin-right:8px">
-        <svg class="pf2-arrow-v" width="16" height="32" viewBox="0 0 16 32"><path d="M8 0v24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 21l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-node pf2-wip" data-tip="e2e">OE E2E TESTS<br>(WIP)</div>
+      <div style="display:flex;flex-direction:column;align-items:center;margin-right:88px">
+        <svg class="pf2-arrow-v"  style="margin-top: -20px" width="16" height="32" viewBox="0 0 16 32"><path d="M8 0v24" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 21l4 7 4-7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pf2-node pf2-light" data-tip="e2e">OE E2E tests<br>(WIP)</div>
       </div>
     </div>
 
-    <!-- ai-helpers label -->
-    <div style="align-self:flex-start;padding-left:64px;margin-top:4px">
-      <div style="display:flex;flex-direction:column;align-items:center">
-        <svg class="pf2-arrow-v" width="16" height="24" viewBox="0 0 16 24"><path d="M8 24v-16" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 11l4-7 4 7" stroke="#8e99a4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pf2-lbl" data-tip="ai-helpers">ai-helpers agentic docs</div>
-      </div>
+
+    <!-- Legend -->
+    <div class="pf2-legend">
+      <span class="pf2-legend-item"><span class="pf2-legend-swatch pf2-blue"></span>Blue: adapted</span>
+      <span class="pf2-legend-item"><span class="pf2-legend-swatch pf2-orange"></span>Orange: custom developed</span>
     </div>
 
   </div>
