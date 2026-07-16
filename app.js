@@ -108,7 +108,7 @@ window.addEventListener('scroll', function() {
         if (container) container.innerHTML = html;
       });
 
-    fetch('pipeline-flow2.html?v=5')
+    fetch('pipeline-flow2.html?v=6')
       .then(function(r) { return r.text(); })
       .then(function(html) {
         var container = document.getElementById('pf2Container');
