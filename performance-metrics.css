@@ -270,7 +270,7 @@
   top: 0;
   bottom: 0;
   left: 122px;
-  right: 48px;
+  right: 40px;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
@@ -310,11 +310,25 @@
   height: 28px;
   display: flex;
   align-items: center;
+  padding-right: 40px;
+  overflow: visible;
 }
 .hchart-bar {
   height: 28px;
   border-radius: 6px;
   transition: width 0.5s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.hchart-bar-val {
+  position: absolute;
+  right: -36px;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--dark);
+  white-space: nowrap;
 }
 .hchart-bar.sonnet5 { background: linear-gradient(90deg, #e74c3c, #c0392b); }
 .hchart-bar.opus46 { background: linear-gradient(90deg, #8e44ad, #6c3483); }
@@ -325,12 +339,13 @@
   font-size: 0.85em;
   font-weight: 500;
   color: #555;
+  display: none;
 }
 .hchart-x-axis {
   display: flex;
   justify-content: space-between;
   margin-left: 122px;
-  margin-right: 48px;
+  margin-right: 40px;
   margin-top: 10px;
   font-size: 0.82em;
   color: #888;
