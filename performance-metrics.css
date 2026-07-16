@@ -269,7 +269,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 110px;
+  left: 122px;
   right: 48px;
   display: flex;
   justify-content: space-between;
@@ -292,16 +292,16 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  min-height: 28px;
 }
 .hchart-label {
-  width: 98px;
+  width: 110px;
   flex-shrink: 0;
   font-size: 0.88em;
   font-weight: 500;
   color: #555;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.25;
   text-align: right;
 }
 .hchart-plot {
@@ -313,10 +313,12 @@
 }
 .hchart-bar {
   height: 28px;
-  background: #89bede;
-  border-radius: 2px;
+  border-radius: 6px;
   transition: width 0.5s ease;
 }
+.hchart-bar.sonnet5 { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+.hchart-bar.opus46 { background: linear-gradient(90deg, #8e44ad, #6c3483); }
+.hchart-bar.composer25 { background: linear-gradient(90deg, #1abc9c, #148f77); }
 .hchart-val {
   width: 36px;
   flex-shrink: 0;
@@ -327,7 +329,7 @@
 .hchart-x-axis {
   display: flex;
   justify-content: space-between;
-  margin-left: 110px;
+  margin-left: 122px;
   margin-right: 48px;
   margin-top: 10px;
   font-size: 0.82em;
