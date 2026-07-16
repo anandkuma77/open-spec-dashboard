@@ -108,14 +108,14 @@ window.addEventListener('scroll', function() {
         if (container) container.innerHTML = html;
       });
 
-    fetch('pipeline-flow2.html?v=4')
+    fetch('pipeline-flow2.html?v=5')
       .then(function(r) { return r.text(); })
       .then(function(html) {
         var container = document.getElementById('pf2Container');
         if (container) {
           container.innerHTML = html;
           var s = document.createElement('script');
-          s.src = 'pipeline-flow2.js?v=4';
+          s.src = 'pipeline-flow2.js?v=5';
           document.body.appendChild(s);
         }
       });

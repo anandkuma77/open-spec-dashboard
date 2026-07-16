@@ -157,8 +157,44 @@
           <div class="card-collapsible-content">
 
         <div class="metrics-group accent-purple">
+          <h4>Harness engineering document prep — contribution by approach</h4>
+          <div class="hchart">
+            <div class="hchart-body">
+              <div class="hchart-gridlines">
+                <div class="hchart-gridline"></div>
+                <div class="hchart-gridline"></div>
+                <div class="hchart-gridline"></div>
+              </div>
+              <div class="hchart-rows">
+                <div class="hchart-row">
+                  <span class="hchart-label" title="Ai-helpers agentic docs">Ai-helpers agentic docs</span>
+                  <div class="hchart-plot"><div class="hchart-bar" style="width:100%"></div></div>
+                  <span class="hchart-val">40%</span>
+                </div>
+                <div class="hchart-row">
+                  <span class="hchart-label" title="Cursor">Cursor</span>
+                  <div class="hchart-plot"><div class="hchart-bar" style="width:75%"></div></div>
+                  <span class="hchart-val">30%</span>
+                </div>
+                <div class="hchart-row">
+                  <span class="hchart-label" title="Manual">Manual</span>
+                  <div class="hchart-plot"><div class="hchart-bar" style="width:75%"></div></div>
+                  <span class="hchart-val">30%</span>
+                </div>
+              </div>
+            </div>
+            <div class="hchart-x-axis">
+              <span>0%</span>
+              <span>20%</span>
+              <span>40%</span>
+            </div>
+          </div>
+          <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">Note: ai-helpers agentic docs contributed the Semantics and Structure while Cursor and Operator team refined the content in iteration</p>
+        </div>
+
+        <div class="metrics-group accent-purple">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-            <h4 style="margin:0;">Overall Report Quality and Code Generation *</h4>
+            <h4 style="margin:0;">Overall Report Quality and Code Generation</h4>
             <div class="view-toggle" id="qualityViewToggle">
               <button class="view-toggle-btn" data-view="table" onclick="toggleEpicView('quality','table')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg></button>
               <button class="view-toggle-btn active" data-view="chart" onclick="toggleEpicView('quality','chart')"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg></button>
@@ -201,7 +237,7 @@
                 </tr>
               </tbody>
             </table>
-            <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">* All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
+            <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">Note: All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
           </div>
           <div id="qualityChartView">
             <div class="vchart-wrapper">
@@ -221,7 +257,7 @@
               <span class="legend-item"><span class="legend-dot opus46"></span> Sonnet 4.5</span>
               <span class="legend-item"><span class="legend-dot composer25"></span> Composer 2.5</span>
             </div>
-            <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">* All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
+            <p style="font-size:0.85em; color:var(--gray); margin-top:10px;">Note: All models perform well for spec validation and planning but for tasks and code generation, Sonnet 5 is inefficient due to higher number of tasks.</p>
           </div>
         </div>
 
@@ -353,17 +389,26 @@
             <div class="metrics-group accent-purple" style="margin-bottom:20px;">
               <h4 style="margin:0 0 12px;">Key Challenges</h4>
               <ul style="margin:0; padding-left:20px; line-height:1.8; color:#2c3e50; font-size:0.92em;">
+                <li>Maturity assessment: Assessment of Harness engineering docs and evals for automated is very fuzzy and benchmarking needs multiple iterations (with different EPs) and methods (agentic docs, historical PRs, multiple rounds of testing etc.).</li>
                 <li>Alignment of agentic flow with human thoughts for ease of review and adaptation (for example, the review of <a href="https://tasks.md/" target="_blank">tasks.md</a> and code gen followed by PR should follow a modular approach instead of mass generation and one PR approach).</li>
                 <li>Mis-interpretation of Spec/contextual docs by LLMs/agents and delayed identification of issues.</li>
                 <li>Cross-repo governance and secured agentic flow.</li>
               </ul>
             </div>
 
-            <div class="metrics-group accent-teal">
+            <div class="metrics-group accent-teal" style="margin-bottom:20px;">
               <h4 style="margin:0 0 12px;">Recommendations</h4>
               <ul style="margin:0; padding-left:20px; line-height:1.8; color:#2c3e50; font-size:0.92em;">
+                <li>Standardization: Adaption of ai-helpers agentic docs helped standardize the semantics of harness docs across operators.</li>
                 <li>Adaptation of OpenSpec Orchestration (customized) for agentic SDLC given the flexibility for customization and native integrations as well as alignment with human reviewer thought process.</li>
                 <li>Hybrid approach to building and refining the contextualization docs using ai-helpers agentic docs and Cursor. Ai-helpers generated certain sections which were more meaningful and aided in higher efficiency.</li>
+              </ul>
+            </div>
+
+            <div class="metrics-group accent-blue">
+              <h4 style="margin:0 0 12px;">Next steps</h4>
+              <ul style="margin:0; padding-left:20px; line-height:1.8; color:#2c3e50; font-size:0.92em;">
+                <li>WIP on evaluating sandbox (Openshell) and orchestrators like Prow.</li>
               </ul>
             </div>
 

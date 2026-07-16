@@ -21,7 +21,7 @@
       text: '',
       links: [['Prompt and result', 'https://github.com/anandkuma77/open-spec-dashboard/tree/main/prompt_examples/Tasks']]
     },
-    'historical': {
+    'evals': {
       title: 'Eval Pipeline',
       text: '',
       links: [['eval-generation', 'https://github.com/sujkini/openspec/tree/openspec-operator-generic/eval-generation']]

@@ -258,6 +258,82 @@
   white-space: nowrap;
 }
 
+/* Horizontal percentage chart */
+.hchart {
+  padding: 8px 0 4px;
+}
+.hchart-body {
+  position: relative;
+}
+.hchart-gridlines {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 110px;
+  right: 48px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 0;
+}
+.hchart-gridline {
+  width: 0;
+  border-left: 1px solid #e8ecf1;
+  height: 100%;
+}
+.hchart-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+.hchart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hchart-label {
+  width: 98px;
+  flex-shrink: 0;
+  font-size: 0.88em;
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+.hchart-plot {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+.hchart-bar {
+  height: 28px;
+  background: #89bede;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+.hchart-val {
+  width: 36px;
+  flex-shrink: 0;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #555;
+}
+.hchart-x-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 110px;
+  margin-right: 48px;
+  margin-top: 10px;
+  font-size: 0.82em;
+  color: #888;
+}
+
 /* Donut Charts */
 .donut-container {
   display: flex;
