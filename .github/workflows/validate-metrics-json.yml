@@ -1,0 +1,67 @@
+name: Validate Metrics JSON
+
+on:
+  push:
+    paths:
+      - 'data/open-spec-matrics/operators/**/*.json'
+  pull_request:
+    paths:
+      - 'data/open-spec-matrics/operators/**/*.json'
+
+jobs:
+  validate:
+    name: Validate required fields in metrics JSON
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          REQUIRED_FIELDS=("jira_epic_link" "jira_epic_name" "jira_task_name" "jira_task_link")
+          EXIT_CODE=0
+
+          shopt -s globstar nullglob
+          FILES=(data/open-spec-matrics/operators/**/*.json)
+
+          if [ ${#FILES[@]} -eq 0 ]; then
+            echo "⚠️  No JSON files found in data/open-spec-matrics/operators/"
+            exit 1
+          fi
+
+          echo "Found ${#FILES[@]} JSON file(s) to validate"
+          echo "Required top-level fields: ${REQUIRED_FIELDS[*]}"
+          echo "---"
+
+          for file in "${FILES[@]}"; do
+            echo "Checking: $file"
+            ERRORS=()
+
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "  ❌ Invalid JSON syntax"
+              EXIT_CODE=1
+              continue
+            fi
+
+            for field in "${REQUIRED_FIELDS[@]}"; do
+              VALUE=$(jq -r --arg f "$field" '.[$f] // empty' "$file")
+              if [ -z "$VALUE" ]; then
+                ERRORS+=("$field")
+              fi
+            done
+
+            if [ ${#ERRORS[@]} -gt 0 ]; then
+              echo "  ❌ Missing required fields: ${ERRORS[*]}"
+              EXIT_CODE=1
+            else
+              echo "  ✅ All required fields present"
+            fi
+          done
+
+          echo "---"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "❌ Validation failed — see errors above"
+          else
+            echo "✅ All files passed validation"
+          fi
+          exit $EXIT_CODE

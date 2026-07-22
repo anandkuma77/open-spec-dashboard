@@ -4,7 +4,7 @@
   "jira_epic_link": "https://redhat.atlassian.net/browse/SSCSI-242",
   "jira_epic_name": "Configurable secret rotation and WIF in Secret Store CSI driver operator",
   "jira_task_name": "Create an enhancement proposal to configurable secret rotation in Secret Store CSI driver operator",
-  "Jira_task_link": "https://redhat.atlassian.net/browse/SSCSI-254",
+  "jira_task_link": "https://redhat.atlassian.net/browse/SSCSI-254",
   "run": {
     "id": "65eb3a4f-a7b5-4846-939d-d905bdee9381",
     "change_name": "SSCSI-254 \u2014 sscsi-254",
