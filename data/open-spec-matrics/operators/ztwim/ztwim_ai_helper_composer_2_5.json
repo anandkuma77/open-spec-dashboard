@@ -4,7 +4,7 @@
   "jira_epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-2611",
   "jira_epic_name": "[GA] Centralized & enforced TLS configuration throughout OpenShift (Core & layered products)",
   "jira_task_name": "Zero Trust Workload Identity Manager-  Central TLS Profile consistency",
-  "Jira_task_link": "https://redhat.atlassian.net/browse/SPIRE-359",
+  "jira_task_link": "https://redhat.atlassian.net/browse/SPIRE-359",
   "run": {
     "id": "bc8c3f0e-d484-4018-9ef9-1231ec79825c",
     "change_name": "ADR-TLS-Compliance \u2014 tls-profile-compliance",
