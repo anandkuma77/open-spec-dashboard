@@ -1,0 +1,557 @@
+{
+  "generated_at": "2026-07-27T07:41:27.745899+00:00",
+  "epics": [
+    {
+      "epic_id": "OCPSTRAT-01",
+      "epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-01",
+      "epic_title": "[01] Centralized & enforced TLS configuration throughout OpenShift (Core & layered products)",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 2,
+        "runs_total": 2,
+        "total_tokens": "973.9k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 6,
+        "unit_test_tokens": "125.1k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SPIRE-3590102",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-3590102",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "AI Helpers + Composer 2 5 copy 2",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "487.0k",
+            "run_cost": "$2.23",
+            "wall_time": "190m 58s",
+            "eval_rejections": 3,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "38m 34s",
+              "tokens_in_out": "20.0k / 7.8k",
+              "quality": "Approved — manual TLS scan scope"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "35m 24s",
+              "tokens_in_out": "19.0k / 10.3k",
+              "quality": "Score: 94/100"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "5m 43s",
+              "tokens_in_out": "30.0k / 7.4k",
+              "quality": "Score: 95/100"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "65m 18s",
+              "tokens_in_out": "13.2k / 5.4k",
+              "quality": "Score: 97/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "15m 54s",
+              "tokens_in_out": "341.1k / 32.8k",
+              "quality": "Implementation report complete (18 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "56.8k / 5.7k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        },
+        {
+          "ticket_id": "SPIRE-3590101",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-3590101",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "AI Helpers + Composer 2 5 copy",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "487.0k",
+            "run_cost": "$2.23",
+            "wall_time": "190m 58s",
+            "eval_rejections": 3,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "38m 34s",
+              "tokens_in_out": "20.0k / 7.8k",
+              "quality": "Approved — manual TLS scan scope"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "35m 24s",
+              "tokens_in_out": "19.0k / 10.3k",
+              "quality": "Score: 94/100"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "5m 43s",
+              "tokens_in_out": "30.0k / 7.4k",
+              "quality": "Score: 95/100"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "65m 18s",
+              "tokens_in_out": "13.2k / 5.4k",
+              "quality": "Score: 97/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "15m 54s",
+              "tokens_in_out": "341.1k / 32.8k",
+              "quality": "Implementation report complete (18 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "56.8k / 5.7k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epic_id": "OCPSTRAT-03",
+      "epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-03",
+      "epic_title": "[03] Centralized & enforced TLS configuration throughout OpenShift (Core & layered products)",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 1,
+        "runs_total": 1,
+        "total_tokens": "487.0k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 3,
+        "unit_test_tokens": "62.5k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SPIRE-3590301",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-3590301",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "AI Helpers + Composer 2 5 copy 3",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "487.0k",
+            "run_cost": "$2.23",
+            "wall_time": "190m 58s",
+            "eval_rejections": 3,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "38m 34s",
+              "tokens_in_out": "20.0k / 7.8k",
+              "quality": "Approved — manual TLS scan scope"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "35m 24s",
+              "tokens_in_out": "19.0k / 10.3k",
+              "quality": "Score: 94/100"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "5m 43s",
+              "tokens_in_out": "30.0k / 7.4k",
+              "quality": "Score: 95/100"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "65m 18s",
+              "tokens_in_out": "13.2k / 5.4k",
+              "quality": "Score: 97/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "15m 54s",
+              "tokens_in_out": "341.1k / 32.8k",
+              "quality": "Implementation report complete (18 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "56.8k / 5.7k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epic_id": "OCPSTRAT-04",
+      "epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-04",
+      "epic_title": "[04] Centralized & enforced TLS configuration throughout OpenShift (Core & layered products)",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 1,
+        "runs_total": 1,
+        "total_tokens": "487.0k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 3,
+        "unit_test_tokens": "62.5k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SPIRE-3590401",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-3590401",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "AI Helpers + Composer 2 5 copy 4",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "487.0k",
+            "run_cost": "$2.23",
+            "wall_time": "190m 58s",
+            "eval_rejections": 3,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "38m 34s",
+              "tokens_in_out": "20.0k / 7.8k",
+              "quality": "Approved — manual TLS scan scope"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "35m 24s",
+              "tokens_in_out": "19.0k / 10.3k",
+              "quality": "Score: 94/100"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "5m 43s",
+              "tokens_in_out": "30.0k / 7.4k",
+              "quality": "Score: 95/100"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "65m 18s",
+              "tokens_in_out": "13.2k / 5.4k",
+              "quality": "Score: 97/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "15m 54s",
+              "tokens_in_out": "341.1k / 32.8k",
+              "quality": "Implementation report complete (18 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "56.8k / 5.7k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epic_id": "OCPSTRAT-05",
+      "epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-05",
+      "epic_title": "[05] Centralized & enforced TLS configuration throughout OpenShift (Core & layered products)",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 1,
+        "runs_total": 1,
+        "total_tokens": "487.0k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 3,
+        "unit_test_tokens": "62.5k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SPIRE-3590501",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-3590501",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "AI Helpers + Composer 2 5 copy 5",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "487.0k",
+            "run_cost": "$2.23",
+            "wall_time": "190m 58s",
+            "eval_rejections": 3,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "38m 34s",
+              "tokens_in_out": "20.0k / 7.8k",
+              "quality": "Approved — manual TLS scan scope"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "35m 24s",
+              "tokens_in_out": "19.0k / 10.3k",
+              "quality": "Score: 94/100"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "5m 43s",
+              "tokens_in_out": "30.0k / 7.4k",
+              "quality": "Score: 95/100"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "65m 18s",
+              "tokens_in_out": "13.2k / 5.4k",
+              "quality": "Score: 97/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "15m 54s",
+              "tokens_in_out": "341.1k / 32.8k",
+              "quality": "Implementation report complete (18 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "56.8k / 5.7k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epic_id": "OCPSTRAT-2611",
+      "epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-2611",
+      "epic_title": "[GA] Centralized & enforced TLS configuration throughout OpenShift (Core & layered products)",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 2,
+        "runs_total": 2,
+        "total_tokens": "946.2k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 6,
+        "unit_test_tokens": "127.3k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SPIRE-359",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-359",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "AI Helpers + Composer 2.5",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "487.0k",
+            "run_cost": "$2.23",
+            "wall_time": "190m 58s",
+            "eval_rejections": 3,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "38m 34s",
+              "tokens_in_out": "20.0k / 7.8k",
+              "quality": "Approved — manual TLS scan scope"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "35m 24s",
+              "tokens_in_out": "19.0k / 10.3k",
+              "quality": "Score: 94/100"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "5m 43s",
+              "tokens_in_out": "30.0k / 7.4k",
+              "quality": "Score: 95/100"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "3 Iterations",
+              "time_taken": "65m 18s",
+              "tokens_in_out": "13.2k / 5.4k",
+              "quality": "Score: 97/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "15m 54s",
+              "tokens_in_out": "341.1k / 32.8k",
+              "quality": "Implementation report complete (18 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "56.8k / 5.7k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        },
+        {
+          "ticket_id": "SPIRE-359",
+          "ticket_link": "https://redhat.atlassian.net/browse/SPIRE-359",
+          "ticket_summary": "Central TLS Profile consistency",
+          "agent_label": "Cursor Agent + Composer 2.5",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "459.2k",
+            "run_cost": "$2.05",
+            "wall_time": "32m 38s",
+            "eval_rejections": 0,
+            "agent_success_pct": "100%",
+            "tasks_passed": 18,
+            "tasks_total": 18
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "4m 33s",
+              "tokens_in_out": "12.1k / 4.3k",
+              "quality": "Approved"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "1m 39s",
+              "tokens_in_out": "9.4k / 6.0k",
+              "quality": "Score: 100/100 — approved"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "5m 7s",
+              "tokens_in_out": "15.4k / 3.7k",
+              "quality": "Score: 100/100 — approved"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "3m 47s",
+              "tokens_in_out": "13.1k / 6.3k",
+              "quality": "Score: 100/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "0m 4s",
+              "tokens_in_out": "353.5k / 35.4k",
+              "quality": "All tasks approved"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "58.9k / 5.9k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

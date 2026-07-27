@@ -89,16 +89,34 @@ window.addEventListener('scroll', function() {
 (function init() {
   var tabs = [
     { id: 'certmanager', url: 'tabs/certmanager.html' },
-    { id: 'ztwim', url: 'tabs/ztwim.html' },
-    { id: 'sscso', url: 'tabs/sscso.html' },
-    { id: 'mustgather', url: 'tabs/mustgather.html' },
-    { id: 'eso', url: 'tabs/eso.html' },
     { id: 'linksrepos', url: 'tabs/linksrepos.html' }
   ];
 
   tabs.forEach(function(tab) {
     loadTabContent(tab.id, tab.url);
   });
+
+  var epicTabs = [
+    { id: 'ztwim', url: 'tabs/ztwim.html', container: 'ztwim-epics-container', json: 'data/processed/ztwim_epics.json' },
+    { id: 'sscso', url: 'tabs/sscso.html', container: 'sscsi-epics-container', json: 'data/processed/sscsi_epics.json' },
+    { id: 'mustgather', url: 'tabs/mustgather.html', container: 'mustgather-epics-container', json: 'data/processed/mustgather_epics.json' },
+    { id: 'eso', url: 'tabs/eso.html', container: 'eso-epics-container', json: 'data/processed/eso_epics.json' }
+  ];
+
+  var epicTabPromises = epicTabs.map(function(tab) {
+    return { promise: loadTabContent(tab.id, tab.url), container: tab.container, json: tab.json };
+  });
+
+  var rendererScript = document.createElement('script');
+  rendererScript.src = 'epics-renderer.js';
+  rendererScript.onload = function() {
+    epicTabPromises.forEach(function(t) {
+      t.promise.then(function() {
+        loadEpicsFromJSON(t.container, t.json);
+      });
+    });
+  };
+  document.body.appendChild(rendererScript);
 
   loadTabContent('overview', 'tabs/overview.html').then(function() {
     fetch('layered-architecture.html')
