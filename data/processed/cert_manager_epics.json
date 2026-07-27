@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-07-27T08:09:09.275127+00:00",
+  "epics": [
+    {
+      "epic_id": "CM-861",
+      "epic_link": "https://redhat.atlassian.net/browse/CM-861",
+      "epic_title": "[Tech Preview] Integrate Trust Manager with Cert Manager Operator",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 1,
+        "runs_total": 1,
+        "total_tokens": "1281.7k",
+        "agent_success_pct": "92%",
+        "open_blockers": 0,
+        "unit_tests": 4,
+        "unit_test_tokens": "74.2k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "CM-830",
+          "ticket_link": "https://redhat.atlassian.net/browse/CM-830",
+          "ticket_summary": "manager",
+          "agent_label": "AI Helpers + Composer 2.5",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "1281.7k",
+            "run_cost": "$4.45",
+            "wall_time": "184m 11s",
+            "eval_rejections": 0,
+            "agent_success_pct": "92%",
+            "tasks_passed": 33,
+            "tasks_total": 36
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "5m 0s",
+              "tokens_in_out": "7.0k / 4.4k",
+              "quality": "PASS"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "RUNNING",
+              "iterations": "1 Iteration",
+              "time_taken": "< 1s",
+              "tokens_in_out": "0 / 0",
+              "quality": ""
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "1m 0s",
+              "tokens_in_out": "6.0k / 5.7k",
+              "quality": "Score: 100/100 — approved"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "1m 0s",
+              "tokens_in_out": "11.7k / 9.0k",
+              "quality": "Score: 100/100 — approved"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "< 1s",
+              "tokens_in_out": "607.3k / 15.5k",
+              "quality": "Implementation report complete (36 tasks)"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (4 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "5m 34s",
+              "tokens_in_out": "72.6k / 1.6k",
+              "quality": "4/4 tasks passed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

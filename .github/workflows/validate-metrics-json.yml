@@ -1,12 +1,7 @@
 name: Validate Metrics JSON
 
 on:
-  push:
-    paths:
-      - 'data/open-spec-matrics/operators/**/*.json'
   pull_request:
-    paths:
-      - 'data/open-spec-matrics/operators/**/*.json'
 
 jobs:
   validate:
@@ -16,7 +11,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check for raw metrics changes
+        id: filter
+        run: |
+          CHANGED=$(git diff --name-only --diff-filter=ACMR origin/${{ github.base_ref }}...HEAD -- 'data/open-spec-matrics/**/*.json' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "No raw metrics JSON changed — skipping validation"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "Changed files:"
+            echo "$CHANGED"
+          fi
+
       - name: Validate JSON files
+        if: steps.filter.outputs.skip != 'true'
         run: |
           REQUIRED_FIELDS=("jira_epic_link" "jira_epic_name" "jira_task_name" "jira_task_link")
           EXIT_CODE=0

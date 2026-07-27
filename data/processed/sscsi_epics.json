@@ -1,0 +1,155 @@
+{
+  "generated_at": "2026-07-27T08:09:09.383230+00:00",
+  "epics": [
+    {
+      "epic_id": "SSCSI-242",
+      "epic_link": "https://redhat.atlassian.net/browse/SSCSI-242",
+      "epic_title": "Configurable secret rotation and WIF in Secret Store CSI driver operator",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 2,
+        "runs_total": 2,
+        "total_tokens": "1497.4k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 7,
+        "unit_test_tokens": "217.2k"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SSCSI-254",
+          "ticket_link": "https://redhat.atlassian.net/browse/SSCSI-254",
+          "ticket_summary": "Create an enhancement proposal to configurable secret rotation in Secret Store CSI driver operator",
+          "agent_label": "AI Helpers + Sonnet 5",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "697.3k",
+            "run_cost": "$2.62",
+            "wall_time": "263m 5s",
+            "eval_rejections": 0,
+            "agent_success_pct": "100%",
+            "tasks_passed": 19,
+            "tasks_total": 19
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "18m 0s",
+              "tokens_in_out": "21.1k / 4.1k",
+              "quality": "APPROVED"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "8m 58s",
+              "tokens_in_out": "13.5k / 10.7k",
+              "quality": "Score: 100/100 — APPROVED"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "4m 28s",
+              "tokens_in_out": "24.2k / 7.1k",
+              "quality": "Score: 100/100 — APPROVED"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "4m 33s",
+              "tokens_in_out": "20.6k / 8.7k",
+              "quality": "Score: 100/100 — APPROVED"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "2 Iterations",
+              "time_taken": "174m 58s",
+              "tokens_in_out": "573.5k / 13.9k",
+              "quality": "19/19 tasks approved"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (4 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "17m 40s",
+              "tokens_in_out": "121.1k / 2.7k",
+              "quality": "4/4 tasks passed"
+            }
+          ]
+        },
+        {
+          "ticket_id": "SSCSI-254",
+          "ticket_link": "https://redhat.atlassian.net/browse/SSCSI-254",
+          "ticket_summary": "Create an enhancement proposal to configurable secret rotation in Secret Store CSI driver operator",
+          "agent_label": "Cursor Agent + Sonnet 5",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "800.1k",
+            "run_cost": "$2.95",
+            "wall_time": "198m 42s",
+            "eval_rejections": 0,
+            "agent_success_pct": "100%",
+            "tasks_passed": 22,
+            "tasks_total": 22
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "7m 46s",
+              "tokens_in_out": "21.0k / 4.0k",
+              "quality": "Approved"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "8m 48s",
+              "tokens_in_out": "13.4k / 9.8k",
+              "quality": "Score: 98/100 — excellent"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "7m 43s",
+              "tokens_in_out": "23.2k / 6.7k",
+              "quality": "Score: 96/100 — excellent"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "8m 55s",
+              "tokens_in_out": "20.1k / 10.5k",
+              "quality": "Score: 95/100 — excellent"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "157m 6s",
+              "tokens_in_out": "676.5k / 15.0k",
+              "quality": "22/22 tasks approved"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (3 tasks)",
+              "status": "PASSED",
+              "iterations": "0 Self-corrections",
+              "time_taken": "14m 16s",
+              "tokens_in_out": "91.3k / 2.0k",
+              "quality": "3/3 tasks passed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
