@@ -99,7 +99,7 @@ window.addEventListener('scroll', function() {
   var epicTabs = [
     { id: 'ztwim', url: 'tabs/ztwim.html', container: 'ztwim-epics-container', json: 'data/processed/ztwim_epics.json' },
     { id: 'sscso', url: 'tabs/sscso.html', container: 'sscsi-epics-container', json: 'data/processed/sscsi_epics.json' },
-    { id: 'mustgather', url: 'tabs/mustgather.html', container: 'mustgather-epics-container', json: 'data/processed/mustgather_epics.json' },
+    { id: 'mustgather', url: 'tabs/mustgather.html', container: 'mustgather-epics-container', json: 'data/processed/must_gather_epics.json' },
     { id: 'eso', url: 'tabs/eso.html', container: 'eso-epics-container', json: 'data/processed/eso_epics.json' }
   ];
 

@@ -1,0 +1,49 @@
+name: Generate Processed Metrics
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/open-spec-matrics/operators/**/*.json'
+      - 'scripts/generate_processed_metrics.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: Generate processed metrics from raw data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate processed metrics for all operators
+        run: |
+          for operator_dir in data/open-spec-matrics/operators/*/; do
+            operator=$(basename "$operator_dir")
+            echo "Processing: $operator"
+            python3 scripts/generate_processed_metrics.py \
+              --raw-dir "$operator_dir" \
+              --output "data/processed/${operator}_epics.json"
+          done
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/processed/ && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push processed metrics
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/processed/
+          git commit -m "chore: regenerate processed metrics from raw data"
+          git push
