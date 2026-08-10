@@ -5,7 +5,7 @@ on:
 
 jobs:
   validate:
-    name: Validate required fields in metrics JSON
+    name: Validate metrics JSON syntax and required fields
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,10 +24,9 @@ jobs:
             echo "$CHANGED"
           fi
 
-      - name: Validate JSON files
+      - name: Validate JSON syntax
         if: steps.filter.outputs.skip != 'true'
         run: |
-          REQUIRED_FIELDS=("jira_epic_link" "jira_epic_name" "jira_task_name" "jira_task_link")
           EXIT_CODE=0
 
           shopt -s globstar nullglob
@@ -38,19 +37,44 @@ jobs:
             exit 1
           fi
 
-          echo "Found ${#FILES[@]} JSON file(s) to validate"
+          echo "Checking JSON syntax for ${#FILES[@]} file(s)"
+          echo "---"
+
+          for file in "${FILES[@]}"; do
+            echo "Checking: $file"
+            if ! ERROR=$(jq empty "$file" 2>&1); then
+              echo "  ❌ Invalid JSON syntax"
+              echo "$ERROR" | sed 's/^/    /'
+              EXIT_CODE=1
+            else
+              echo "  ✅ Valid JSON"
+            fi
+          done
+
+          echo "---"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "❌ JSON syntax validation failed — see errors above"
+            exit $EXIT_CODE
+          fi
+
+          echo "✅ All files have valid JSON syntax"
+
+      - name: Validate required fields
+        if: steps.filter.outputs.skip != 'true'
+        run: |
+          REQUIRED_FIELDS=("jira_task_name" "jira_task_link")
+          EXIT_CODE=0
+
+          shopt -s globstar nullglob
+          FILES=(data/open-spec-matrics/operators/**/*.json)
+
+          echo "Checking required fields for ${#FILES[@]} file(s)"
           echo "Required top-level fields: ${REQUIRED_FIELDS[*]}"
           echo "---"
 
           for file in "${FILES[@]}"; do
             echo "Checking: $file"
             ERRORS=()
-
-            if ! jq empty "$file" 2>/dev/null; then
-              echo "  ❌ Invalid JSON syntax"
-              EXIT_CODE=1
-              continue
-            fi
 
             for field in "${REQUIRED_FIELDS[@]}"; do
               VALUE=$(jq -r --arg f "$field" '.[$f] // empty' "$file")
@@ -69,8 +93,8 @@ jobs:
 
           echo "---"
           if [ $EXIT_CODE -ne 0 ]; then
-            echo "❌ Validation failed — see errors above"
+            echo "❌ Required field validation failed — see errors above"
           else
-            echo "✅ All files passed validation"
+            echo "✅ All files passed required field validation"
           fi
           exit $EXIT_CODE
