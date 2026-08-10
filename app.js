@@ -88,13 +88,14 @@ window.addEventListener('scroll', function() {
 
 (function init() {
   var tabs = [
-    { id: 'certmanager', url: 'tabs/certmanager.html' },
     { id: 'linksrepos', url: 'tabs/linksrepos.html' }
   ];
 
   tabs.forEach(function(tab) {
     loadTabContent(tab.id, tab.url);
   });
+
+  var certmanagerPromise = loadTabContent('certmanager', 'tabs/certmanager.html');
 
   var epicTabs = [
     { id: 'ztwim', url: 'tabs/ztwim.html', container: 'ztwim-epics-container', json: 'data/processed/ztwim_epics.json', qeContainer: 'ztwim-qe-container', qeJson: 'data/processed/ztwim_qe.json' },
@@ -123,6 +124,9 @@ window.addEventListener('scroll', function() {
         t.promise.then(function() {
           loadQEFromJSON(t.qeContainer, t.qeJson);
         });
+      });
+      certmanagerPromise.then(function() {
+        loadQEFromJSON('certmanager-qe-container', 'data/processed/cert_manager_qe.json');
       });
     };
     document.body.appendChild(qeScript);
