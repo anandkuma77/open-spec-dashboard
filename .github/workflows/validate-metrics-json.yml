@@ -5,7 +5,7 @@ on:
 
 jobs:
   validate:
-    name: Validate metrics JSON syntax and required fields
+    name: Validate required fields in metrics JSON
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
