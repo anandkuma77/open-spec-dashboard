@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
-"""Generate processed metrics JSON for a tab's Epics section from raw metric data.
+"""Generate processed metrics JSON from raw metric data.
 
 Reads every raw metric JSON file in --raw-dir, groups them by JIRA epic,
-aggregates per-epic and per-ticket summaries, and writes a single processed
-JSON file that the dashboard's JS can fetch at runtime.
+aggregates per-epic and per-ticket summaries, and writes processed JSON files
+that the dashboard's JS can fetch at runtime.
+
+Produces two outputs:
+  1. Epics JSON (--output)  — from raw metric files in the top-level --raw-dir
+  2. QE JSON    (--qe-output) — from raw QE files in the --raw-dir/QE/ subfolder
 
 Usage:
     python3 scripts/generate_processed_metrics.py \
         --raw-dir data/open-spec-matrics/operators/ztwim \
-        --output  data/processed/ztwim_epics.json
+        --output  data/processed/ztwim_epics.json \
+        --qe-output data/processed/ztwim_qe.json
 """
 
 import argparse
@@ -356,6 +361,179 @@ def aggregate_epic(epic_meta, tickets):
     }
 
 # ---------------------------------------------------------------------------
+# QE metric processing
+# ---------------------------------------------------------------------------
+
+def process_qe_run(raw_data):
+    """Transform one raw QE metric JSON file into a processed QE ticket dict."""
+    coverage = raw_data.get("ac_scenario_coverage", {})
+    automation = raw_data.get("automation_coverage", {})
+    fpr = raw_data.get("first_pass_rate", {})
+    flake = raw_data.get("flake_rate", {})
+    bugs = raw_data.get("bugs", {})
+    triage = raw_data.get("triage_accuracy", {})
+    cost = raw_data.get("cost", {})
+
+    return {
+        "ticket_id": extract_jira_key(raw_data["jira_task_link"]),
+        "ticket_link": raw_data["jira_task_link"],
+        "ticket_name": raw_data.get("jira_task_name", ""),
+        "change_name": raw_data.get("change_name", ""),
+        "pr_url": raw_data.get("pr_url", ""),
+        "phase": raw_data.get("phase", ""),
+        "mode": raw_data.get("mode", ""),
+        "ac_scenario_coverage": {
+            "total": coverage.get("total_acceptance_criteria", 0),
+            "covered": coverage.get("criteria_covered_by_tests", 0),
+            "pct": coverage.get("coverage_pct", 0),
+            "uncovered": coverage.get("uncovered", []),
+        },
+        "automation_coverage": {
+            "total": automation.get("total_scenarios", 0),
+            "automated": automation.get("automated", 0),
+            "manual": automation.get("manual", 0),
+            "pct": automation.get("coverage_pct", 0),
+        },
+        "first_pass_rate": {
+            "executed": fpr.get("tests_executed", 0),
+            "passed": fpr.get("tests_passed_first_run", 0),
+            "failed": fpr.get("tests_failed_first_run", 0),
+            "pct": fpr.get("pass_rate_pct", 0),
+            "source": fpr.get("execution_source", ""),
+        },
+        "flake_rate": {
+            "retries": flake.get("total_retries", 0),
+            "retries_passed": flake.get("retries_passed_no_code_change", 0),
+            "pct": flake.get("flake_rate_pct", 0),
+        },
+        "bugs": {
+            "found": bugs.get("found", 0),
+            "verified": bugs.get("verified", 0),
+            "details": bugs.get("details", []),
+        },
+        "triage_accuracy": {
+            "total": triage.get("total_triaged", 0),
+            "correct": triage.get("correct", 0),
+            "pct": triage.get("accuracy_pct"),
+            "reason": triage.get("reason", ""),
+        },
+        "cost": {
+            "tokens_in": cost.get("tokens_in", 0),
+            "tokens_out": cost.get("tokens_out", 0),
+            "tokens_total": cost.get("tokens_total", 0),
+            "tokens_total_fmt": format_tokens(cost.get("tokens_total", 0)),
+            "estimated_cost_usd": format_cost(cost.get("estimated_cost_usd", 0)),
+            "wall_time": format_duration(cost.get("wall_time_s", 0)),
+            "per_stage": [
+                {
+                    "stage": s.get("stage", ""),
+                    "tokens_in": s.get("tokens_in", 0),
+                    "tokens_out": s.get("tokens_out", 0),
+                    "duration": format_duration(s.get("duration_s", 0)),
+                }
+                for s in cost.get("per_stage", [])
+            ],
+        },
+    }
+
+
+def aggregate_qe_epic(epic_meta, tickets, has_epic):
+    """Combine per-ticket QE data into an epic-level QE summary."""
+    total_ac = sum(t["ac_scenario_coverage"]["total"] for t in tickets)
+    covered_ac = sum(t["ac_scenario_coverage"]["covered"] for t in tickets)
+    total_scenarios = sum(t["automation_coverage"]["total"] for t in tickets)
+    automated = sum(t["automation_coverage"]["automated"] for t in tickets)
+    total_tests = sum(t["first_pass_rate"]["executed"] for t in tickets)
+    passed_first = sum(t["first_pass_rate"]["passed"] for t in tickets)
+    bugs_found = sum(t["bugs"]["found"] for t in tickets)
+    bugs_verified = sum(t["bugs"]["verified"] for t in tickets)
+    total_tokens = sum(t["cost"]["tokens_in"] + t["cost"]["tokens_out"] for t in tickets)
+    total_cost_raw = sum(
+        float(t["cost"]["estimated_cost_usd"].replace("$", "")) for t in tickets
+    )
+
+    return {
+        "epic_id": epic_meta["epic_id"],
+        "epic_link": epic_meta["epic_link"],
+        "epic_title": epic_meta["epic_title"],
+        "has_epic": has_epic,
+        "summary": {
+            "tickets_count": len(tickets),
+            "ac_coverage_pct": round(covered_ac / total_ac * 100, 1) if total_ac else 0,
+            "automation_pct": round(automated / total_scenarios * 100, 1) if total_scenarios else 0,
+            "first_pass_pct": round(passed_first / total_tests * 100, 1) if total_tests else 0,
+            "bugs_found": bugs_found,
+            "bugs_verified": bugs_verified,
+            "total_tokens": format_tokens(total_tokens),
+            "total_cost": format_cost(total_cost_raw),
+        },
+        "tickets": tickets,
+    }
+
+
+def generate_qe_output(raw_dir, qe_output):
+    """Scan raw_dir/QE/ for QE JSON files, process, and write output."""
+    qe_dir = os.path.join(raw_dir, "QE")
+    if not os.path.isdir(qe_dir):
+        payload = {"generated_at": datetime.now(timezone.utc).isoformat(), "epics": []}
+        out_dir = os.path.dirname(qe_output)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)
+        with open(qe_output, "w") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+        print(f"QE metrics: no QE/ directory found, wrote empty {qe_output}")
+        return
+
+    qe_files = sorted(f for f in os.listdir(qe_dir) if f.endswith(".json"))
+    if not qe_files:
+        payload = {"generated_at": datetime.now(timezone.utc).isoformat(), "epics": []}
+        out_dir = os.path.dirname(qe_output)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)
+        with open(qe_output, "w") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+        print(f"QE metrics: no JSON files in QE/, wrote empty {qe_output}")
+        return
+
+    epic_groups = defaultdict(lambda: {"epic_id": None, "epic_link": None,
+                                        "epic_title": None, "has_epic": False,
+                                        "tickets": []})
+
+    for fname in qe_files:
+        with open(os.path.join(qe_dir, fname)) as f:
+            raw = json.load(f)
+        has_epic = bool(raw.get("jira_epic_link"))
+        key = raw.get("jira_epic_link") or raw.get("jira_task_link", "unknown")
+        grp = epic_groups[key]
+        grp["epic_id"] = extract_jira_key(key)
+        grp["epic_link"] = key
+        grp["epic_title"] = raw.get("jira_epic_name", raw.get("jira_task_name", ""))
+        if has_epic:
+            grp["has_epic"] = True
+        grp["tickets"].append(process_qe_run(raw))
+
+    epics = [
+        aggregate_qe_epic(meta, meta.pop("tickets"), meta.pop("has_epic"))
+        for meta in epic_groups.values()
+    ]
+
+    out_dir = os.path.dirname(qe_output)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
+
+    payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "epics": epics,
+    }
+    with open(qe_output, "w") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+
+    print(f"QE metrics written to {qe_output}")
+    for epic in epics:
+        print(f"  QE Epic {epic['epic_id']}: {len(epic['tickets'])} tickets")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -369,10 +547,15 @@ def main():
     )
     parser.add_argument(
         "--output", required=True,
-        help="Output path for the processed JSON file",
+        help="Output path for the processed epics JSON file",
+    )
+    parser.add_argument(
+        "--qe-output",
+        help="Output path for the processed QE JSON file (defaults to sibling of --output)",
     )
     args = parser.parse_args()
 
+    # --- Epics processing (existing) ---
     raw_files = sorted(
         f for f in os.listdir(args.raw_dir) if f.endswith(".json")
     )
@@ -410,6 +593,13 @@ def main():
     for epic in epics:
         print(f"  Epic {epic['epic_id']}: {len(epic['tickets'])} tickets, "
               f"{epic['summary']['total_tokens']} total tokens")
+
+    # --- QE processing ---
+    qe_output = args.qe_output
+    if not qe_output:
+        base, _ = os.path.splitext(args.output)
+        qe_output = base.replace("_epics", "") + "_qe.json"
+    generate_qe_output(args.raw_dir, qe_output)
 
 
 if __name__ == "__main__":

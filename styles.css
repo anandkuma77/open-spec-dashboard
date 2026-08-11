@@ -434,6 +434,23 @@ body { display: flex; flex-direction: column; }
   .health-strip { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
 }
 
+/* ── QE Metrics ── */
+.qe-coverage-section { margin-bottom: 16px; }
+.qe-uncovered-tag {
+  display: inline-block; padding: 2px 8px;
+  background: #fff3cd; border-radius: 4px;
+  font-family: 'Courier New', monospace; font-size: 0.85em;
+  font-weight: 600; color: #856404; margin: 2px 2px 2px 0;
+}
+.qe-pr-link {
+  font-size: 0.8em; font-weight: 600; color: var(--blue);
+  text-decoration: none; padding: 2px 8px;
+  background: #eaf2f8; border-radius: 4px;
+}
+.qe-pr-link:hover { text-decoration: underline; background: #d5e8f7; }
+
+.health-card.warn { background: #c0392b; }
+
 /* ── Pipeline Flow 2 ── */
 .pf2-wrap { overflow-x: auto; padding: 8px 0; }
 .pf2-diagram {

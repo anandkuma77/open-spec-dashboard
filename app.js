@@ -88,7 +88,6 @@ window.addEventListener('scroll', function() {
 
 (function init() {
   var tabs = [
-    { id: 'certmanager', url: 'tabs/certmanager.html' },
     { id: 'linksrepos', url: 'tabs/linksrepos.html' }
   ];
 
@@ -96,15 +95,17 @@ window.addEventListener('scroll', function() {
     loadTabContent(tab.id, tab.url);
   });
 
+  var certmanagerPromise = loadTabContent('certmanager', 'tabs/certmanager.html');
+
   var epicTabs = [
-    { id: 'ztwim', url: 'tabs/ztwim.html', container: 'ztwim-epics-container', json: 'data/processed/ztwim_epics.json' },
-    { id: 'sscso', url: 'tabs/sscso.html', container: 'sscsi-epics-container', json: 'data/processed/sscsi_epics.json' },
-    { id: 'mustgather', url: 'tabs/mustgather.html', container: 'mustgather-epics-container', json: 'data/processed/must_gather_epics.json' },
-    { id: 'eso', url: 'tabs/eso.html', container: 'eso-epics-container', json: 'data/processed/eso_epics.json' }
+    { id: 'ztwim', url: 'tabs/ztwim.html', container: 'ztwim-epics-container', json: 'data/processed/ztwim_epics.json', qeContainer: 'ztwim-qe-container', qeJson: 'data/processed/ztwim_qe.json' },
+    { id: 'sscso', url: 'tabs/sscso.html', container: 'sscsi-epics-container', json: 'data/processed/sscsi_epics.json', qeContainer: 'sscsi-qe-container', qeJson: 'data/processed/sscsi_qe.json' },
+    { id: 'mustgather', url: 'tabs/mustgather.html', container: 'mustgather-epics-container', json: 'data/processed/must_gather_epics.json', qeContainer: 'mustgather-qe-container', qeJson: 'data/processed/must_gather_qe.json' },
+    { id: 'eso', url: 'tabs/eso.html', container: 'eso-epics-container', json: 'data/processed/eso_epics.json', qeContainer: 'eso-qe-container', qeJson: 'data/processed/eso_qe.json' }
   ];
 
   var epicTabPromises = epicTabs.map(function(tab) {
-    return { promise: loadTabContent(tab.id, tab.url), container: tab.container, json: tab.json };
+    return { promise: loadTabContent(tab.id, tab.url), container: tab.container, json: tab.json, qeContainer: tab.qeContainer, qeJson: tab.qeJson };
   });
 
   var rendererScript = document.createElement('script');
@@ -115,6 +116,20 @@ window.addEventListener('scroll', function() {
         loadEpicsFromJSON(t.container, t.json);
       });
     });
+
+    var qeScript = document.createElement('script');
+    qeScript.src = 'qe-renderer.js';
+    qeScript.onload = function() {
+      epicTabPromises.forEach(function(t) {
+        t.promise.then(function() {
+          loadQEFromJSON(t.qeContainer, t.qeJson);
+        });
+      });
+      certmanagerPromise.then(function() {
+        loadQEFromJSON('certmanager-qe-container', 'data/processed/cert_manager_qe.json');
+      });
+    };
+    document.body.appendChild(qeScript);
   };
   document.body.appendChild(rendererScript);
 
