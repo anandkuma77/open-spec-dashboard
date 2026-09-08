@@ -152,5 +152,12 @@ window.addEventListener('scroll', function() {
           document.body.appendChild(s);
         }
       });
+
+    var sdlcScript = document.createElement('script');
+    sdlcScript.src = 'sdlc-performance-renderer.js?v=3';
+    sdlcScript.onload = function() {
+      initSDLCDashboard();
+    };
+    document.body.appendChild(sdlcScript);
   });
 })();
