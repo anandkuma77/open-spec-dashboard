@@ -1,6 +1,90 @@
 {
-  "generated_at": "2026-08-11T02:39:37.035117+00:00",
+  "generated_at": "2026-09-08T12:02:29.746369+00:00",
   "epics": [
+    {
+      "epic_id": "SPIRE-617",
+      "epic_link": "https://issues.redhat.com/browse/SPIRE-617",
+      "epic_title": "Code fix for gcInterval causing high cpu in spire-controller-manager",
+      "status": "Complete",
+      "progress_pct": 100,
+      "summary": {
+        "runs_completed": 1,
+        "runs_total": 1,
+        "total_tokens": "41.6k",
+        "agent_success_pct": "100%",
+        "open_blockers": 0,
+        "unit_tests": 1,
+        "unit_test_tokens": "0"
+      },
+      "tickets": [
+        {
+          "ticket_id": "SPIRE-617",
+          "ticket_link": "https://issues.redhat.com/browse/SPIRE-617",
+          "ticket_summary": "controller-manager",
+          "agent_label": "sp617",
+          "status": "Completed",
+          "health": {
+            "total_tokens": "41.6k",
+            "run_cost": "$0.30",
+            "wall_time": "64m 25s",
+            "eval_rejections": 0,
+            "agent_success_pct": "100%",
+            "tasks_passed": 2,
+            "tasks_total": 2
+          },
+          "phases": [
+            {
+              "phase_name": "1. Spec Understanding",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "0m 48s",
+              "tokens_in_out": "770 / 1.7k",
+              "quality": "Score: 95/100 — PASS"
+            },
+            {
+              "phase_name": "2. Repo Assessment",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "0m 29s",
+              "tokens_in_out": "3.0k / 5.9k",
+              "quality": "Score: 90/100 — PASS"
+            },
+            {
+              "phase_name": "3. Architectural Planning",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "0m 45s",
+              "tokens_in_out": "9.0k / 3.5k",
+              "quality": "Score: 88/100 — PASS"
+            },
+            {
+              "phase_name": "4. Sub-Tasks Creation (DAG)",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "< 1s",
+              "tokens_in_out": "6.5k / 2.9k",
+              "quality": "PASS"
+            },
+            {
+              "phase_name": "5. Code Generation / Harness",
+              "status": "PASSED",
+              "iterations": "1 Iteration",
+              "time_taken": "27m 52s",
+              "tokens_in_out": "7.7k / 685",
+              "quality": "Plan_phase_1_complete"
+            },
+            {
+              "phase_name": "5.1 Unit Tests (1 tasks)",
+              "status": "PASSED",
+              "iterations": "1 Self-corrections",
+              "time_taken": "< 1s",
+              "tokens_in_out": "0 / 0",
+              "quality": "1/1 tasks passed"
+            }
+          ]
+        }
+      ]
+    },
     {
       "epic_id": "OCPSTRAT-2611",
       "epic_link": "https://redhat.atlassian.net/browse/OCPSTRAT-2611",

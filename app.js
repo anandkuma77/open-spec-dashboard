@@ -154,7 +154,7 @@ window.addEventListener('scroll', function() {
       });
 
     var sdlcScript = document.createElement('script');
-    sdlcScript.src = 'sdlc-performance-renderer.js?v=3';
+    sdlcScript.src = 'sdlc-performance-renderer.js?v=4';
     sdlcScript.onload = function() {
       initSDLCDashboard();
     };

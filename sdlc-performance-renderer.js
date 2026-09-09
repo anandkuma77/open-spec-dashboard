@@ -21,26 +21,9 @@ var SDLC_OPERATORS = {
   }
 };
 
-var SDLC_SUMMARY_BY_MONTH = {
-  july: {
-    storyPoints: 20,
-    totalCost: '$25.00',
-    totalTokens: '2.2M',
-    timeSaved: '36h 15m'
-  },
-  august: {
-    storyPoints: 40,
-    totalCost: '$49.50',
-    totalTokens: '5.0M',
-    timeSaved: '77h 30m'
-  },
-  september: {
-    storyPoints: 50,
-    totalCost: '$59.25',
-    totalTokens: '7.5M',
-    timeSaved: '101h 40m'
-  }
-};
+var SDLC_SUMMARY_DATA = null;
+
+var SDLC_SUMMARY_JSON = 'data/processed/sdlc_summary_by_month.json';
 
 function escHtml(str) {
   var d = document.createElement('div');
@@ -72,6 +55,24 @@ function formatCost(n) {
   return '$' + n.toFixed(2);
 }
 
+function formatTimeSavedHours(hours) {
+  if (hours === null || hours === undefined) return '\u2014';
+  var sign = hours < 0 ? '-' : '';
+  var abs = Math.abs(hours);
+  var h = Math.floor(abs);
+  var m = Math.round((abs - h) * 60);
+  if (m === 60) {
+    h += 1;
+    m = 0;
+  }
+  return sign + h + 'h ' + m + 'm';
+}
+
+function formatSummaryValue(value, formatter) {
+  if (value === null || value === undefined) return '\u2014';
+  return formatter(value);
+}
+
 function aggregateOperatorData(data) {
   var epics = data.epics || [];
   var tickets = [];
@@ -100,22 +101,45 @@ function renderSummaryRow(monthKey) {
   var tbody = document.getElementById('sdlcSummaryBody');
   if (!tbody) return;
 
-  var summary = SDLC_SUMMARY_BY_MONTH[monthKey];
-  if (!summary) {
+  if (!SDLC_SUMMARY_DATA || !SDLC_SUMMARY_DATA.months) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#95a5a6;">Loading summary&hellip;</td></tr>';
+    return;
+  }
+
+  var summary = SDLC_SUMMARY_DATA.months[monthKey];
+  if (!summary || summary.run_count === 0) {
     tbody.innerHTML = '<tr><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>';
     return;
   }
 
   tbody.innerHTML = '<tr>' +
-    '<td>' + escHtml(String(summary.storyPoints)) + '</td>' +
-    '<td>' + escHtml(summary.totalCost) + '</td>' +
-    '<td>' + escHtml(summary.totalTokens) + '</td>' +
-    '<td>' + escHtml(summary.timeSaved) + '</td>' +
+    '<td>' + escHtml(formatSummaryValue(summary.story_points, function(v) {
+      return Number(v) % 1 === 0 ? String(v) : String(v);
+    })) + '</td>' +
+    '<td>' + escHtml(formatSummaryValue(summary.total_cost_usd, formatCost)) + '</td>' +
+    '<td>' + escHtml(formatSummaryValue(summary.total_tokens, formatTokens)) + '</td>' +
+    '<td>' + escHtml(formatTimeSavedHours(summary.time_saved_hours)) + '</td>' +
   '</tr>';
 }
 
 function loadSDLCSummaryMonth(monthKey) {
-  renderSummaryRow(monthKey);
+  if (SDLC_SUMMARY_DATA) {
+    renderSummaryRow(monthKey);
+    return;
+  }
+
+  fetch(SDLC_SUMMARY_JSON)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      SDLC_SUMMARY_DATA = data;
+      renderSummaryRow(monthKey);
+    })
+    .catch(function() {
+      var tbody = document.getElementById('sdlcSummaryBody');
+      if (tbody) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#c0392b;">Failed to load summary metrics</td></tr>';
+      }
+    });
 }
 
 function renderAnalytics(agg, operator) {
