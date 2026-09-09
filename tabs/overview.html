@@ -412,4 +412,67 @@
         </div>
       </div>
 
+      <!-- SDLC Agentic Performance -->
+      <div id="sdlcPerformanceDashboard" class="card-collapsible">
+        <div class="card-collapsible-header" onclick="this.closest('.card-collapsible').classList.toggle('open')">
+          <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 4.707a1 1 0 011.414 0L14.414 10l-5.707 5.293a1 1 0 01-1.414-1.414L11.586 10 7.293 5.879a1 1 0 010-1.172z"/></svg>
+          <div><h3>SDLC Agentic Performance</h3><p class="section-sub">Cross-operator agentic SDLC performance, summary KPIs, and aggregated analytics</p></div>
+        </div>
+        <div class="card-collapsible-body">
+          <div class="card-collapsible-content">
+
+            <div class="metrics-group accent-purple" style="margin-top:0; padding-top:0; border-top:none;">
+              <div class="sdlc-analytics-header">
+                <h4>Summary</h4>
+                <label class="operator-select-wrap">
+                  <span class="operator-select-label">Month</span>
+                  <select id="sdlcMonthSelect" class="operator-select" onchange="loadSDLCSummaryMonth(this.value)">
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september" selected>September</option>
+                  </select>
+                </label>
+              </div>
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th>Story Points</th>
+                    <th>Total Cost</th>
+                    <th>Total Tokens</th>
+                    <th>Time Saved</th>
+                  </tr>
+                </thead>
+                <tbody id="sdlcSummaryBody">
+                  <tr>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Aggregation and Analytics (commented out)
+            <div class="metrics-group accent-teal">
+              <div class="sdlc-analytics-header">
+                <h4>Aggregation and Analytics</h4>
+                <label class="operator-select-wrap">
+                  <span class="operator-select-label">Operator</span>
+                  <select id="sdlcOperatorSelect" class="operator-select" onchange="loadSDLCOperatorAnalytics(this.value)">
+                    <option value="certmanager">Cert Manager</option>
+                    <option value="ztwim">ZTWIM</option>
+                    <option value="sscso">SSCSI</option>
+                    <option value="eso">ESO</option>
+                  </select>
+                </label>
+              </div>
+              <div id="sdlcAnalyticsContent"></div>
+            </div>
+            -->
+
+          </div>
+        </div>
+      </div>
+
   </div>
