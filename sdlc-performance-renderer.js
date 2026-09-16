@@ -65,7 +65,7 @@ function formatTimeSavedHours(hours) {
     h += 1;
     m = 0;
   }
-  return sign + h + 'h ' + m + 'm';
+  return sign + h + 'h ' + m + 'm (w.r.t. Cursor)';
 }
 
 function formatSummaryValue(value, formatter) {
@@ -156,17 +156,6 @@ function renderAnalytics(agg, operator) {
     return;
   }
 
-  var epicRows = agg.epics.map(function(epic) {
-    return '<tr>' +
-      '<td><a href="' + escHtml(epic.epic_link) + '" target="_blank">' + escHtml(epic.epic_id) + '</a></td>' +
-      '<td>' + escHtml(epic.epic_title) + '</td>' +
-      '<td><span class="badge green">' + escHtml(epic.status) + '</span></td>' +
-      '<td>' + escHtml(String((epic.tickets || []).length)) + '</td>' +
-      '<td>' + escHtml(epic.summary.total_tokens) + '</td>' +
-      '<td>' + escHtml(epic.summary.agent_success_pct) + '</td>' +
-    '</tr>';
-  }).join('');
-
   var ticketRows = agg.tickets.map(function(ticket) {
     return '<tr>' +
       '<td><a href="' + escHtml(ticket.ticket_link) + '" target="_blank">' + escHtml(ticket.ticket_id) + '</a></td>' +
@@ -185,11 +174,6 @@ function renderAnalytics(agg, operator) {
       '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + escHtml(formatTokens(agg.totalTokens)) + '</span><span class="sdlc-kpi-lbl">Total Tokens</span></div>' +
       '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + escHtml(formatCost(agg.totalCost)) + '</span><span class="sdlc-kpi-lbl">Total Cost</span></div>' +
     '</div>' +
-    '<h5 class="sdlc-subheading">Epic Rollup</h5>' +
-    '<table class="tbl">' +
-      '<thead><tr><th>Epic</th><th>Title</th><th>Status</th><th>Tickets</th><th>Tokens</th><th>Success</th></tr></thead>' +
-      '<tbody>' + epicRows + '</tbody>' +
-    '</table>' +
     '<h5 class="sdlc-subheading">Ticket Metrics</h5>' +
     '<table class="tbl">' +
       '<thead><tr><th>Ticket</th><th>Summary</th><th>Agent</th><th>Tokens</th><th>Cost</th><th>Success</th></tr></thead>' +

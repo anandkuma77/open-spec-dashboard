@@ -599,7 +599,7 @@
     "estimated_manual_effort": "8-16 hours (2 days)",
     "estimated_manual_hours": 12.0,
     "actual_wall_time_hours": 111.35,
-    "time_saved_hours": -99.35,
+    "time_saved_hours": 0,
     "satisfaction_rating": 4,
     "comments": "",
     "captured_at": "2026-09-06T18:32:35.732658+00:00",
