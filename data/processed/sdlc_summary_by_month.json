@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T08:29:17.993958+00:00",
+  "generated_at": "2026-09-16T09:20:39.291866+00:00",
   "months": {
     "july": {
       "story_points": null,
@@ -21,7 +21,7 @@
       "story_points": 10.0,
       "total_cost_usd": 1.8788,
       "total_tokens": 243353,
-      "time_saved_hours": -96.47999999999999,
+      "time_saved_hours": 2.87,
       "run_count": 2,
       "sources": [
         "eso/ESO-550.json",
