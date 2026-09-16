@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T12:50:18.276044+00:00",
+  "generated_at": "2026-09-16T08:29:17.993958+00:00",
   "months": {
     "july": {
       "story_points": null,
@@ -18,14 +18,14 @@
       "sources": []
     },
     "september": {
-      "story_points": 2.0,
-      "total_cost_usd": 1.0892,
-      "total_tokens": 151966,
-      "time_saved_hours": -99.35,
+      "story_points": 10.0,
+      "total_cost_usd": 1.8788,
+      "total_tokens": 243353,
+      "time_saved_hours": -96.47999999999999,
       "run_count": 2,
       "sources": [
-        "sscsi/SSCSI-264.json",
-        "ztwim/sp617.json"
+        "eso/ESO-550.json",
+        "sscsi/SSCSI-264.json"
       ]
     }
   }
