@@ -1,77 +1,77 @@
 {
-  "generated_at": "2026-09-16T07:23:58.778025+00:00",
+  "generated_at": "2026-09-16T08:15:55.160663+00:00",
   "epics": [
     {
-      "epic_id": "ESO-533",
-      "epic_link": "https://redhat.atlassian.net/browse/ESO-533",
-      "epic_title": "Add support for configurable replicas in ExternalSecretsConfig to enable high availability of the external-secrets controller.",
+      "epic_id": "ESO-532",
+      "epic_link": "https://issues.redhat.com/browse/ESO-532",
+      "epic_title": "Expose --concurrent as a first-class field in ExternalSecretsConfig",
       "status": "In Progress",
       "progress_pct": 0,
       "summary": {
         "runs_completed": 0,
         "runs_total": 1,
-        "total_tokens": "69.1k",
-        "agent_success_pct": "0%",
+        "total_tokens": "43243.0k",
+        "agent_success_pct": "100%",
         "open_blockers": 0,
         "unit_tests": 0,
         "unit_test_tokens": "0"
       },
       "tickets": [
         {
-          "ticket_id": "ESO-550",
-          "ticket_link": "https://issues.redhat.com/browse/ESO-550",
-          "ticket_summary": "Add replicas and advancedOverrides to ExternalSecretsConfig DeploymentConfig",
+          "ticket_id": "Expose --concurrent as a first-class field in ExternalSecretsConfig",
+          "ticket_link": "Expose --concurrent as a first-class field in ExternalSecretsConfig",
+          "ticket_summary": "532",
           "agent_label": "ESO-550-direct-opus-metrics-report",
           "status": "Archived",
           "health": {
-            "total_tokens": "69.1k",
-            "run_cost": "$0.48",
-            "wall_time": "7m 56s",
+            "total_tokens": "43243.0k",
+            "run_cost": "$1.09",
+            "wall_time": "53m 41s",
             "eval_rejections": 0,
             "agent_success_pct": "100%",
-            "tasks_passed": 0,
-            "tasks_total": 0
+            "tasks_passed": 7,
+            "tasks_total": 7
           },
           "phases": [
             {
               "phase_name": "1. Spec Understanding",
               "status": "PASSED",
               "iterations": "1 Iteration",
-              "time_taken": "7m 56s",
-              "tokens_in_out": "2.1k / 2.8k",
-              "quality": ""
+              "time_taken": "5m 34s",
+              "tokens_in_out": "1.2k / 3.6k",
+              "quality": "Approved"
             },
             {
               "phase_name": "2. Repo Assessment",
               "status": "PASSED",
-              "iterations": "1 Iteration",
-              "time_taken": "< 1s",
-              "tokens_in_out": "4.3k / 6.0k",
-              "quality": "Score: 94/100"
+              "iterations": "2 Iterations",
+              "time_taken": "1m 34s",
+              "tokens_in_out": "5.9k / 15.8k",
+              "quality": "Score: 100/100 — approved"
             },
             {
               "phase_name": "3. Architectural Planning",
               "status": "PASSED",
-              "iterations": "1 Iteration",
-              "time_taken": "< 1s",
-              "tokens_in_out": "10.4k / 4.3k",
-              "quality": "Score: 90/100"
+              "iterations": "2 Iterations",
+              "time_taken": "1m 30s",
+              "tokens_in_out": "21.7k / 11.0k",
+              "quality": "Score: 100/100 — approved"
             },
             {
               "phase_name": "4. Sub-Tasks Creation (DAG)",
               "status": "PASSED",
               "iterations": "1 Iteration",
-              "time_taken": "< 1s",
-              "tokens_in_out": "8.6k / 6.1k",
-              "quality": "Score: 91/100"
+              "time_taken": "2m 59s",
+              "tokens_in_out": "33.7k / 15.6k",
+              "quality": "High"
             },
             {
               "phase_name": "5. Code Generation / Harness",
               "status": "PASSED",
-              "iterations": "2 Iterations",
-              "time_taken": "< 1s",
-              "tokens_in_out": "20.8k / 3.6k",
-              "quality": "6/6 tasks approved"
+              "iterations": "1 Iteration",
+              "time_taken": "31m 32s",
+              "tokens_in_out": "22.3k / 2.4k",
+              "quality": "Plan_phase_2_complete"
             }
           ]
         }
