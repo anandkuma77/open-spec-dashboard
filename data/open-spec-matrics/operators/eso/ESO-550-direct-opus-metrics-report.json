@@ -1,8 +1,8 @@
 {
   "exported_at": "2026-09-10T13:36:04.201981+00:00",
   "operator_name": "external-secrets-operator",
-  "jira_epic_link": "",
-  "jira_epic_name": "",
+  "jira_epic_link": "https://redhat.atlassian.net/browse/ESO-533",
+  "jira_epic_name": "Add support for configurable replicas in ExternalSecretsConfig to enable high availability of the external-secrets controller.",
   "jira_task_name": "Add replicas and advancedOverrides to ExternalSecretsConfig DeploymentConfig",
   "jira_task_link": "https://issues.redhat.com/browse/ESO-550",
   "run": {
