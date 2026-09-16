@@ -685,7 +685,7 @@
     }
   ],
   "global_health": {
-    "total_tokens_consumed": 43242970,
+    "total_tokens_consumed": 132982,
     "estimated_cost_usd": 1.09,
     "cumulative_wall_time_s": 3220.8,
     "compliance_index": 100.0,
