@@ -1,10 +1,21 @@
 name: Generate Processed Metrics
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/open-spec-matrics/**'
+      - 'scripts/generate_processed_metrics.py'
+      - 'scripts/generate_sdlc_summary.py'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: generate-processed-metrics-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   generate:
@@ -13,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Fetch full history so we can commit + push a fast-forward update.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -36,3 +50,21 @@ jobs:
         with:
           name: processed-metrics
           path: data/processed/
+
+      - name: Commit and push regenerated metrics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet -- data/processed/; then
+            echo "No changes to data/processed/ — nothing to commit"
+            exit 0
+          fi
+
+          git add data/processed/
+          git commit -m "chore: auto-regenerate processed metrics [skip ci]"
+
+          # Rebase onto the latest main in case other commits landed while
+          # this job was running, then push.
+          git pull --rebase origin main
+          git push origin HEAD:main
