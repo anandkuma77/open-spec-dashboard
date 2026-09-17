@@ -453,23 +453,35 @@
               </table>
             </div>
 
-            <!-- Aggregation and Analytics (commented out)
-            <div class="metrics-group accent-teal">
+            <!-- Aggregation and Analytics -->
+            <div class="metrics-group accent-teal" style="margin-top:28px;">
               <div class="sdlc-analytics-header">
                 <h4>Aggregation and Analytics</h4>
-                <label class="operator-select-wrap">
-                  <span class="operator-select-label">Operator</span>
-                  <select id="sdlcOperatorSelect" class="operator-select" onchange="loadSDLCOperatorAnalytics(this.value)">
-                    <option value="certmanager">Cert Manager</option>
-                    <option value="ztwim">ZTWIM</option>
-                    <option value="sscso">SSCSI</option>
-                    <option value="eso">ESO</option>
-                  </select>
-                </label>
+                <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                  <div class="agg-metric-toggles" id="aggMetricToggles">
+                    <label class="agg-metric-toggle">
+                      <input type="radio" name="aggMetric" value="tokens" checked onchange="renderAggregationView()">
+                      <span class="agg-metric-pill">Tokens</span>
+                    </label>
+                    <label class="agg-metric-toggle">
+                      <input type="radio" name="aggMetric" value="cost" onchange="renderAggregationView()">
+                      <span class="agg-metric-pill">Cost</span>
+                    </label>
+                  </div>
+                  <div class="view-toggle" id="aggViewToggle">
+                    <button class="view-toggle-btn active" data-view="chart" onclick="toggleAggView('chart')">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg>
+                    </button>
+                    <button class="view-toggle-btn" data-view="table" onclick="toggleAggView('table')">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zm13 3H1v3h6V4h1v3h7V4zM1 8v3h6V8H1zm7 0v3h7V8H8zm7 4H8v3h6a1 1 0 0 0 1-1v-2zM7 15v-3H1v2a1 1 0 0 0 1 1h5z"/></svg>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div id="sdlcAnalyticsContent"></div>
+              <div id="sdlcAnalyticsContent">
+                <p style="font-size:0.92em; color:#95a5a6; margin:0;">Loading cross-operator metrics&hellip;</p>
+              </div>
             </div>
-            -->
 
           </div>
         </div>

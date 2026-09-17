@@ -228,6 +228,43 @@ body {
   text-decoration: none;
 }
 .sdlc-tab-link:hover { text-decoration: underline; }
+
+/* Aggregation metric toggle pills */
+.agg-metric-toggles {
+  display: inline-flex;
+  background: #eef1f5;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+.agg-metric-toggle input { display: none; }
+.agg-metric-pill {
+  display: block;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.agg-metric-pill:hover { color: var(--dark); }
+.agg-metric-toggle input:checked + .agg-metric-pill {
+  background: #fff;
+  color: var(--teal);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Aggregation bar colors per operator */
+.vchart-bar.op-certmanager { background: linear-gradient(180deg, #2980b9, #1a5276); }
+.vchart-bar.op-ztwim       { background: linear-gradient(180deg, #27ae60, #1e8449); }
+.vchart-bar.op-sscsi       { background: linear-gradient(180deg, #e67e22, #ca6f1e); }
+.vchart-bar.op-eso         { background: linear-gradient(180deg, #8e44ad, #6c3483); }
+.legend-dot.op-certmanager { background: #2980b9; }
+.legend-dot.op-ztwim       { background: #27ae60; }
+.legend-dot.op-sscsi       { background: #e67e22; }
+.legend-dot.op-eso         { background: #8e44ad; }
+
 @media (max-width: 768px) {
   .sdlc-kpi-strip { grid-template-columns: repeat(2, 1fr); }
 }

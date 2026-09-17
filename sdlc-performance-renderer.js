@@ -142,73 +142,200 @@ function loadSDLCSummaryMonth(monthKey) {
     });
 }
 
-function renderAnalytics(agg, operator) {
-  var container = document.getElementById('sdlcAnalyticsContent');
-  if (!container) return;
+// ---------------------------------------------------------------------------
+// Cross-operator aggregation state
+// ---------------------------------------------------------------------------
 
-  if (!agg.ticketCount) {
-    container.innerHTML =
-      '<div class="sdlc-empty-state">' +
-        '<p style="font-size:1em; font-weight:600; color:#2c3e50; margin:0 0 6px 0;">No metrics available for ' + escHtml(operator.label) + ' yet</p>' +
-        '<p style="font-size:0.88em; color:#95a5a6; margin:0;">Pipeline metrics will appear here once agentic runs are completed for this operator.</p>' +
-        '<a href="#" class="sdlc-tab-link" onclick="switchTab(\'' + operator.tabId + '\'); return false;">View ' + escHtml(operator.label) + ' tab &rarr;</a>' +
-      '</div>';
-    return;
+var AGG_OPERATOR_IDS = ['certmanager', 'ztwim', 'sscso', 'eso'];
+var AGG_DATA = null; // { operators: [ { id, label, tabId, tokens, cost, tickets, epicCount, ticketCount } ], totals: { tokens, cost } }
+var AGG_VIEW = 'chart'; // 'chart' | 'table'
+
+function getSelectedAggMetric() {
+  var radios = document.getElementsByName('aggMetric');
+  for (var i = 0; i < radios.length; i++) {
+    if (radios[i].checked) return radios[i].value;
+  }
+  return 'tokens';
+}
+
+function toggleAggView(view) {
+  AGG_VIEW = view;
+  var btns = document.querySelectorAll('#aggViewToggle .view-toggle-btn');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle('active', btns[i].getAttribute('data-view') === view);
+  }
+  renderAggregationView();
+}
+
+// ---------------------------------------------------------------------------
+// Aggregation chart builders
+// ---------------------------------------------------------------------------
+
+function buildAggBarChart(metric) {
+  if (!AGG_DATA) return '';
+  var ops = AGG_DATA.operators;
+  var maxVal = Math.max.apply(null, ops.map(function(o) { return metric === 'cost' ? o.cost : o.tokens; })) || 1;
+  var tickCount = 5;
+
+  var yAxis = '';
+  for (var i = tickCount; i >= 0; i--) {
+    var tick = maxVal * i / tickCount;
+    yAxis += '<span>' + escHtml(metric === 'cost' ? formatCost(tick) : formatTokens(tick)) + '</span>';
   }
 
-  var ticketRows = agg.tickets.map(function(ticket) {
+  var gridlines = '';
+  for (var g = 0; g <= tickCount; g++) {
+    gridlines += '<div class="vchart-gridline"></div>';
+  }
+
+  var groups = ops.map(function(o) {
+    var val = metric === 'cost' ? o.cost : o.tokens;
+    var heightPct = maxVal ? (val / maxVal * 100) : 0;
+    var formattedVal = metric === 'cost' ? formatCost(val) : formatTokens(val);
+    return '<div class="vchart-group">' +
+      '<div class="vchart-bars">' +
+        '<div class="vchart-bar op-' + o.id + '" style="height:' + heightPct.toFixed(1) + '%" title="' + escHtml(o.label) + ': ' + escHtml(formattedVal) + '">' +
+          '<span class="vchart-bar-val">' + escHtml(formattedVal) + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<span class="vchart-label">' + escHtml(o.label) + '</span>' +
+    '</div>';
+  }).join('');
+
+  return '<div class="vchart-wrapper">' +
+    '<div class="vchart-y-axis">' + yAxis + '</div>' +
+    '<div class="vchart-area">' +
+      '<div class="vchart-gridlines">' + gridlines + '</div>' +
+      '<div class="vchart-groups">' + groups + '</div>' +
+    '</div>' +
+  '</div>' +
+  '<div class="chart-legend">' +
+    ops.map(function(o) {
+      return '<span class="legend-item"><span class="legend-dot op-' + o.id + '"></span> ' + escHtml(o.label) + '</span>';
+    }).join('') +
+  '</div>';
+}
+
+function buildAggTable() {
+  if (!AGG_DATA) return '';
+  var ops = AGG_DATA.operators;
+  var totals = AGG_DATA.totals;
+
+  var rows = ops.map(function(o) {
     return '<tr>' +
-      '<td><a href="' + escHtml(ticket.ticket_link) + '" target="_blank">' + escHtml(ticket.ticket_id) + '</a></td>' +
-      '<td>' + escHtml(ticket.ticket_summary) + '</td>' +
-      '<td>' + escHtml(ticket.agent_label) + '</td>' +
-      '<td>' + escHtml(ticket.health.total_tokens) + '</td>' +
-      '<td>' + escHtml(ticket.health.run_cost) + '</td>' +
-      '<td>' + escHtml(ticket.health.agent_success_pct) + '</td>' +
+      '<td><strong>' + escHtml(o.label) + '</strong></td>' +
+      '<td>' + o.ticketCount + '</td>' +
+      '<td>' + o.epicCount + '</td>' +
+      '<td>' + escHtml(formatTokens(o.tokens)) + '</td>' +
+      '<td>' + escHtml(formatCost(o.cost)) + '</td>' +
     '</tr>';
   }).join('');
 
-  container.innerHTML =
-    '<div class="sdlc-kpi-strip">' +
-      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + agg.epicCount + '</span><span class="sdlc-kpi-lbl">Epics</span></div>' +
-      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + agg.ticketCount + '</span><span class="sdlc-kpi-lbl">Tickets</span></div>' +
-      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + escHtml(formatTokens(agg.totalTokens)) + '</span><span class="sdlc-kpi-lbl">Total Tokens</span></div>' +
-      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + escHtml(formatCost(agg.totalCost)) + '</span><span class="sdlc-kpi-lbl">Total Cost</span></div>' +
-    '</div>' +
-    '<h5 class="sdlc-subheading">Ticket Metrics</h5>' +
-    '<table class="tbl">' +
-      '<thead><tr><th>Ticket</th><th>Summary</th><th>Agent</th><th>Tokens</th><th>Cost</th><th>Success</th></tr></thead>' +
-      '<tbody>' + ticketRows + '</tbody>' +
-    '</table>' +
-    '<p style="margin-top:14px; font-size:0.85em;">' +
-      '<a href="#" class="sdlc-tab-link" onclick="switchTab(\'' + operator.tabId + '\'); return false;">View full ' + escHtml(operator.label) + ' details &rarr;</a>' +
-    '</p>';
+  var totalTickets = ops.reduce(function(s, o) { return s + o.ticketCount; }, 0);
+  var totalEpics   = ops.reduce(function(s, o) { return s + o.epicCount; }, 0);
+
+  return '<table class="tbl">' +
+    '<thead><tr>' +
+      '<th>Operator</th><th>Tickets</th><th>Epics</th><th>Total Tokens</th><th>Total Cost</th>' +
+    '</tr></thead>' +
+    '<tbody>' + rows +
+      '<tr style="border-top:2px solid #d5dce3; font-weight:700;">' +
+        '<td>Total</td>' +
+        '<td>' + totalTickets + '</td>' +
+        '<td>' + totalEpics + '</td>' +
+        '<td>' + escHtml(formatTokens(totals.tokens)) + '</td>' +
+        '<td>' + escHtml(formatCost(totals.cost)) + '</td>' +
+      '</tr>' +
+    '</tbody></table>';
 }
 
-function loadSDLCOperatorAnalytics(operatorId) {
-  var operator = SDLC_OPERATORS[operatorId];
-  if (!operator) return;
+// ---------------------------------------------------------------------------
+// Render the currently selected aggregation view
+// ---------------------------------------------------------------------------
 
+function renderAggregationView() {
   var container = document.getElementById('sdlcAnalyticsContent');
-  if (container) {
-    container.innerHTML = '<p style="font-size:0.92em; color:#95a5a6; margin:0;">Loading ' + escHtml(operator.label) + ' metrics&hellip;</p>';
-  }
+  if (!container || !AGG_DATA) return;
 
-  fetch(operator.epicsJson)
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      var agg = aggregateOperatorData(data);
-      renderAnalytics(agg, operator);
-    })
-    .catch(function() {
-      if (container) {
-        container.innerHTML =
-          '<div class="sdlc-empty-state">' +
-            '<p style="font-size:1em; font-weight:600; color:#c0392b; margin:0 0 6px 0;">Failed to load metrics for ' + escHtml(operator.label) + '</p>' +
-            '<p style="font-size:0.88em; color:#95a5a6; margin:0;">Check that processed metrics JSON exists for this operator.</p>' +
-          '</div>';
-      }
-    });
+  var metric = getSelectedAggMetric();
+  var ops = AGG_DATA.operators;
+  var totals = AGG_DATA.totals;
+
+  var kpiHtml =
+    '<div class="sdlc-kpi-strip">' +
+      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + ops.length + '</span><span class="sdlc-kpi-lbl">Operators</span></div>' +
+      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + ops.reduce(function(s, o) { return s + o.ticketCount; }, 0) + '</span><span class="sdlc-kpi-lbl">Tickets</span></div>' +
+      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + escHtml(formatTokens(totals.tokens)) + '</span><span class="sdlc-kpi-lbl">Total Tokens</span></div>' +
+      '<div class="sdlc-kpi"><span class="sdlc-kpi-val">' + escHtml(formatCost(totals.cost)) + '</span><span class="sdlc-kpi-lbl">Total Cost</span></div>' +
+    '</div>';
+
+  if (AGG_VIEW === 'chart') {
+    var chartTitle = metric === 'cost' ? 'Cost by Operator' : 'Total Tokens by Operator';
+    container.innerHTML = kpiHtml +
+      '<h5 class="sdlc-subheading">' + chartTitle + '</h5>' +
+      buildAggBarChart(metric) +
+      '<h5 class="sdlc-subheading">Operator Summary</h5>' +
+      buildAggTable();
+  } else {
+    container.innerHTML = kpiHtml +
+      '<h5 class="sdlc-subheading">Operator Summary</h5>' +
+      buildAggTable();
+  }
 }
+
+// ---------------------------------------------------------------------------
+// Load all operators and build AGG_DATA
+// ---------------------------------------------------------------------------
+
+function loadAllOperatorData() {
+  var container = document.getElementById('sdlcAnalyticsContent');
+
+  var fetches = AGG_OPERATOR_IDS.map(function(id) {
+    var op = SDLC_OPERATORS[id];
+    if (!op) return Promise.resolve(null);
+    return fetch(op.epicsJson)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var agg = aggregateOperatorData(data);
+        return {
+          id: id === 'sscso' ? 'sscsi' : id,
+          label: op.label,
+          tabId: op.tabId,
+          tokens: agg.totalTokens,
+          cost: agg.totalCost,
+          tickets: agg.tickets,
+          epicCount: agg.epicCount,
+          ticketCount: agg.ticketCount
+        };
+      })
+      .catch(function() { return null; });
+  });
+
+  Promise.all(fetches).then(function(results) {
+    var operators = results.filter(function(r) { return r !== null; });
+    var totalTokens = operators.reduce(function(s, o) { return s + o.tokens; }, 0);
+    var totalCost   = operators.reduce(function(s, o) { return s + o.cost; }, 0);
+
+    AGG_DATA = {
+      operators: operators,
+      totals: { tokens: totalTokens, cost: totalCost }
+    };
+
+    renderAggregationView();
+  }).catch(function() {
+    if (container) {
+      container.innerHTML =
+        '<div class="sdlc-empty-state">' +
+          '<p style="font-size:1em; font-weight:600; color:#c0392b; margin:0 0 6px 0;">Failed to load cross-operator metrics</p>' +
+          '<p style="font-size:0.88em; color:#95a5a6; margin:0;">Check that processed metrics JSON files exist.</p>' +
+        '</div>';
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Init
+// ---------------------------------------------------------------------------
 
 function initSDLCDashboard() {
   var monthSelect = document.getElementById('sdlcMonthSelect');
@@ -216,8 +343,5 @@ function initSDLCDashboard() {
     loadSDLCSummaryMonth(monthSelect.value);
   }
 
-  var operatorSelect = document.getElementById('sdlcOperatorSelect');
-  if (operatorSelect) {
-    loadSDLCOperatorAnalytics(operatorSelect.value);
-  }
+  loadAllOperatorData();
 }
